@@ -128,6 +128,16 @@
       border-color: #5ce1c6;
       box-shadow: 0 0 0 3px rgba(92, 225, 198, 0.15);
     }
+
+    /* Nav — fixed colors (kein Tailwind JIT) */
+    .nav-link { color: #a7bbca; text-decoration: none; transition: color 0.15s ease; }
+    .nav-link:hover { color: #5ce1c6; }
+    .mobile-menu { background-color: #191148; border-top: 1px solid rgba(255,255,255,0.1); }
+    .mobile-link { color: #a7bbca; text-decoration: none; transition: color 0.15s ease; }
+    .mobile-link:hover { color: #5ce1c6; }
+    .nav-logo { color: #ffffff; text-decoration: none; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.025em; }
+    .nav-logo span { color: #5ce1c6; }
+    .hamburger-icon { color: #ffffff; }
   </style>
 </head>
 
@@ -145,15 +155,15 @@
 >
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2">
-      <span class="text-white font-bold text-xl tracking-tight">Belivin <span class="text-teal">Media</span></span>
+    <a href="/" class="nav-logo flex items-center gap-2">
+      Belivin <span>Media</span>
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-steel">
-      <a href="#leistungen" class="hover:text-teal transition-colors">Leistungen</a>
-      <a href="#warum-wir" class="hover:text-teal transition-colors">Warum wir</a>
-      <a href="#kontakt" class="hover:text-teal transition-colors">Kontakt</a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#leistungen" class="nav-link">Leistungen</a>
+      <a href="#warum-wir" class="nav-link">Warum wir</a>
+      <a href="#kontakt" class="nav-link">Kontakt</a>
       <a href="#termin" class="btn-teal px-5 py-2.5 rounded-lg text-sm">
         Kostenloses Gespräch
       </a>
@@ -161,7 +171,7 @@
 
     <!-- Mobile Menu -->
     <div x-data="{ open: false }" class="md:hidden">
-      <button @click="open = !open" class="text-white p-2">
+      <button @click="open = !open" class="hamburger-icon p-2">
         <i data-lucide="menu" class="w-6 h-6" x-show="!open"></i>
         <i data-lucide="x" class="w-6 h-6" x-show="open" x-cloak></i>
       </button>
@@ -169,11 +179,11 @@
         x-show="open"
         x-cloak
         x-transition
-        class="absolute top-16 left-0 right-0 bg-navy-dark border-t border-white/10 px-6 py-6 flex flex-col gap-5 text-sm font-medium"
+        class="mobile-menu absolute top-16 left-0 right-0 px-6 py-6 flex flex-col gap-5 text-sm font-medium"
       >
-        <a href="#leistungen" @click="open=false" class="text-steel hover:text-teal">Leistungen</a>
-        <a href="#warum-wir" @click="open=false" class="text-steel hover:text-teal">Warum wir</a>
-        <a href="#kontakt" @click="open=false" class="text-steel hover:text-teal">Kontakt</a>
+        <a href="#leistungen" @click="open=false" class="mobile-link">Leistungen</a>
+        <a href="#warum-wir" @click="open=false" class="mobile-link">Warum wir</a>
+        <a href="#kontakt" @click="open=false" class="mobile-link">Kontakt</a>
         <a href="#termin" @click="open=false" class="btn-teal px-5 py-3 rounded-lg text-center">
           Kostenloses Gespräch
         </a>
