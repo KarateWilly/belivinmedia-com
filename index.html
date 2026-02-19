@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Belivin Media – Mehr Anfragen für lokale Betriebe. Local SEO, Google Ads & KI-Automatisierung aus einer Hand." />
+  <title>Belivin Media – Digitales Wachstum für lokale Betriebe</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Cookie Consent (DSGVO) -->
+  <style>
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: #191148; border-top: 1px solid rgba(92,225,198,0.2);
+      padding: 1.25rem 1.5rem; display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between; gap: 1rem;
+      font-size: 0.875rem; color: #a7bbca;
+    }
+    #cookie-banner a { color: #5ce1c6; text-decoration: underline; }
+    #cookie-banner button { padding: 0.5rem 1.25rem; border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .btn-accept { background: #5ce1c6; color: #212162; }
+    .btn-accept:hover { background: #45d4b7; }
+    .btn-decline { border: 1px solid #a7bbca; color: #a7bbca; margin-left: 0.5rem; }
+    .btn-decline:hover { border-color: #5ce1c6; color: #5ce1c6; }
+  </style>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:    '#212162',
+            teal:    '#5ce1c6',
+            steel:   '#a7bbca',
+            'navy-light': '#2d2d82',
+            'navy-dark':  '#191148',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+
+    /* Glow on teal CTA */
+    .btn-teal {
+      background: #5ce1c6;
+      color: #212162;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 0 0 rgba(92, 225, 198, 0);
+    }
+    .btn-teal:hover {
+      background: #45d4b7;
+      box-shadow: 0 0 24px 4px rgba(92, 225, 198, 0.35);
+      transform: translateY(-1px);
+    }
+    .btn-teal:active { transform: translateY(0); }
+
+    /* Outline button */
+    .btn-outline {
+      border: 1.5px solid #5ce1c6;
+      color: #5ce1c6;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(92, 225, 198, 0.08);
+      transform: translateY(-1px);
+    }
+
+    /* Fade-in on scroll */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card hover */
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(33, 33, 98, 0.12);
+    }
+
+    /* Gradient hero text */
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 40%, #5ce1c6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Teal divider */
+    .teal-line {
+      width: 48px;
+      height: 3px;
+      background: #5ce1c6;
+      border-radius: 9999px;
+    }
+
+    /* Input focus */
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #5ce1c6;
+      box-shadow: 0 0 0 3px rgba(92, 225, 198, 0.15);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-navy antialiased">
+
+<!-- ═══════════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════════════ -->
+<header
+  x-data="{ scrolled: false }"
+  x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 20)"
+  :class="scrolled ? 'shadow-xl' : 'shadow-none'"
+  class="fixed top-0 left-0 right-0 z-50 transition-shadow duration-300"
+  style="background-color: #212162;"
+>
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2">
+      <span class="text-white font-bold text-xl tracking-tight">Belivin <span class="text-teal">Media</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-steel">
+      <a href="#leistungen" class="hover:text-teal transition-colors">Leistungen</a>
+      <a href="#warum-wir" class="hover:text-teal transition-colors">Warum wir</a>
+      <a href="#kontakt" class="hover:text-teal transition-colors">Kontakt</a>
+      <a href="#termin" class="btn-teal px-5 py-2.5 rounded-lg text-sm">
+        Kostenloses Gespräch
+      </a>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div x-data="{ open: false }" class="md:hidden">
+      <button @click="open = !open" class="text-white p-2">
+        <i data-lucide="menu" class="w-6 h-6" x-show="!open"></i>
+        <i data-lucide="x" class="w-6 h-6" x-show="open" x-cloak></i>
+      </button>
+      <div
+        x-show="open"
+        x-cloak
+        x-transition
+        class="absolute top-16 left-0 right-0 bg-navy-dark border-t border-white/10 px-6 py-6 flex flex-col gap-5 text-sm font-medium"
+      >
+        <a href="#leistungen" @click="open=false" class="text-steel hover:text-teal">Leistungen</a>
+        <a href="#warum-wir" @click="open=false" class="text-steel hover:text-teal">Warum wir</a>
+        <a href="#kontakt" @click="open=false" class="text-steel hover:text-teal">Kontakt</a>
+        <a href="#termin" @click="open=false" class="btn-teal px-5 py-3 rounded-lg text-center">
+          Kostenloses Gespräch
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════ -->
+<section class="bg-navy min-h-screen flex items-center pt-20">
+  <div class="max-w-6xl mx-auto px-6 py-24 md:py-32">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 rounded-full px-4 py-1.5 text-teal text-sm font-medium mb-8">
+        <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+        Digitales Wachstum für lokale Betriebe
+      </div>
+
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+        <span class="gradient-text">Ihre Kunden suchen&nbsp;Sie.<br/>Täglich.</span>
+      </h1>
+
+      <p class="text-steel text-xl md:text-2xl leading-relaxed mb-4 max-w-2xl">
+        Und finden gerade Ihre Mitbewerber.
+      </p>
+      <p class="text-white/60 text-lg leading-relaxed mb-10 max-w-2xl">
+        Jeder Monat ohne funktionierende Online-Präsenz bedeutet verlorene Aufträge — nicht irgendwann, sondern jetzt. Belivin Media schließt diese Lücke. Messbar. Schnell. Ohne Risiko.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <a href="#termin" class="btn-teal px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
+          Kostenloses Strategiegespräch buchen
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#leistungen" class="btn-outline px-8 py-4 rounded-xl text-base inline-flex items-center gap-2">
+          Leistungen ansehen
+        </a>
+      </div>
+
+      <p class="text-white/30 text-sm mt-6">
+        Keine Vertragsbindung · 30-Minuten-Call · Kostenlos & unverbindlich
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     PAIN POINTS
+════════════════════════════════════════════════════ -->
+<section class="bg-slate-50 py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 fade-up">
+      <div class="teal-line mx-auto mb-5"></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Kommt Ihnen das bekannt vor?</h2>
+      <p class="text-gray-500 text-lg max-w-xl mx-auto">Die häufigsten Probleme, die wir bei lokalen Betrieben sehen.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Pain 1 -->
+      <div class="bg-white rounded-2xl p-7 border border-gray-100 card-hover fade-up">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
+          <i data-lucide="search-x" class="w-6 h-6 text-red-400"></i>
+        </div>
+        <h3 class="font-bold text-lg text-navy mb-2">Unsichtbar bei Google</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Wenn Kunden „Sanitär Wiesbaden" eingeben, erscheinen Ihre Mitbewerber — nicht Sie. Jeden Tag.
+        </p>
+      </div>
+
+      <!-- Pain 2 -->
+      <div class="bg-white rounded-2xl p-7 border border-gray-100 card-hover fade-up" style="transition-delay: 0.1s">
+        <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-5">
+          <i data-lucide="trending-down" class="w-6 h-6 text-orange-400"></i>
+        </div>
+        <h3 class="font-bold text-lg text-navy mb-2">Ads ohne Ergebnis</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Budget verbrannt, kaum Anfragen. Ohne Strategie und Tracking ist jeder Euro in Google Ads verschwendetes Geld.
+        </p>
+      </div>
+
+      <!-- Pain 3 -->
+      <div class="bg-white rounded-2xl p-7 border border-gray-100 card-hover fade-up" style="transition-delay: 0.2s">
+        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
+          <i data-lucide="clock" class="w-6 h-6 text-blue-400"></i>
+        </div>
+        <h3 class="font-bold text-lg text-navy mb-2">Keine Zeit fürs Marketing</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          Sie sind Experte in Ihrem Handwerk — nicht im Digitalmarketing. Genau dafür sind wir da.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════════════════ -->
+<section id="leistungen" class="bg-white py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 fade-up">
+      <div class="teal-line mx-auto mb-5"></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Was wir für Sie tun</h2>
+      <p class="text-gray-500 text-lg max-w-xl mx-auto">
+        Keine Pakete von der Stange. Wir bauen, was Ihrem Betrieb wirklich mehr Anfragen bringt.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Service 1 -->
+      <div class="group bg-white rounded-2xl p-8 border border-gray-100 card-hover fade-up relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-0.5 bg-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+        <div class="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center mb-6">
+          <i data-lucide="map-pin" class="w-7 h-7 text-teal"></i>
+        </div>
+        <h3 class="font-bold text-xl text-navy mb-3">Local SEO</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+          Google Maps Sichtbarkeit, lokale Suchanfragen, Google Business Profile Optimierung. Kunden in Ihrer Region finden Sie — nicht die Konkurrenz.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Google Maps Top-3 Ranking</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Lokale Keyword-Strategie</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Bewertungsmanagement</li>
+        </ul>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="group bg-white rounded-2xl p-8 border border-gray-100 card-hover fade-up relative overflow-hidden" style="transition-delay: 0.1s">
+        <div class="absolute top-0 left-0 w-full h-0.5 bg-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+        <div class="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center mb-6">
+          <i data-lucide="target" class="w-7 h-7 text-teal"></i>
+        </div>
+        <h3 class="font-bold text-xl text-navy mb-3">Google & Meta Ads</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+          Bezahlte Werbung mit klarem ROI. Jeder investierte Euro wird getrackt, optimiert und auf Ergebnis ausgerichtet — nicht auf Klicks.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Kampagnen-Setup & Management</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Monatliches Reporting</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Conversion-Tracking</li>
+        </ul>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="group bg-white rounded-2xl p-8 border border-gray-100 card-hover fade-up relative overflow-hidden" style="transition-delay: 0.2s">
+        <div class="absolute top-0 left-0 w-full h-0.5 bg-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+        <div class="w-14 h-14 rounded-2xl bg-navy flex items-center justify-center mb-6">
+          <i data-lucide="zap" class="w-7 h-7 text-teal"></i>
+        </div>
+        <h3 class="font-bold text-xl text-navy mb-3">KI-Automatisierung</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-4">
+          Mehr Umsatz, weniger manuelle Arbeit. Automatisierte Lead-Qualifizierung, Follow-ups und Terminbuchung — rund um die Uhr, ohne Ihr Zutun.
+        </p>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Automatische Lead-Qualifizierung</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> Follow-up Sequenzen</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal flex-shrink-0"></i> 24/7 Terminbuchung</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     WHY US
+════════════════════════════════════════════════════ -->
+<section id="warum-wir" class="bg-navy py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 fade-up">
+      <div class="teal-line mx-auto mb-5"></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Warum Belivin Media?</h2>
+      <p class="text-steel text-lg max-w-xl mx-auto">
+        Kein Agentur-Bullshit. Klare KPIs, transparente Kosten, messbare Ergebnisse.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-16">
+      <div class="flex items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 fade-up">
+        <div class="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i data-lucide="bar-chart-2" class="w-5 h-5 text-teal"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-1">100% Transparenz</h4>
+          <p class="text-steel text-sm leading-relaxed">Monatliche Reports, klare KPIs, kein Rätselraten. Sie wissen jederzeit was Ihr Budget bringt.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 fade-up" style="transition-delay: 0.1s">
+        <div class="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i data-lucide="rocket" class="w-5 h-5 text-teal"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-1">Schnelle Umsetzung</h4>
+          <p class="text-steel text-sm leading-relaxed">Keine wochenlangen Onboardings. Erste Ergebnisse in 2-4 Wochen — nicht in 6 Monaten.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 fade-up" style="transition-delay: 0.15s">
+        <div class="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i data-lucide="shield-check" class="w-5 h-5 text-teal"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-1">Kein Risiko</h4>
+          <p class="text-steel text-sm leading-relaxed">Monatlich kündbar, keine langen Vertragslaufzeiten. Wir verdienen Ihr Vertrauen durch Ergebnisse.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 fade-up" style="transition-delay: 0.2s">
+        <div class="w-10 h-10 rounded-xl bg-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i data-lucide="users" class="w-5 h-5 text-teal"></i>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-1">Lokaler Fokus</h4>
+          <p class="text-steel text-sm leading-relaxed">Wir spezialisieren uns auf lokale Betriebe im Rhein-Main-Gebiet. Keine Einheitslösungen, kein Copy-Paste.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CALENDLY CTA
+════════════════════════════════════════════════════ -->
+<section id="termin" class="bg-white py-24">
+  <div class="max-w-3xl mx-auto px-6 text-center">
+    <div class="fade-up">
+      <div class="teal-line mx-auto mb-6"></div>
+      <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">
+        30 Minuten. Kostenlos. Unverbindlich.
+      </h2>
+      <p class="text-gray-500 text-lg mb-10 max-w-xl mx-auto">
+        Wir zeigen Ihnen in einem kurzen Gespräch, was Ihre Mitbewerber besser machen — und wie Sie das in 90 Tagen ändern.
+      </p>
+
+      <!-- Calendly Popup -->
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+      <div class="bg-slate-50 rounded-2xl p-12 mb-6 flex flex-col items-center gap-5">
+        <div class="w-16 h-16 rounded-full bg-teal/10 flex items-center justify-center">
+          <i data-lucide="calendar-check" class="w-8 h-8 text-teal"></i>
+        </div>
+        <div>
+          <p class="text-navy font-bold text-lg mb-1">30 Minuten genügen.</p>
+          <p class="text-gray-400 text-sm">Wählen Sie einfach einen freien Termin — wir melden uns pünktlich.</p>
+        </div>
+        <button
+          onclick="Calendly.initPopupWidget({url:'https://calendly.com/mario-belivinmedia/free?hide_gdpr_banner=1&primary_color=5ce1c6'}); return false;"
+          class="btn-teal px-8 py-4 rounded-xl text-base inline-flex items-center gap-2 cursor-pointer border-0"
+        >
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          Jetzt Termin wählen
+        </button>
+        <p class="text-gray-400 text-xs">Keine Vorbereitung nötig · Kostenlos & unverbindlich</p>
+      </div>
+
+      <p class="text-gray-400 text-sm">
+        Lieber per Mail?
+        <a href="#kontakt" class="text-teal hover:underline">Schreiben Sie uns.</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     CONTACT FORM
+════════════════════════════════════════════════════ -->
+<section id="kontakt" class="bg-slate-50 py-24">
+  <div class="max-w-2xl mx-auto px-6">
+    <div class="text-center mb-12 fade-up">
+      <div class="teal-line mx-auto mb-5"></div>
+      <h2 class="text-3xl font-bold text-navy mb-3">Kontakt aufnehmen</h2>
+      <p class="text-gray-500">Haben Sie Fragen? Wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+
+    <form
+      action="https://formspree.io/f/mojnnvbd"
+      method="POST"
+      class="space-y-5 fade-up"
+      x-data="{ sent: false }"
+      @submit.prevent="sent = true; $el.submit()"
+    >
+      <div class="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5">Vorname *</label>
+          <input
+            type="text"
+            name="vorname"
+            required
+            placeholder="Max"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 text-navy text-sm bg-white transition-all"
+          />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-navy mb-1.5">Nachname *</label>
+          <input
+            type="text"
+            name="nachname"
+            required
+            placeholder="Mustermann"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 text-navy text-sm bg-white transition-all"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-navy mb-1.5">E-Mail *</label>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="max@mustermann.de"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 text-navy text-sm bg-white transition-all"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-navy mb-1.5">Unternehmen</label>
+        <input
+          type="text"
+          name="unternehmen"
+          placeholder="Mustermann GmbH"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 text-navy text-sm bg-white transition-all"
+        />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-navy mb-1.5">Nachricht *</label>
+        <textarea
+          name="nachricht"
+          required
+          rows="4"
+          placeholder="Womit können wir Ihnen helfen?"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 text-navy text-sm bg-white transition-all resize-none"
+        ></textarea>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <input type="checkbox" required id="dsgvo" class="mt-1 accent-teal" />
+        <label for="dsgvo" class="text-sm text-gray-500">
+          Ich stimme der Verarbeitung meiner Daten gemäß der
+          <a href="#datenschutz" class="text-teal hover:underline">Datenschutzerklärung</a> zu.
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="btn-teal w-full py-4 rounded-xl text-base inline-flex items-center justify-center gap-2"
+      >
+        <i data-lucide="send" class="w-4 h-4"></i>
+        Nachricht senden
+      </button>
+    </form>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer class="bg-navy-dark border-t border-white/10 py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <span class="text-white font-bold text-base tracking-tight">Belivin <span class="text-teal">Media</span></span>
+      </a>
+
+      <!-- Links -->
+      <nav class="flex items-center gap-6 text-sm text-steel">
+        <a href="impressum.html" class="hover:text-teal transition-colors">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-teal transition-colors">Datenschutz</a>
+        <a href="#kontakt" class="hover:text-teal transition-colors">Kontakt</a>
+      </nav>
+
+      <!-- Copyright -->
+      <p class="text-white/30 text-sm">© 2026 Belivin Media. Alle Rechte vorbehalten.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════
+     COOKIE BANNER (DSGVO)
+════════════════════════════════════════════════════ -->
+<div id="cookie-banner" style="display:none;">
+  <p>
+    Wir nutzen technisch notwendige Cookies. Mehr Infos in unserer
+    <a href="datenschutz.html">Datenschutzerklärung</a>.
+  </p>
+  <div>
+    <button class="btn-accept" onclick="acceptCookies()">Alle akzeptieren</button>
+    <button class="btn-decline" onclick="declineCookies()">Nur notwendige</button>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════ -->
+<script>
+  // Init Lucide icons
+  lucide.createIcons();
+
+  // Scroll fade-in observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Cookie Consent ──────────────────────────────
+  const CONSENT_KEY = 'bm_cookie_consent';
+
+  // Analytics werden nachgerüstet (GA4 + Meta Pixel) — Platzhalter für später
+  function loadAnalytics() { /* TODO: GA4 + Meta Pixel IDs eintragen wenn Ads live gehen */ }
+
+  function acceptCookies() {
+    localStorage.setItem(CONSENT_KEY, 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+    loadAnalytics();
+  }
+
+  function declineCookies() {
+    localStorage.setItem(CONSENT_KEY, 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  // Cookie-Banner nur zeigen wenn noch keine Entscheidung
+  const consent = localStorage.getItem(CONSENT_KEY);
+  if (!consent) {
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+</script>
+</body>
+</html>
