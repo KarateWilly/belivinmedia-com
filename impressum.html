@@ -18,18 +18,21 @@
       }
     }
   </script>
-  <style>* { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }</style>
+  <style>
+    * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    .nav-logo { color: #ffffff; text-decoration: none; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.025em; }
+    .nav-logo span { color: #5ce1c6; }
+    .nav-link { color: #a7bbca; text-decoration: none; transition: color 0.15s ease; }
+    .nav-link:hover { color: #5ce1c6; }
+  </style>
 </head>
 <body class="bg-white text-navy antialiased">
 
 <!-- NAV -->
-<header class="bg-navy sticky top-0 z-50 shadow-lg">
+<header class="sticky top-0 z-50 shadow-lg" style="background-color:#212162;">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="flex items-center">
-      <img src="public/assets/logo/Logo_text.png" alt="Belivin Media" class="h-12 w-auto object-contain" style="mix-blend-mode:screen;max-width:180px;"
-        onerror="this.outerHTML='<span class=\'text-white font-bold text-xl\'>Belivin <span class=\'text-teal\'>Media</span></span>'" />
-    </a>
-    <a href="/" class="text-steel hover:text-teal text-sm font-medium transition-colors">← Zurück zur Startseite</a>
+    <a href="/" class="nav-logo flex items-center gap-2">Belivin <span>Media</span></a>
+    <a href="/" class="nav-link text-sm font-medium">← Zurück zur Startseite</a>
   </div>
 </header>
 
@@ -106,10 +109,7 @@
 <!-- FOOTER -->
 <footer class="bg-navy mt-16 py-8">
   <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <a href="/" class="flex items-center">
-      <img src="public/assets/logo/Logo_clean.png" alt="Belivin Media" class="h-8 w-auto" style="mix-blend-mode:screen;max-width:40px;"
-        onerror="this.outerHTML='<span class=\'text-white font-bold text-sm\'>BM</span>'" />
-    </a>
+    <a href="/" class="nav-logo flex items-center gap-2">Belivin <span>Media</span></a>
     <nav class="flex gap-6 text-sm text-steel">
       <a href="impressum.html" class="text-teal">Impressum</a>
       <a href="datenschutz.html" class="hover:text-teal transition-colors">Datenschutz</a>
