@@ -195,17 +195,17 @@ The palette is intentionally narrow: three navy depths, ink, two paper tones, on
 
 ## Layout
 
-The desktop shell is capped at `1420px` with a `32px` outer gutter. The sticky header uses a `70px` height; sections use the shared vertical rhythm in `section-block`. On wide landscape viewports (`min-width: 1100px` and `min-aspect-ratio: 4/3`), the hero fills the remaining viewport and places a contained copy block over the left of the cut-paper artwork. A directional navy-to-transparent shade preserves contrast through the complete text-safe zone.
+The desktop shell is capped at `1420px` with a `32px` outer gutter. The sticky header uses a `70px` height; sections use the shared vertical rhythm in `section-block`. The hero is one image-backed composition at every width and aspect ratio: the canonical doorway image absolutely covers the complete hero, while copy, CTA, and a directional contrast layer remain stacked above it. Portrait and landscape may change the focal crop and shade direction, but never the structural relationship between message and artwork.
 
 The six-section story alternates deliberately: an asymmetric problem grid and mint consequence arrow; a large paper service plane paired with two navy supports; an offset twelve-column relationship grid; a real portrait beside the testimonial; and a full-width mint closing plane. Horizontal rules and clipped polygons establish joins instead of card spacing or floating containers.
 
-The base layout is the `320px` mobile composition: copy and CTA stay in normal flow, followed by the complete intrinsic hero artwork with no opportunistic crop. Short landscape viewports between `480px` and `1099px` use a compact `62/38` copy-and-art split so the CTA remains in the first viewport. Wide landscape overlay mode begins only when both the width and aspect-ratio contract are satisfied. Navigation uses its keyboard-safe menu below `1440px`; major content grids stack below `901px`; at `520px`, offer points and process steps become single columns; and at `360px`, compact type adjustments apply. There is no hard minimum document width and no root overflow masking.
+The base layout starts at `320px` with the doorway image covering the hero and a portrait-safe focal point at `80% 50%`. Copy and CTA stay in normal flow above that art; the hero can grow when text needs more room. Landscape changes the shade to a left-to-right protection field and short landscape compacts type and copy measure, but it does not create a second image column. Portrait tablet uses a slightly wider `75% 50%` focal crop; landscape desktop uses `58% 50%`. Navigation uses its keyboard-safe menu below `1440px`; major content grids stack below `901px`; at `520px`, offer points and process steps become single columns; and at `360px`, compact type adjustments apply. There is no hard minimum document width, root overflow masking, aspect-ratio layout cliff, `<picture>` swap, or separate mobile hero.
 
-Every responsive release is checked at portrait, short landscape, tablet, desktop, large desktop, and breakpoint-flank sizes. Meaningful text and controls must remain inside the viewport and every clipping ancestor. Only explicitly decorative pseudo-elements may exceed a component plane. A desktop comp never authorizes the mobile treatment by itself: every future first viewport needs a binding phone composition and image/crop contract before implementation.
+Every responsive release is checked at portrait, short landscape, tablet, desktop, large desktop, tall desktop, and breakpoint-flank sizes, including both sides of `4/3`. Meaningful text and controls must remain inside the viewport and every clipping ancestor. The gate also requires one canonical hero image, full art and shade coverage, copy-art overlap, and a visible doorway focal region. Only explicitly decorative layers may exceed a component plane. A desktop comp never authorizes the mobile treatment by itself: every future first viewport needs a binding phone composition and focal-crop contract before implementation.
 
 **The Few Dominant Moments Rule.** Each section gets one commanding plane or statement; do not subdivide the story into equal card tiles.
 
-**The Mobile Recomposition Rule.** Mobile changes order, image height, and grid density; it is not a proportionally scaled desktop canvas.
+**The Unified Hero Rule.** Mobile may change crop, contrast direction, type scale, and grid density, but the hero promise and its artwork remain one composition. Never put the image after the copy as a separate poster.
 
 ## Elevation & Depth
 
@@ -257,11 +257,12 @@ Controls and containers are square (`square`). Diagonal polygons are reserved fo
 - **Do** preserve the abstract open doorway and single mint path as atmospheric art, and the named Cristina portrait and quote as real proof.
 - **Do** use large asymmetric planes, clipped diagonals, and structural rules to establish hierarchy.
 - **Do** keep all content visible without animation and preserve the reduced-motion and reduced-transparency fallbacks.
-- **Do** run the automated responsive matrix across `320px` portrait, short landscape, tablet, `1440px` and wide desktop, including both sides of `360px`, `520px`, `900px`, `1100px`, `1180px`, and `1440px` transitions.
+- **Do** run the automated responsive matrix across `320px` portrait, short landscape, tablet, tall desktop, `1440px` and wide desktop, including the reported `1927 × 1453` shape and both sides of `4/3`.
 
 ### Don't:
 
 - **Don't** add light agency card grids, gradients, glass, rounded pills, decorative metrics, or interchangeable split heroes.
+- **Don't** separate hero copy and doorway art into consecutive blocks or swap in an unapproved mobile-only hero image.
 - **Don't** turn mint into a broad decorative palette or introduce colors outside the documented navy, mint, paper, steel, and ink family.
 - **Don't** add continuous motion, smooth scrolling, or scroll-dependent content visibility.
 - **Don't** use the unused `hero-focus-desktop.webp` or `hero-focus-mobile.webp` assets as Signal Cut visual authority.

@@ -151,8 +151,12 @@
         "value": "1440px"
       },
       {
-        "name": "wide-hero-overlay",
-        "value": "1100px and 4/3 aspect ratio"
+        "name": "desktop-hero-type",
+        "value": "901px"
+      },
+      {
+        "name": "hero-art-direction",
+        "value": "portrait or landscape orientation; composition remains unified"
       },
       {
         "name": "wide-tighten",
@@ -268,8 +272,8 @@
         "section": "layout"
       },
       {
-        "name": "The Mobile Recomposition Rule",
-        "body": "Mobile starts at 320px with copy and complete intrinsic art in normal flow; short landscape uses a contained 62/38 split, and desktop complexity is added only when width and aspect ratio allow it.",
+        "name": "The Unified Hero Rule",
+        "body": "Every viewport uses one canonical doorway image as an absolute cover layer behind the hero copy. Portrait and landscape may change focal crop, contrast direction, and type scale, but never split the copy and artwork into consecutive blocks.",
         "section": "layout"
       },
       {
@@ -292,12 +296,14 @@
       "Do keep the six-section outcome → loss → solution → collaboration → proof → action story compact and customer-centered.",
       "Do reserve mint for the next action, the decisive consequence, or the successful path.",
       "Do preserve the abstract open doorway and single mint path as atmospheric art, and the named Cristina portrait and quote as real proof.",
+      "Do keep hero copy, CTA, contrast layer, and the canonical doorway image in one stacked composition at every viewport.",
       "Do use large asymmetric planes, clipped diagonals, and structural rules to establish hierarchy.",
       "Do keep all content visible without animation and preserve the reduced-motion and reduced-transparency fallbacks.",
       "Do run the automated portrait, short-landscape, tablet, desktop, large-desktop, reduced-motion, and breakpoint-flank matrix before every release."
     ],
     "donts": [
       "Don't add light agency card grids, gradients, glass, rounded pills, decorative metrics, or interchangeable split heroes.",
+      "Don't place the doorway image after the hero copy or introduce an unapproved mobile-only hero asset.",
       "Don't turn mint into a broad decorative palette or introduce colors outside the documented navy, mint, paper, steel, and ink family.",
       "Don't add continuous motion, smooth scrolling, or scroll-dependent content visibility.",
       "Don't use the unused `hero-focus-desktop.webp` or `hero-focus-mobile.webp` assets as Signal Cut visual authority.",

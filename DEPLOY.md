@@ -26,9 +26,9 @@ npm ci
 npm run qa
 ```
 
-Das Gate prüft Chromium und WebKit in Hochformat, kurzem Querformat, Tablet, Desktop, Wide Desktop sowie direkt vor und nach jedem Layout-Wechsel. Es kontrolliert nicht nur den Dokument-Scroll, sondern auch abgeschnittenen Text, lokale Clipping-Flächen, den vollständigen Hero, den CTA im ersten Viewport, die Pfeilspitze, Touch-Ziele, Menübedienung, reduzierte Bewegung und Textvergrößerung. Fehler-Screenshots landen ausschließlich unter `output/responsive-qa/` und werden nicht veröffentlicht.
+Das Gate prüft Chromium und WebKit in Hochformat, kurzem Querformat, Tablet, Desktop, Tall Desktop, Wide Desktop sowie direkt vor und nach jedem Layout-Wechsel und dem Seitenverhältnis `4/3`. Es kontrolliert nicht nur den Dokument-Scroll, sondern auch abgeschnittenen Text, lokale Clipping-Flächen, den vollständigen Hero, den CTA im ersten Viewport, die Pfeilspitze, Touch-Ziele, Menübedienung, reduzierte Bewegung und Textvergrößerung. Für den Hero erzwingt es zusätzlich eine einzige kanonische Bildquelle, vollständige Bild- und Kontrastabdeckung, Copy-Bild-Überlappung und den sichtbaren Tür-Fokalpunkt. Fehler-Screenshots landen ausschließlich unter `output/responsive-qa/` und werden nicht veröffentlicht.
 
-Für neue Hero- oder Template-Richtungen werden vor der Umsetzung zwei verbindliche First-Viewport-Comps freigegeben: Desktop und Telefon-Hochformat. Ein abweichender Bildausschnitt erhält ein eigenes Portrait-Asset und einen `<picture>`-Vertrag; ein Desktop-Bild darf nicht nachträglich per Off-Canvas-Positionierung in Mobile gezwungen werden.
+Für neue Hero- oder Template-Richtungen werden vor der Umsetzung zwei verbindliche First-Viewport-Comps freigegeben: Desktop und Telefon-Hochformat. Signal Cut verwendet auf allen Größen dasselbe Bild und steuert ausschließlich Fokalpunkt, Kontrast und Typografie per CSS. Ein separates Portrait-Asset oder `<picture>` kommt nur zum Einsatz, wenn eine spätere freigegebene Art Direction tatsächlich anderes Bildmaterial verlangt; Copy und Bild dürfen nie wieder in getrennte Hero-Blöcke zerfallen.
 
 ## Veröffentlichung
 

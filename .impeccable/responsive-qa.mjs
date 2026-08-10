@@ -30,16 +30,24 @@ const tabletCases = [
   ["tablet-768x1024", 768, 1024],
   ["tablet-820x1180", 820, 1180],
   ["tablet-1024x768", 1024, 768],
+  ["tablet-1024x1366", 1024, 1366],
 ];
 
 const desktopCases = [
   ["desktop-1280x720", 1280, 720],
+  ["desktop-1280x1024", 1280, 1024],
   ["desktop-1366x768", 1366, 768],
   ["desktop-1440x900", 1440, 900],
+  ["desktop-tall-1440x1081", 1440, 1081],
+  ["desktop-tall-1440x1200", 1440, 1200],
   ["desktop-1600x900", 1600, 900],
   ["desktop-1680x1050", 1680, 1050],
   ["desktop-1728x900", 1728, 900],
   ["desktop-1920x1080", 1920, 1080],
+  ["aspect-4by3-above-1920x1439", 1920, 1439],
+  ["aspect-4by3-exact-1920x1440", 1920, 1440],
+  ["aspect-4by3-below-1920x1441", 1920, 1441],
+  ["reported-1927x1453", 1927, 1453],
   ["desktop-2560x1440", 2560, 1440],
 ];
 
@@ -237,6 +245,25 @@ async function inspectResponsiveLayout(page) {
       };
     }
 
+    function intersectionArea(first, second) {
+      if (!first || !second) return 0;
+      const width = Math.max(0, Math.min(first.right, second.right) - Math.max(first.left, second.left));
+      const height = Math.max(0, Math.min(first.bottom, second.bottom) - Math.max(first.top, second.top));
+      return width * height;
+    }
+
+    function coverage(coveringRect, targetRect) {
+      if (!coveringRect || !targetRect) return 0;
+      const targetArea = targetRect.width * targetRect.height;
+      return targetArea > 0 ? intersectionArea(coveringRect, targetRect) / targetArea : 0;
+    }
+
+    function percentagePosition(value) {
+      const parts = value.trim().split(/\s+/);
+      if (parts.length !== 2 || !parts.every((part) => /^-?\d+(?:\.\d+)?%$/.test(part))) return null;
+      return parts.map((part) => Number.parseFloat(part) / 100);
+    }
+
     const documentWidth = Math.max(
       document.documentElement.scrollWidth,
       document.body?.scrollWidth ?? 0,
@@ -302,15 +329,61 @@ async function inspectResponsiveLayout(page) {
       range.detach();
     }
 
-    const heroTitle = document.querySelector("#hero-title");
-    const heroAction = document.querySelector(".hero .primary-action");
-    const heroArt = document.querySelector(".hero-art");
+    const hero = document.querySelector(".hero");
+    const heroTitle = hero?.querySelector("#hero-title");
+    const heroAction = hero?.querySelector(".primary-action");
+    const heroArt = hero?.querySelector(".hero-art");
+    const heroCopy = hero?.querySelector(".hero-copy");
+    const heroShade = hero?.querySelector(".hero-shade");
     const decisionArrow = document.querySelector(".sequence-result");
 
+    const heroRect = hero?.getBoundingClientRect();
     const heroTitleRect = heroTitle?.getBoundingClientRect();
     const heroActionRect = heroAction?.getBoundingClientRect();
     const heroArtRect = heroArt?.getBoundingClientRect();
+    const heroCopyRect = heroCopy?.getBoundingClientRect();
+    const heroShadeRect = heroShade?.getBoundingClientRect();
     const decisionArrowRect = decisionArrow?.getBoundingClientRect();
+    const heroArtStyle = heroArt ? getComputedStyle(heroArt) : null;
+    const heroShadeStyle = heroShade ? getComputedStyle(heroShade) : null;
+
+    let doorVisibility = null;
+    if (
+      heroArt instanceof HTMLImageElement
+      && heroArtRect
+      && heroRect
+      && heroArt.naturalWidth > 0
+      && heroArt.naturalHeight > 0
+      && heroArtStyle
+    ) {
+      const position = percentagePosition(heroArtStyle.objectPosition);
+      if (position) {
+        const scale = Math.max(
+          heroArtRect.width / heroArt.naturalWidth,
+          heroArtRect.height / heroArt.naturalHeight,
+        );
+        const renderedWidth = heroArt.naturalWidth * scale;
+        const renderedHeight = heroArt.naturalHeight * scale;
+        const renderedLeft = heroArtRect.left + (heroArtRect.width - renderedWidth) * position[0];
+        const renderedTop = heroArtRect.top + (heroArtRect.height - renderedHeight) * position[1];
+        const doorRect = {
+          left: renderedLeft + 1233 * scale,
+          right: renderedLeft + 1392 * scale,
+          top: renderedTop + 247 * scale,
+          bottom: renderedTop + 680 * scale,
+        };
+        doorRect.width = doorRect.right - doorRect.left;
+        doorRect.height = doorRect.bottom - doorRect.top;
+        const viewportRect = { left: 0, top: 0, right: viewportWidth, bottom: viewportHeight };
+        const doorArea = doorRect.width * doorRect.height;
+
+        doorVisibility = {
+          rect: rectData(doorRect),
+          inHero: rounded(intersectionArea(doorRect, heroRect) / doorArea),
+          inFirstViewport: rounded(intersectionArea(doorRect, viewportRect) / doorArea),
+        };
+      }
+    }
 
     const artIntersection = heroArtRect ? {
       width: Math.max(0, Math.min(heroArtRect.right, viewportWidth) - Math.max(heroArtRect.left, 0)),
@@ -341,10 +414,30 @@ async function inspectResponsiveLayout(page) {
       textOutsideViewport,
       clippedText,
       hero: {
+        bounds: heroRect ? rectData(heroRect) : null,
         title: heroTitleRect ? rectData(heroTitleRect) : null,
         action: heroActionRect ? rectData(heroActionRect) : null,
         art: heroArtRect ? rectData(heroArtRect) : null,
+        copy: heroCopyRect ? rectData(heroCopyRect) : null,
+        shade: heroShadeRect ? rectData(heroShadeRect) : null,
+        artCount: hero?.querySelectorAll(".hero-art").length ?? 0,
+        pictureCount: hero?.querySelectorAll("picture").length ?? 0,
         artComplete: heroArt instanceof HTMLImageElement ? heroArt.complete && heroArt.naturalWidth > 0 : false,
+        artNaturalSize: heroArt instanceof HTMLImageElement
+          ? { width: heroArt.naturalWidth, height: heroArt.naturalHeight }
+          : null,
+        artSource: heroArt instanceof HTMLImageElement && heroArt.currentSrc
+          ? new URL(heroArt.currentSrc, window.location.href).pathname
+          : null,
+        artPosition: heroArtStyle?.position ?? null,
+        objectFit: heroArtStyle?.objectFit ?? null,
+        objectPosition: heroArtStyle?.objectPosition ?? null,
+        shadeDisplay: heroShadeStyle?.display ?? null,
+        shadePosition: heroShadeStyle?.position ?? null,
+        artCoverage: rounded(coverage(heroArtRect, heroRect)),
+        copyArtOverlap: rounded(coverage(heroArtRect, heroCopyRect)),
+        shadeCoverage: rounded(coverage(heroShadeRect, heroRect)),
+        doorVisibility,
         artIntersection: {
           width: rounded(artIntersection.width),
           height: rounded(artIntersection.height),
@@ -411,6 +504,41 @@ function baselineIssues(report, consoleErrors) {
     || artIntersection.area < minimumArtArea
   ) {
     issues.push(`hero art has no meaningful first-viewport presence: ${JSON.stringify({ art, artIntersection })}`);
+  }
+
+  if (report.hero.artCount !== 1) {
+    issues.push(`hero must use exactly one artwork image, found ${report.hero.artCount}`);
+  }
+  if (report.hero.pictureCount !== 0) {
+    issues.push(`hero must not switch artwork through picture/source, found ${report.hero.pictureCount}`);
+  }
+  if (
+    report.hero.artSource !== "/public/hero-signal-door.webp"
+    || report.hero.artNaturalSize?.width !== 1672
+    || report.hero.artNaturalSize?.height !== 941
+  ) {
+    issues.push(`hero must use the canonical door artwork: ${JSON.stringify({ source: report.hero.artSource, size: report.hero.artNaturalSize })}`);
+  }
+  if (report.hero.objectFit !== "cover" || report.hero.artPosition !== "absolute") {
+    issues.push(`hero artwork must remain an absolute cover layer: ${JSON.stringify({ objectFit: report.hero.objectFit, position: report.hero.artPosition })}`);
+  }
+  if (report.hero.artCoverage < 0.98 || report.hero.copyArtOverlap < 0.98) {
+    issues.push(`hero copy and artwork are not one composition: ${JSON.stringify({ artCoverage: report.hero.artCoverage, copyArtOverlap: report.hero.copyArtOverlap })}`);
+  }
+  if (
+    report.hero.shadeDisplay === "none"
+    || report.hero.shadePosition !== "absolute"
+    || report.hero.shadeCoverage < 0.98
+  ) {
+    issues.push(`hero contrast layer does not cover the composition: ${JSON.stringify({ display: report.hero.shadeDisplay, position: report.hero.shadePosition, coverage: report.hero.shadeCoverage })}`);
+  }
+  if (!report.hero.doorVisibility) {
+    issues.push(`hero focal point cannot be projected from object-position: ${report.hero.objectPosition}`);
+  } else if (
+    report.hero.doorVisibility.inHero < 0.8
+    || report.hero.doorVisibility.inFirstViewport < 0.6
+  ) {
+    issues.push(`hero door focal point is cropped away: ${JSON.stringify(report.hero.doorVisibility)}`);
   }
 
   const arrow = report.decisionArrow;
