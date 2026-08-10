@@ -36,6 +36,23 @@ Lighthouse 13.0.1 mit Chrome for Testing, identische lokale Server- und Cache-He
 
 Mobile LCP sank um rund 446 ms beziehungsweise 17 %. Die initiale Übertragung sank um rund 114 KB beziehungsweise 40 %. Der etwas spätere FCP ist im kontrollierten Einzelrun sichtbar und wird nicht verschwiegen; für die Nutzerwahrnehmung und das Sprintziel überwiegt der deutlich frühere vollständige Hero als LCP. Produktions-RUM entscheidet über die dauerhafte Bewertung.
 
+## Produktionsmessung über Cloudflare
+
+Nach dem Git-basierten Release wurde Lighthouse 13.0.1 direkt gegen `https://belivinmedia.com/` ausgeführt. Diese Einzelruns sind ein zusätzlicher Labornachweis über die reale CDN-Kette und kein Ersatz für die spätere RUM-Stichprobe.
+
+| Kennzahl | Mobile Produktion | Desktop Produktion |
+| --- | ---: | ---: |
+| Performance | **98** | **100** |
+| Accessibility | **100** | **100** |
+| Best Practices | **100** | **100** |
+| FCP | 836 ms | 333 ms |
+| LCP | **2.384 ms** | **493 ms** |
+| CLS | **0** | **0** |
+| TBT | **0 ms** | **0 ms** |
+| Initiale Übertragung | 248.689 B | 142.789 B |
+
+Der mobile Produktionsrun erfüllt Performance-, LCP- und CLS-Ziel. Lighthouse bewertet SEO mit 92 statt 100, ausschließlich weil die von Cloudflare verwaltete `Content-Signal`-Erweiterung in `robots.txt` als unbekannte Direktive gilt. Suchmaschinenzugriff, `Allow: /` und Sitemap bleiben vorhanden; die Meldung ist kein blockierter Indexzugriff.
+
 ## Technische Änderungen
 
 - Responsive 480/768/1200-Encodings des einen kanonischen Hero-Artworks in AVIF und WebP, mit passendem `srcset`, `sizes`, intrinsischen Dimensionen und AVIF-Preload. Motiv, absolute Cover-Komposition und CSS-Fokalpunkte sind auf allen Viewports identisch zur neueren Integrationsbasis geblieben. Im mobilen Lab sank der Hero-Transfer von 22.546 B auf rund 2,4 KB.
