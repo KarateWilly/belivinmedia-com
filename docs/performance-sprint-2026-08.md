@@ -10,12 +10,12 @@ Dieser Bericht enthält keine Tokens, Team-IDs, Deployment-IDs, IP-Adressen oder
 
 | Messpunkt | Vor dem Sprint | Nach dem Release |
 | --- | ---: | ---: |
-| Vercel-Requests, 30 Tage | ca. 12.834 | ausstehend |
-| Web Analytics | deaktiviert, keine Events | ausstehend |
+| Vercel-Requests, 30 Tage | ca. 12.834 | neue 7-/14-Tage-Stichprobe ausstehend |
+| Web Analytics | deaktiviert, keine Events | **aktiv; Intake und Aggregation verifiziert** |
 | Speed Insights | deaktiviert | bleibt deaktiviert |
 | RUM LCP / CLS / INP | keine belastbare BELIVIN-Stichprobe | ausstehend |
 
-Die Nachher-Spalte wird erst nach einem produktiven Git-basierten Deployment, aktivierten Web Analytics und einer ausreichenden Stichprobe ergänzt. Kleine Samples werden ausdrücklich als niedrig-konfident gekennzeichnet.
+Der Git-basierte Produktionsrelease ist erfolgt. Die Feldwerte und das neue 30-Tage-Volumen werden erst bei ausreichender Stichprobe ergänzt; kleine Samples werden ausdrücklich als niedrig-konfident gekennzeichnet.
 
 ## Reproduzierbare Labormessung
 
@@ -56,7 +56,7 @@ Namen, E-Mail-Adressen, Telefonnummern, Linktexte, Freitexte, Tokens und vollst�
 
 ## Verifikation
 
-- HTML-, CSS- und JavaScript-Syntax, TypeScript-Check und fünf Analytics-Unit-/Browser-Tests.
+- HTML-, CSS- und JavaScript-Syntax, TypeScript-Check, fünf Analytics-Unit-/Browser-Tests und ein Critical-CSS-Paritätstest.
 - Responsive QA in Chromium und WebKit über 49 Viewports, beide Motion-Modi, 150 % und 200 % Textskalierung sowie Keyboard-Menüführung. Browserphasen laufen isoliert, damit ein Engine-Prozess auch unter paralleler Host-Last vollständig freigegeben wird.
 - Die sechs Hero-Derivate wurden gegen das kanonische Artwork skaliert verglichen (SSIM 0,992 bis 0,995); das Responsive-Gate akzeptiert nur die sechs freigegebenen Quellen und prüft den dimensionsnormalisierten Tür-Fokalpunkt.
 - Visuelle Browserprüfung bei 320×568, 390×844, 768×1024 und 1440×900.
@@ -65,7 +65,11 @@ Namen, E-Mail-Adressen, Telefonnummern, Linktexte, Freitexte, Tokens und vollst�
 
 ## Nach dem Deployment
 
-1. Web Analytics im Vercel-Projekt aktivieren und das Git-basierte Deployment ausrollen.
-2. Über `belivinmedia.com` und die vorgeschaltete Cloudflare-Schicht `/_vercel/insights/script.js`, Pageviews und alle drei Eventtypen prüfen.
-3. Nach 7 und 14 Tagen Pageviews, Eventzahlen, mobile Stichprobengröße und verfügbare Feldmetriken ergänzen.
-4. Akzeptanz: keine PII in Events, mobile p75 LCP unter 2,5 s und CLS unter 0,05 bei ausreichender Stichprobe.
+Produktionscommit `d82e7690e9744574cc5f910fa2db899126302504` wurde am 10. August 2026 nach grünen GitHub- und Vercel-Gates aus `main` ausgerollt.
+
+- Web Analytics Basic ist im exakten BELIVIN-Projekt aktiv; Speed Insights bleibt aus.
+- Über `belivinmedia.com` und die vorgeschaltete Cloudflare-Schicht lieferten Startseite, Analytics-Skript, Stylesheet, Hero-Asset und Datenschutzseite jeweils HTTP 200.
+- Ein Pageview sowie alle fünf erlaubten Eventvarianten wurden ohne PII über die Produktionsdomain mit HTTP 200 angenommen. Die Vercel-Metrik bestätigte anschließend einen Pageview, drei `calendly_click`, einen `case_study_click` und einen `email_click`. Diese fünf bekannten synthetischen Events gehören zum Release-Nachweis und werden bei der ersten Geschäftsauswertung separat ausgewiesen.
+- Das produktive HTML enthält den Analytics-Loader, die eng begrenzte Eventlogik und den Critical-CSS-Paritätsfix.
+
+Offen bleibt ausschließlich die zeitabhängige Feldabnahme: Nach 7 und 14 Tagen werden Pageviews, echte Eventzahlen, mobile Stichprobengröße und verfügbare Feldmetriken ergänzt. Akzeptanz bleiben keine PII in Events, mobile p75 LCP unter 2,5 s und CLS unter 0,05 bei ausreichender Stichprobe.
