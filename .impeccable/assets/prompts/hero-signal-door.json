@@ -1,0 +1,11 @@
+{
+  "asset": "public/hero-signal-door.webp",
+  "generator": "OpenAI built-in Imagegen",
+  "mode": "reference-guided generation",
+  "approved": true,
+  "references": [
+    "/Users/zion/.codex/generated_images/019fe845-4575-7c63-b4ee-0bdd0eec1f9c/exec-98a21ff8-d57d-46c7-b801-26900df8cdcc.png",
+    "/Users/zion/Scratch/belivin-media-site-lab/signal-cut-build/public/hero-signal-cut.webp"
+  ],
+  "prompt": "Create a final text-free 16:9 BELIVIN MEDIA website hero that combines the current refined Signal Cut system with the stronger open-door metaphor from the user's preferred reference. Preserve a calm low-detail BELIVIN navy left field for semantic copy. On the right, show an unmistakable but highly abstract open mint doorway set into one sharp off-white cut-paper plane. A single broad mint signal or light path passes through the doorway and extends diagonally toward the lower center, communicating that new revenue and customers come through the door. Use premium analogue paper fibers, subtle dry screen-print variation, crisp silhouettes and shallow navy-on-navy layer depth. Use only BELIVIN navy #212162, off-white #F4F6F5 and mint #5CE1C6. No text, logo, browser chrome, UI, people, hands, tools, workshop, literal house, roof, windows, office interior, black mountains, landscape, gradient, glow, purple or watermark."
+}

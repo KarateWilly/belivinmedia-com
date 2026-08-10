@@ -1,30 +1,28 @@
-# Belivin Media Website — Deploy Checklist
+# BELIVIN MEDIA Deploy-Checkliste
 
-## Pflicht vor Go-Live
+## Vor einem Go-Live
 
-- [ ] Logos in `public/assets/logo/` legen:
-  - `logo-with-text.png`
-  - `logo-without-text.png`
-- [ ] Calendly-Link ersetzen in `index.html` → suche nach `DEIN-LINK`
-- [ ] Formspree-Endpoint einrichten → https://formspree.io/new → ID in `index.html` ersetzen (suche `PLACEHOLDER`)
-- [ ] Impressum ausfüllen (Adresse, Geschäftsführer, Steuernummer)
-- [ ] Datenschutzerklärung → https://www.datenschutz-generator.de
+- [ ] Foto, Namensnennung und Referenztext von Cristina Hubrath schriftlich freigeben.
+- [ ] Unternehmensangaben, Registrierungsnummer und Kontaktadresse prüfen.
+- [ ] Datenschutzhinweise gegen die tatsächlich aktiven Vercel- und Cloudflare-Einstellungen prüfen.
+- [ ] UAE-Struktur, möglichen EU-Vertreter und zuständige Datenschutzaufsicht juristisch prüfen lassen.
+- [ ] Calendly-Ziel und externe Links erneut aufrufen.
+- [ ] Desktop, Mobile, Tastaturbedienung, reduzierte Bewegung, `robots.txt` und `sitemap.xml` prüfen.
 
-## Deploy auf Vercel
+## Lokale Vorschau
 
 ```bash
-cd /Users/nexus/.openclaw/workspace/projects/business/belivin-media/website
-npx vercel --prod
-# Domain: belivinmedia.com zuweisen
+python3 -m http.server 4318 --bind 127.0.0.1
 ```
 
-## DNS (Cloudflare)
-Nach Vercel-Deploy:
-- A-Record: `@` → Vercel IP
-- CNAME: `www` → `cname.vercel-dns.com`
-- Vercel Dashboard → Custom Domain → `belivinmedia.com` hinzufügen
+Danach `http://127.0.0.1:4318/` öffnen.
 
-## Farben
-- Navy:  #212162
-- Teal:  #5ce1c6
-- Steel: #a7bbca
+## Veröffentlichung
+
+Die Domain läuft derzeit über Cloudflare vor Vercel. Vor einer Veröffentlichung zuerst einen Vercel-Preview-Deploy erzeugen, die Preview prüfen und erst dann gezielt in das bestehende Produktionsprojekt übernehmen. `.vercelignore` hält Design- und QA-Artefakte aus dem Deployment.
+
+## Markenfarben
+
+- Navy: `#212162`
+- Mint: `#5CE1C6`
+- Steel: `#A7BBCA`
