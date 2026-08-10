@@ -170,7 +170,7 @@
       "kind": "button",
       "refersTo": "primary-action",
       "description": "The repeated high-salience action that links directly to the approved Calendly destination.",
-      "html": "<a class=\"ds-primary-action\" href=\"https://calendly.com/mario-belivinmedia/free\">Website prüfen lassen</a>",
+      "html": "<a class=\"ds-primary-action\" href=\"https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check\">Website prüfen lassen</a>",
       "css": ".ds-primary-action { min-height: 54px; width: fit-content; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; border-radius: 0; box-shadow: 0 16px 44px rgba(13, 16, 36, 0.28); transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-primary-action:hover { background: var(--mint-active, #70ead1); box-shadow: 0 21px 56px rgba(13, 16, 36, 0.36); transform: translateY(-2px); } .ds-primary-action:active { transform: translateY(0) scale(0.985); } .ds-primary-action:focus-visible { outline: 3px solid var(--paper, #f4f6f5); outline-offset: 4px; }"
     },
     {
@@ -178,7 +178,7 @@
       "kind": "button",
       "refersTo": "primary-action-dark",
       "description": "The dark inverse of the primary action, reserved for the mint closing field.",
-      "html": "<a class=\"ds-primary-action-dark\" href=\"https://calendly.com/mario-belivinmedia/free\">Website prüfen lassen</a>",
+      "html": "<a class=\"ds-primary-action-dark\" href=\"https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check\">Website prüfen lassen</a>",
       "css": ".ds-primary-action-dark { min-height: 54px; width: fit-content; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; background: var(--ink, #0d1024); color: var(--paper, #f4f6f5); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; border-radius: 0; box-shadow: 0 16px 44px rgba(13, 16, 36, 0.2); transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-primary-action-dark:hover { background: var(--navy-deep, #11113e); transform: translateY(-2px); } .ds-primary-action-dark:active { transform: translateY(0) scale(0.985); } .ds-primary-action-dark:focus-visible { outline: 3px solid var(--ink, #0d1024); outline-offset: 4px; }"
     },
     {
@@ -186,7 +186,7 @@
       "kind": "button",
       "refersTo": "navigation-action",
       "description": "A compact mint conversion control for the sticky header and mobile menu.",
-      "html": "<a class=\"ds-nav-action\" href=\"https://calendly.com/mario-belivinmedia/free\">Website prüfen lassen</a>",
+      "html": "<a class=\"ds-nav-action\" href=\"https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check\">Website prüfen lassen</a>",
       "css": ".ds-nav-action { min-height: 42px; padding: 11px 15px; display: inline-flex; align-items: center; justify-content: center; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; border-radius: 0; transition: background-color 180ms ease, transform 180ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-nav-action:hover { background: var(--mint-active, #70ead1); transform: translateY(-1px); } .ds-nav-action:active { transform: scale(0.985); } .ds-nav-action:focus-visible { outline: 3px solid var(--paper, #f4f6f5); outline-offset: 4px; }"
     },
     {
