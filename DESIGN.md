@@ -142,7 +142,7 @@ The approved world refuses generic light agency card grids, SaaS gradients, glas
 - Composition uses large asymmetric planes, diagonal masks, structural rules, and full-width consequence lines.
 - The primary Website-Check action is always a direct Calendly link and the only repeated high-salience control.
 - The abstract open doorway and mint path are atmospheric metaphors for new business entering; Cristina Hubrath's named portrait and quote are the sole customer proof.
-- Motion is limited to one brief hero-copy reveal and short control responses, with a complete reduced-motion fallback.
+- Hero copy is fully visible at first paint. Motion is limited to short control responses and restrained below-fold reveals, with a complete reduced-motion fallback.
 
 ## Colors
 
@@ -195,17 +195,17 @@ The palette is intentionally narrow: three navy depths, ink, two paper tones, on
 
 ## Layout
 
-The desktop shell is capped at `1420px` with a `32px` outer gutter. The sticky header uses a `70px` height; sections use the shared vertical rhythm in `section-block`. The hero is one image-backed composition at every width and aspect ratio: the canonical doorway image absolutely covers the complete hero, while copy, CTA, and a directional contrast layer remain stacked above it. Portrait and landscape may change the focal crop and shade direction, but never the structural relationship between message and artwork.
+The desktop shell is capped at `1420px` with a `32px` outer gutter. The sticky header uses a `70px` height; sections use the shared vertical rhythm in `section-block`. The hero is one image-backed composition at every width and aspect ratio: responsive AVIF/WebP encodings of the canonical doorway artwork absolutely cover the complete hero, while copy, CTA, and a directional contrast layer remain stacked above it. Portrait and landscape may change the focal crop and shade direction, but never the structural relationship between message and artwork.
 
 The six-section story alternates deliberately: an asymmetric problem grid and mint consequence arrow; a large paper service plane paired with two navy supports; an offset twelve-column relationship grid; a real portrait beside the testimonial; and a full-width mint closing plane. Horizontal rules and clipped polygons establish joins instead of card spacing or floating containers.
 
-The base layout starts at `320px` with the doorway image covering the hero and a portrait-safe focal point at `80% 50%`. Copy and CTA stay in normal flow above that art; the hero can grow when text needs more room. Landscape changes the shade to a left-to-right protection field and short landscape compacts type and copy measure, but it does not create a second image column. Portrait tablet uses a slightly wider `75% 50%` focal crop; landscape desktop uses `58% 50%`. Navigation uses its keyboard-safe menu below `1440px`; major content grids stack below `901px`; at `520px`, offer points and process steps become single columns; and at `360px`, compact type adjustments apply. There is no hard minimum document width, root overflow masking, aspect-ratio layout cliff, `<picture>` swap, or separate mobile hero.
+The base layout starts at `320px` with the doorway image covering the hero and a portrait-safe focal point at `80% 50%`. Copy and CTA stay in normal flow above that art; the hero can grow when text needs more room. Landscape changes the shade to a left-to-right protection field and short landscape compacts type and copy measure, but it does not create a second image column. Portrait tablet uses a slightly wider `75% 50%` focal crop; landscape desktop uses `58% 50%`. Navigation uses its keyboard-safe menu below `1440px`; major content grids stack below `901px`; at `520px`, offer points and process steps become single columns; and at `360px`, compact type adjustments apply. There is no hard minimum document width, root overflow masking, aspect-ratio layout cliff, art-direction or motif swap, or separate mobile hero. The `<picture>` element may negotiate only approved size and format encodings derived from that same canonical artwork.
 
 Every responsive release is checked at portrait, short landscape, tablet, desktop, large desktop, tall desktop, and breakpoint-flank sizes, including both sides of `4/3`. Meaningful text and controls must remain inside the viewport and every clipping ancestor. The gate also requires one canonical hero image, full art and shade coverage, copy-art overlap, and a visible doorway focal region. Only explicitly decorative layers may exceed a component plane. A desktop comp never authorizes the mobile treatment by itself: every future first viewport needs a binding phone composition and focal-crop contract before implementation.
 
 **The Few Dominant Moments Rule.** Each section gets one commanding plane or statement; do not subdivide the story into equal card tiles.
 
-**The Unified Hero Rule.** Mobile may change crop, contrast direction, type scale, and grid density, but the hero promise and its artwork remain one composition. Never put the image after the copy as a separate poster.
+**The Unified Hero Rule.** Mobile may change crop, contrast direction, type scale, grid density, and the delivered encoding, but the hero promise and its artwork remain one composition. Never put the image after the copy as a separate poster, and never use responsive sources to change the motif.
 
 ## Elevation & Depth
 

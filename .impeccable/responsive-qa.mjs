@@ -100,6 +100,7 @@ const motionModes = ["no-preference", "reduce"];
 const mimeTypes = new Map([
   [".css", "text/css; charset=utf-8"],
   [".html", "text/html; charset=utf-8"],
+  [".avif", "image/avif"],
   [".js", "text/javascript; charset=utf-8"],
   [".json", "application/json; charset=utf-8"],
   [".svg", "image/svg+xml"],
@@ -113,6 +114,14 @@ function startStaticServer() {
       const requestUrl = new URL(request.url ?? "/", "http://127.0.0.1");
       let pathname = decodeURIComponent(requestUrl.pathname);
       if (pathname.endsWith("/")) pathname += "index.html";
+
+      if (pathname === "/_vercel/insights/script.js") {
+        response.writeHead(200, {
+          "Cache-Control": "no-store",
+          "Content-Type": "text/javascript; charset=utf-8",
+        }).end("/* Vercel Analytics test stub */");
+        return;
+      }
 
       const relativePath = pathname.replace(/^\/+/, "");
       const filePath = path.resolve(ROOT, relativePath);
@@ -177,6 +186,16 @@ function pageDiagnostics(page) {
 
 async function settlePage(page) {
   await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      const deadline = performance.now() + 3000;
+      const waitForDeferredStyles = () => {
+        const loaded = [...document.styleSheets].some((sheet) => sheet.href?.endsWith("/styles.css"));
+        if (loaded || performance.now() >= deadline) resolve(undefined);
+        else requestAnimationFrame(waitForDeferredStyles);
+      };
+      waitForDeferredStyles();
+    });
+
     await document.fonts.ready;
 
     const heroArt = document.querySelector(".hero-art");
@@ -367,10 +386,10 @@ async function inspectResponsiveLayout(page) {
         const renderedLeft = heroArtRect.left + (heroArtRect.width - renderedWidth) * position[0];
         const renderedTop = heroArtRect.top + (heroArtRect.height - renderedHeight) * position[1];
         const doorRect = {
-          left: renderedLeft + 1233 * scale,
-          right: renderedLeft + 1392 * scale,
-          top: renderedTop + 247 * scale,
-          bottom: renderedTop + 680 * scale,
+          left: renderedLeft + (1233 / 1672) * heroArt.naturalWidth * scale,
+          right: renderedLeft + (1392 / 1672) * heroArt.naturalWidth * scale,
+          top: renderedTop + (247 / 941) * heroArt.naturalHeight * scale,
+          bottom: renderedTop + (680 / 941) * heroArt.naturalHeight * scale,
         };
         doorRect.width = doorRect.right - doorRect.left;
         doorRect.height = doorRect.bottom - doorRect.top;
@@ -422,6 +441,11 @@ async function inspectResponsiveLayout(page) {
         shade: heroShadeRect ? rectData(heroShadeRect) : null,
         artCount: hero?.querySelectorAll(".hero-art").length ?? 0,
         pictureCount: hero?.querySelectorAll("picture").length ?? 0,
+        pictureSources: [...(hero?.querySelectorAll("picture source") ?? [])].map((source) => ({
+          sizes: source.getAttribute("sizes"),
+          srcset: source.getAttribute("srcset"),
+          type: source.getAttribute("type"),
+        })),
         artComplete: heroArt instanceof HTMLImageElement ? heroArt.complete && heroArt.naturalWidth > 0 : false,
         artNaturalSize: heroArt instanceof HTMLImageElement
           ? { width: heroArt.naturalWidth, height: heroArt.naturalHeight }
@@ -509,15 +533,37 @@ function baselineIssues(report, consoleErrors) {
   if (report.hero.artCount !== 1) {
     issues.push(`hero must use exactly one artwork image, found ${report.hero.artCount}`);
   }
-  if (report.hero.pictureCount !== 0) {
-    issues.push(`hero must not switch artwork through picture/source, found ${report.hero.pictureCount}`);
+  const expectedHeroSources = [
+    {
+      sizes: "100vw",
+      srcset: "/public/hero-signal-door-480.avif 480w, /public/hero-signal-door-768.avif 768w, /public/hero-signal-door-1200.avif 1200w",
+      type: "image/avif",
+    },
+    {
+      sizes: "100vw",
+      srcset: "/public/hero-signal-door-480.webp 480w, /public/hero-signal-door-768.webp 768w, /public/hero-signal-door-1200.webp 1200w",
+      type: "image/webp",
+    },
+  ];
+  const allowedHeroEncodings = new Set([
+    "/public/hero-signal-door-480.avif",
+    "/public/hero-signal-door-768.avif",
+    "/public/hero-signal-door-1200.avif",
+    "/public/hero-signal-door-480.webp",
+    "/public/hero-signal-door-768.webp",
+    "/public/hero-signal-door-1200.webp",
+  ]);
+  if (report.hero.pictureCount !== 1 || JSON.stringify(report.hero.pictureSources) !== JSON.stringify(expectedHeroSources)) {
+    issues.push(`hero must expose only the approved responsive encodings of the canonical artwork: ${JSON.stringify({ pictureCount: report.hero.pictureCount, sources: report.hero.pictureSources })}`);
   }
+  const naturalAspectRatio = report.hero.artNaturalSize
+    ? report.hero.artNaturalSize.width / report.hero.artNaturalSize.height
+    : 0;
   if (
-    report.hero.artSource !== "/public/hero-signal-door.webp"
-    || report.hero.artNaturalSize?.width !== 1672
-    || report.hero.artNaturalSize?.height !== 941
+    !allowedHeroEncodings.has(report.hero.artSource)
+    || Math.abs(naturalAspectRatio - (1672 / 941)) > 0.02
   ) {
-    issues.push(`hero must use the canonical door artwork: ${JSON.stringify({ source: report.hero.artSource, size: report.hero.artNaturalSize })}`);
+    issues.push(`hero must use an approved encoding of the canonical door artwork: ${JSON.stringify({ source: report.hero.artSource, size: report.hero.artNaturalSize })}`);
   }
   if (report.hero.objectFit !== "cover" || report.hero.artPosition !== "absolute") {
     issues.push(`hero artwork must remain an absolute cover layer: ${JSON.stringify({ objectFit: report.hero.objectFit, position: report.hero.artPosition })}`);
@@ -751,34 +797,40 @@ async function main() {
 
   try {
     for (const [browserName, browserType] of browserTypes) {
-      const browser = await browserType.launch({ headless: true });
+      for (const motionMode of motionModes) {
+        process.stdout.write(`Checking ${browserName} with motion=${motionMode} across ${viewportCases.length} viewports...\n`);
+        const browser = await browserType.launch({ headless: true });
+        const context = await browser.newContext({ reducedMotion: motionMode });
 
-      try {
-        for (const motionMode of motionModes) {
-          process.stdout.write(`Checking ${browserName} with motion=${motionMode} across ${viewportCases.length} viewports...\n`);
-          const context = await browser.newContext({ reducedMotion: motionMode });
+        try {
+          for (const testCase of viewportCases) {
+            await runViewportCase(context, url, browserName, motionMode, testCase, failures);
+          }
+
+          if (motionMode === "no-preference") {
+            await runMobileMenuCase(context, url, browserName, failures);
+          }
+        } finally {
+          await context.close();
+          await browser.close();
+        }
+
+        if (motionMode !== "no-preference") continue;
+
+        for (const scale of [150, 200]) {
+          process.stdout.write(`Checking ${browserName} at ${scale}% text scaling...\n`);
+          const scaleBrowser = await browserType.launch({ headless: true });
+          const scaleContext = await scaleBrowser.newContext({ reducedMotion: motionMode });
 
           try {
-            for (const testCase of viewportCases) {
-              await runViewportCase(context, url, browserName, motionMode, testCase, failures);
-            }
-
-            if (motionMode === "no-preference") {
-              await runMobileMenuCase(context, url, browserName, failures);
-
-              for (const scale of [150, 200]) {
-                process.stdout.write(`Checking ${browserName} at ${scale}% text scaling...\n`);
-                for (const testCase of textScaleCases) {
-                  await runTextScaleCase(context, url, browserName, testCase, scale, failures);
-                }
-              }
+            for (const testCase of textScaleCases) {
+              await runTextScaleCase(scaleContext, url, browserName, testCase, scale, failures);
             }
           } finally {
-            await context.close();
+            await scaleContext.close();
+            await scaleBrowser.close();
           }
         }
-      } finally {
-        await browser.close();
       }
     }
   } finally {

@@ -122,7 +122,7 @@
       {
         "name": "ease-out",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Decisive easing for brief lifts, underlines, menu movement, and the hero entrance."
+        "purpose": "Decisive easing for brief lifts, underlines, menu movement, and restrained below-fold reveals."
       },
       {
         "name": "state-fast",
@@ -135,9 +135,9 @@
         "purpose": "Button lift and navigation underline response."
       },
       {
-        "name": "hero-copy-reveal",
-        "value": "720ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "One-time opacity and rise reveal for hero copy when reduced motion is not requested; text is never used as a clipping plane."
+        "name": "below-fold-reveal",
+        "value": "560ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Restrained opacity and rise refinement for below-fold content only; hero copy is fully visible at first paint."
       },
       {
         "name": "reduced-motion",
@@ -243,7 +243,7 @@
       "Composition uses large asymmetric planes, diagonal masks, structural rules, and full-width consequence lines.",
       "The primary Website-Check action is always a direct Calendly link and the only repeated high-salience control.",
       "The abstract open doorway and mint path are atmospheric metaphors for new business entering; Cristina Hubrath's named portrait and quote are the sole customer proof.",
-      "Motion is limited to one brief hero-copy reveal and short control responses, with a complete reduced-motion fallback."
+      "Hero copy is fully visible at first paint. Motion is limited to short control responses and restrained below-fold reveals, with a complete reduced-motion fallback."
     ],
     "rules": [
       {
@@ -273,7 +273,7 @@
       },
       {
         "name": "The Unified Hero Rule",
-        "body": "Every viewport uses one canonical doorway image as an absolute cover layer behind the hero copy. Portrait and landscape may change focal crop, contrast direction, and type scale, but never split the copy and artwork into consecutive blocks.",
+        "body": "Every viewport uses responsive format and size encodings of one canonical doorway artwork as an absolute cover layer behind the hero copy. Portrait and landscape may change focal crop, contrast direction, and type scale, but never change the motif or split the copy and artwork into consecutive blocks.",
         "section": "layout"
       },
       {
@@ -296,14 +296,14 @@
       "Do keep the six-section outcome → loss → solution → collaboration → proof → action story compact and customer-centered.",
       "Do reserve mint for the next action, the decisive consequence, or the successful path.",
       "Do preserve the abstract open doorway and single mint path as atmospheric art, and the named Cristina portrait and quote as real proof.",
-      "Do keep hero copy, CTA, contrast layer, and the canonical doorway image in one stacked composition at every viewport.",
+      "Do keep hero copy, CTA, contrast layer, and responsive encodings of the canonical doorway artwork in one stacked composition at every viewport.",
       "Do use large asymmetric planes, clipped diagonals, and structural rules to establish hierarchy.",
       "Do keep all content visible without animation and preserve the reduced-motion and reduced-transparency fallbacks.",
       "Do run the automated portrait, short-landscape, tablet, desktop, large-desktop, reduced-motion, and breakpoint-flank matrix before every release."
     ],
     "donts": [
       "Don't add light agency card grids, gradients, glass, rounded pills, decorative metrics, or interchangeable split heroes.",
-      "Don't place the doorway image after the hero copy or introduce an unapproved mobile-only hero asset.",
+      "Don't place the doorway image after the hero copy or use responsive sources to introduce a different mobile motif.",
       "Don't turn mint into a broad decorative palette or introduce colors outside the documented navy, mint, paper, steel, and ink family.",
       "Don't add continuous motion, smooth scrolling, or scroll-dependent content visibility.",
       "Don't use the unused `hero-focus-desktop.webp` or `hero-focus-mobile.webp` assets as Signal Cut visual authority.",
