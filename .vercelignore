@@ -1,5 +1,9 @@
 .git
 .vercel/
+node_modules/
+.github/
+package.json
+package-lock.json
 .env*
 .impeccable/
 .playwright-cli/

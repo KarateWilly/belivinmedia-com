@@ -7,7 +7,9 @@
 - [ ] Datenschutzhinweise gegen die tatsächlich aktiven Vercel- und Cloudflare-Einstellungen prüfen.
 - [ ] UAE-Struktur, möglichen EU-Vertreter und zuständige Datenschutzaufsicht juristisch prüfen lassen.
 - [ ] Calendly-Ziel und externe Links erneut aufrufen.
+- [ ] `npm ci` und anschließend `npm run qa` vollständig grün ausführen.
 - [ ] Desktop, Mobile, Tastaturbedienung, reduzierte Bewegung, `robots.txt` und `sitemap.xml` prüfen.
+- [ ] Den Hero zusätzlich auf einem echten iPhone und Android-Gerät in Hoch- und Querformat prüfen.
 
 ## Lokale Vorschau
 
@@ -17,9 +19,20 @@ python3 -m http.server 4318 --bind 127.0.0.1
 
 Danach `http://127.0.0.1:4318/` öffnen.
 
+## Verbindliches Responsive-Gate
+
+```bash
+npm ci
+npm run qa
+```
+
+Das Gate prüft Chromium und WebKit in Hochformat, kurzem Querformat, Tablet, Desktop, Wide Desktop sowie direkt vor und nach jedem Layout-Wechsel. Es kontrolliert nicht nur den Dokument-Scroll, sondern auch abgeschnittenen Text, lokale Clipping-Flächen, den vollständigen Hero, den CTA im ersten Viewport, die Pfeilspitze, Touch-Ziele, Menübedienung, reduzierte Bewegung und Textvergrößerung. Fehler-Screenshots landen ausschließlich unter `output/responsive-qa/` und werden nicht veröffentlicht.
+
+Für neue Hero- oder Template-Richtungen werden vor der Umsetzung zwei verbindliche First-Viewport-Comps freigegeben: Desktop und Telefon-Hochformat. Ein abweichender Bildausschnitt erhält ein eigenes Portrait-Asset und einen `<picture>`-Vertrag; ein Desktop-Bild darf nicht nachträglich per Off-Canvas-Positionierung in Mobile gezwungen werden.
+
 ## Veröffentlichung
 
-Die Domain läuft derzeit über Cloudflare vor Vercel. Vor einer Veröffentlichung zuerst einen Vercel-Preview-Deploy erzeugen, die Preview prüfen und erst dann gezielt in das bestehende Produktionsprojekt übernehmen. `.vercelignore` hält Design- und QA-Artefakte aus dem Deployment.
+Die Domain läuft derzeit über Cloudflare vor Vercel. `main` löst den Produktions-Deploy automatisch aus; deshalb muss das lokale Responsive-Gate **vor** dem Push grün sein. Der GitHub-Workflow wiederholt dieselben Prüfungen, ersetzt bei einer direkten `main`-Veröffentlichung aber keine vorgeschaltete lokale Freigabe. `.vercelignore` hält Design-, Test- und QA-Artefakte aus dem Deployment.
 
 ## Markenfarben
 

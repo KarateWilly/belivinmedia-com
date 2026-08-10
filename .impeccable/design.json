@@ -137,7 +137,7 @@
       {
         "name": "hero-copy-reveal",
         "value": "720ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "One-time rise and inset-mask reveal for hero copy when reduced motion is not requested."
+        "purpose": "One-time opacity and rise reveal for hero copy when reduced motion is not requested; text is never used as a clipping plane."
       },
       {
         "name": "reduced-motion",
@@ -147,12 +147,20 @@
     ],
     "breakpoints": [
       {
+        "name": "desktop-navigation",
+        "value": "1440px"
+      },
+      {
+        "name": "wide-hero-overlay",
+        "value": "1100px and 4/3 aspect ratio"
+      },
+      {
         "name": "wide-tighten",
         "value": "1180px"
       },
       {
         "name": "mobile-structure",
-        "value": "900px"
+        "value": "901px"
       },
       {
         "name": "compact-mobile",
@@ -171,7 +179,7 @@
       "refersTo": "primary-action",
       "description": "The repeated high-salience action that links directly to the approved Calendly destination.",
       "html": "<a class=\"ds-primary-action\" href=\"https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check\">Website prüfen lassen</a>",
-      "css": ".ds-primary-action { min-height: 54px; width: fit-content; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; border-radius: 0; box-shadow: 0 16px 44px rgba(13, 16, 36, 0.28); transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-primary-action:hover { background: var(--mint-active, #70ead1); box-shadow: 0 21px 56px rgba(13, 16, 36, 0.36); transform: translateY(-2px); } .ds-primary-action:active { transform: translateY(0) scale(0.985); } .ds-primary-action:focus-visible { outline: 3px solid var(--paper, #f4f6f5); outline-offset: 4px; }"
+      "css": ".ds-primary-action { min-height: 54px; width: fit-content; max-width: 100%; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-align: center; text-decoration: none; white-space: normal; border-radius: 0; box-shadow: 0 16px 44px rgba(13, 16, 36, 0.28); transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-primary-action:hover { background: var(--mint-active, #70ead1); box-shadow: 0 21px 56px rgba(13, 16, 36, 0.36); transform: translateY(-2px); } .ds-primary-action:active { transform: translateY(0) scale(0.985); } .ds-primary-action:focus-visible { outline: 3px solid var(--paper, #f4f6f5); outline-offset: 4px; }"
     },
     {
       "name": "Dark Closing Action",
@@ -179,7 +187,7 @@
       "refersTo": "primary-action-dark",
       "description": "The dark inverse of the primary action, reserved for the mint closing field.",
       "html": "<a class=\"ds-primary-action-dark\" href=\"https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check\">Website prüfen lassen</a>",
-      "css": ".ds-primary-action-dark { min-height: 54px; width: fit-content; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; background: var(--ink, #0d1024); color: var(--paper, #f4f6f5); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; border-radius: 0; box-shadow: 0 16px 44px rgba(13, 16, 36, 0.2); transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-primary-action-dark:hover { background: var(--navy-deep, #11113e); transform: translateY(-2px); } .ds-primary-action-dark:active { transform: translateY(0) scale(0.985); } .ds-primary-action-dark:focus-visible { outline: 3px solid var(--ink, #0d1024); outline-offset: 4px; }"
+      "css": ".ds-primary-action-dark { min-height: 54px; width: fit-content; max-width: 100%; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; background: var(--ink, #0d1024); color: var(--paper, #f4f6f5); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-align: center; text-decoration: none; white-space: normal; border-radius: 0; box-shadow: 0 16px 44px rgba(13, 16, 36, 0.2); transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-primary-action-dark:hover { background: var(--navy-deep, #11113e); transform: translateY(-2px); } .ds-primary-action-dark:active { transform: translateY(0) scale(0.985); } .ds-primary-action-dark:focus-visible { outline: 3px solid var(--ink, #0d1024); outline-offset: 4px; }"
     },
     {
       "name": "Header Navigation Action",
@@ -187,7 +195,7 @@
       "refersTo": "navigation-action",
       "description": "A compact mint conversion control for the sticky header and mobile menu.",
       "html": "<a class=\"ds-nav-action\" href=\"https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check\">Website prüfen lassen</a>",
-      "css": ".ds-nav-action { min-height: 42px; padding: 11px 15px; display: inline-flex; align-items: center; justify-content: center; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; border-radius: 0; transition: background-color 180ms ease, transform 180ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-nav-action:hover { background: var(--mint-active, #70ead1); transform: translateY(-1px); } .ds-nav-action:active { transform: scale(0.985); } .ds-nav-action:focus-visible { outline: 3px solid var(--paper, #f4f6f5); outline-offset: 4px; }"
+      "css": ".ds-nav-action { min-height: 44px; padding: 11px 15px; display: inline-flex; align-items: center; justify-content: center; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); font-family: var(--body, Manrope, sans-serif); font-weight: 800; line-height: 1; text-decoration: none; border-radius: 0; transition: background-color 180ms ease, transform 180ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-nav-action:hover { background: var(--mint-active, #70ead1); transform: translateY(-1px); } .ds-nav-action:active { transform: scale(0.985); } .ds-nav-action:focus-visible { outline: 3px solid var(--paper, #f4f6f5); outline-offset: 4px; }"
     },
     {
       "name": "Mobile Menu Toggle",
@@ -203,7 +211,7 @@
       "refersTo": "decision-result",
       "description": "The mint directional plane that names the final lost-call consequence.",
       "html": "<div class=\"ds-decision-result\">Der Wettbewerb bekommt den Anruf.</div>",
-      "css": ".ds-decision-result { width: min(100%, 760px); padding: 16px 64px 16px 26px; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%); font-family: var(--display, Archivo, Arial Narrow, sans-serif); font-size: clamp(2.1rem, 3.7vw, 4.25rem); font-variation-settings: \"wdth\" 66, \"wght\" 720; letter-spacing: -0.02em; line-height: 0.96; }"
+      "css": ".ds-decision-result { width: 100%; min-width: 0; padding: 16px 58px 16px 26px; background: var(--mint, #5ce1c6); color: var(--ink, #0d1024); clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%); font-family: var(--display, Archivo, Arial Narrow, sans-serif); font-size: clamp(2rem, 3vw, 3rem); font-variation-settings: \"wdth\" 66, \"wght\" 720; letter-spacing: -0.02em; line-height: 0.96; overflow-wrap: anywhere; }"
     },
     {
       "name": "Main Offer Plane",
@@ -261,7 +269,7 @@
       },
       {
         "name": "The Mobile Recomposition Rule",
-        "body": "Mobile changes order, image height, and grid density; it is not a proportionally scaled desktop canvas.",
+        "body": "Mobile starts at 320px with copy and complete intrinsic art in normal flow; short landscape uses a contained 62/38 split, and desktop complexity is added only when width and aspect ratio allow it.",
         "section": "layout"
       },
       {
@@ -286,7 +294,7 @@
       "Do preserve the abstract open doorway and single mint path as atmospheric art, and the named Cristina portrait and quote as real proof.",
       "Do use large asymmetric planes, clipped diagonals, and structural rules to establish hierarchy.",
       "Do keep all content visible without animation and preserve the reduced-motion and reduced-transparency fallbacks.",
-      "Do test the exact responsive transitions at `1180px`, `900px`, `520px`, and `360px`, including the `320px` minimum canvas."
+      "Do run the automated portrait, short-landscape, tablet, desktop, large-desktop, reduced-motion, and breakpoint-flank matrix before every release."
     ],
     "donts": [
       "Don't add light agency card grids, gradients, glass, rounded pills, decorative metrics, or interchangeable split heroes.",

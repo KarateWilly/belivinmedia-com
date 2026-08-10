@@ -41,7 +41,7 @@ document.addEventListener('click', (event) => {
   closeMenu();
 });
 
-const desktopMedia = window.matchMedia('(min-width: 901px)');
+const desktopMedia = window.matchMedia('(min-width: 1440px)');
 desktopMedia.addEventListener('change', (event) => {
   if (event.matches) closeMenu();
 });

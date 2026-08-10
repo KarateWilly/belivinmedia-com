@@ -195,11 +195,13 @@ The palette is intentionally narrow: three navy depths, ink, two paper tones, on
 
 ## Layout
 
-The desktop shell is capped at `1420px` with a `32px` outer gutter. The sticky header uses a `70px` height; sections use the shared vertical rhythm in `section-block`. The hero fills the remaining viewport and places a wide copy block over the left of the cut-paper artwork, while a directional navy-to-transparent shade preserves contrast.
+The desktop shell is capped at `1420px` with a `32px` outer gutter. The sticky header uses a `70px` height; sections use the shared vertical rhythm in `section-block`. On wide landscape viewports (`min-width: 1100px` and `min-aspect-ratio: 4/3`), the hero fills the remaining viewport and places a contained copy block over the left of the cut-paper artwork. A directional navy-to-transparent shade preserves contrast through the complete text-safe zone.
 
 The six-section story alternates deliberately: an asymmetric problem grid and mint consequence arrow; a large paper service plane paired with two navy supports; an offset twelve-column relationship grid; a real portrait beside the testimonial; and a full-width mint closing plane. Horizontal rules and clipped polygons establish joins instead of card spacing or floating containers.
 
-At `1180px`, gutters, hero width, and complex grids tighten. At `900px`, navigation becomes a keyboard-safe menu, the hero artwork drops to the lower `58%` of the viewport, all major two-column structures stack, and the process becomes a two-column grid. At `520px`, display sizes and internal padding compress, offer points and process steps become single columns, and the closing CTA spans the available width. At `360px`, the brand, menu, hero headline, and sequence typography receive the final compact adjustment. The document has a hard minimum width of `320px` and clips horizontal overflow.
+The base layout is the `320px` mobile composition: copy and CTA stay in normal flow, followed by the complete intrinsic hero artwork with no opportunistic crop. Short landscape viewports between `480px` and `1099px` use a compact `62/38` copy-and-art split so the CTA remains in the first viewport. Wide landscape overlay mode begins only when both the width and aspect-ratio contract are satisfied. Navigation uses its keyboard-safe menu below `1440px`; major content grids stack below `901px`; at `520px`, offer points and process steps become single columns; and at `360px`, compact type adjustments apply. There is no hard minimum document width and no root overflow masking.
+
+Every responsive release is checked at portrait, short landscape, tablet, desktop, large desktop, and breakpoint-flank sizes. Meaningful text and controls must remain inside the viewport and every clipping ancestor. Only explicitly decorative pseudo-elements may exceed a component plane. A desktop comp never authorizes the mobile treatment by itself: every future first viewport needs a binding phone composition and image/crop contract before implementation.
 
 **The Few Dominant Moments Rule.** Each section gets one commanding plane or statement; do not subdivide the story into equal card tiles.
 
@@ -223,13 +225,13 @@ Controls and containers are square (`square`). Diagonal polygons are reserved fo
 
 - **Primary Website-Check Action:** a mint rectangle with dark ink, heavy Manrope, a `54px` target, and compact padding. Hover lifts by `2px`, increases shadow depth, and moves to the active mint; active returns to the plane and scales to `0.985`.
 - **Dark Closing Action:** the same dimensions and behavior with ink on paper, used only inside the final mint conversion field.
-- **Header Navigation Action:** a tighter `42px` mint control. It lifts by `1px` on hover and uses the paper-colored focus outline for separation.
+- **Header Navigation Action:** a compact `44px` mint control. It lifts by `1px` on hover and uses the paper-colored focus outline for separation.
 - **Focus:** interactive elements use a visible `3px` mint outline with a `4px` offset; mint controls switch the outline to paper or ink as required for contrast.
 
 ### Navigation
 
-- **Desktop:** compact text links sit in the sticky deep-navy header. A two-pixel mint rule grows from right to left on hover or keyboard focus.
-- **Mobile:** the `44px` square-corner menu toggle reveals a bordered deep-navy panel of `48px` navigation rows and a full-width mint action. Escape, outside click, link selection, and the desktop breakpoint all close it.
+- **Desktop:** from `1440px`, compact text links sit in the sticky deep-navy header. A two-pixel mint rule grows from right to left on hover or keyboard focus.
+- **Compact navigation:** below `1440px`, the `44px` square-corner menu toggle reveals a bordered deep-navy panel of `48px` navigation rows and a full-width mint action. Escape, outside click, link selection, and the desktop breakpoint all close it.
 
 ### Cards / Containers
 
@@ -239,7 +241,7 @@ Controls and containers are square (`square`). Diagonal polygons are reserved fo
 
 ### Signature Components
 
-- **Decision Sequence:** three oversized Archivo statements move progressively right; the final result becomes a mint arrow that names the lost call.
+- **Decision Sequence:** three oversized Archivo statements use contained padding to imply forward movement; the final result becomes a mint arrow whose complete point always remains inside its content plane.
 - **Consequence Line:** a full-width mid-navy band carries one oversized unbroken commercial consequence.
 - **Process Strip:** a mint structural slab with an angled cap and four ruled steps; it collapses to two columns and then one.
 - **Customer Proof:** Cristina Hubrath's real portrait is cut into an irregular polygon over a mint underlay, paired with the approved quote and named source link. Atmospheric art never substitutes for this proof.
@@ -255,7 +257,7 @@ Controls and containers are square (`square`). Diagonal polygons are reserved fo
 - **Do** preserve the abstract open doorway and single mint path as atmospheric art, and the named Cristina portrait and quote as real proof.
 - **Do** use large asymmetric planes, clipped diagonals, and structural rules to establish hierarchy.
 - **Do** keep all content visible without animation and preserve the reduced-motion and reduced-transparency fallbacks.
-- **Do** test the exact responsive transitions at `1180px`, `900px`, `520px`, and `360px`, including the `320px` minimum canvas.
+- **Do** run the automated responsive matrix across `320px` portrait, short landscape, tablet, `1440px` and wide desktop, including both sides of `360px`, `520px`, `900px`, `1100px`, `1180px`, and `1440px` transitions.
 
 ### Don't:
 

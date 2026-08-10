@@ -42,7 +42,6 @@
 }
 
 html {
-  min-width: 320px;
   background: var(--navy-deep);
   color: var(--paper);
   scroll-padding-top: calc(var(--header-height) + 20px);
@@ -50,13 +49,12 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
-  overflow-x: clip;
   background: var(--navy-deep);
   color: var(--paper);
   font-family: var(--body);
   font-size: 16px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -158,6 +156,7 @@ h3 {
   color: var(--paper);
   letter-spacing: -0.026em;
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -264,7 +263,7 @@ p {
 }
 
 .nav-action {
-  min-height: 42px;
+  min-height: 44px;
   padding: 11px 15px;
   display: inline-flex;
   align-items: center;
@@ -332,47 +331,55 @@ p {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: calc(100dvh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   overflow: clip;
   background: var(--navy);
 }
 
-.hero-art,
-.hero-shade {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .hero-art {
-  z-index: -3;
-  object-fit: cover;
+  position: relative;
+  order: 2;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: contain;
   object-position: center;
+  background: var(--navy);
 }
 
 .hero-shade {
-  z-index: -2;
-  background: linear-gradient(90deg, rgba(17, 17, 62, 0.94) 0%, rgba(17, 17, 62, 0.74) 44%, rgba(17, 17, 62, 0.5) 65%, rgba(17, 17, 62, 0.15) 77%, rgba(17, 17, 62, 0) 92%);
-  pointer-events: none;
+  display: none;
 }
 
 .hero-stage {
-  min-height: calc(100dvh - var(--header-height));
-  padding-block: clamp(38px, 6vh, 68px);
+  position: relative;
+  order: 1;
+  z-index: 1;
+  min-height: 0;
+  padding-block: clamp(32px, 8vw, 46px) 30px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero-copy {
   position: relative;
   z-index: 2;
-  width: min(70%, 1040px);
+  width: 100%;
+}
+
+.hero h1 {
+  max-width: 100%;
+  font-size: clamp(2.45rem, 10.5vw, 3.4rem);
+  line-height: 0.9;
+  text-wrap: wrap;
 }
 
 .hero h1 span {
   display: block;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .hero h1 em {
@@ -391,6 +398,7 @@ p {
 .primary-action {
   min-height: 54px;
   width: fit-content;
+  max-width: 100%;
   padding: 15px 22px;
   display: inline-flex;
   align-items: center;
@@ -400,7 +408,8 @@ p {
   font-weight: 800;
   line-height: 1;
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
   box-shadow: 0 16px 44px rgba(13, 16, 36, 0.28);
   transition: background-color 200ms ease, box-shadow 220ms ease, transform 220ms var(--ease-out);
 }
@@ -428,11 +437,21 @@ p {
 }
 
 .decision-grid {
-  min-height: 500px;
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(460px, 7fr);
-  gap: clamp(54px, 8vw, 132px);
+  grid-template-columns: 1fr;
+  gap: 48px;
   align-items: center;
+}
+
+.hero-copy,
+.decision-copy,
+.decision-sequence,
+.offer-stage > *,
+.reason,
+.proof-copy,
+.closing-layout > *,
+.footer-layout > * {
+  min-width: 0;
 }
 
 .decision-copy h2 {
@@ -447,9 +466,10 @@ p {
 
 .decision-sequence {
   position: relative;
+  width: 100%;
   margin: 0;
   padding-inline-start: 0;
-  padding-block: 40px;
+  padding-block: 32px;
   display: grid;
   gap: 12px;
   list-style: none;
@@ -459,38 +479,42 @@ p {
   content: "";
   position: absolute;
   top: 0;
-  right: -18vw;
+  right: 0;
   bottom: 0;
-  left: -34px;
+  left: 0;
   z-index: -1;
   background: var(--navy);
-  clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: none;
 }
 
 .decision-sequence li {
+  min-width: 0;
   margin: 0;
-  padding: 16px 26px;
+  padding: 16px 0;
   color: var(--paper);
   font-family: var(--display);
-  font-size: clamp(2.1rem, 3.7vw, 4.25rem);
+  font-size: clamp(2.05rem, 10vw, 2.8rem);
   font-variation-settings: "wdth" 66, "wght" 720;
   letter-spacing: -0.02em;
   line-height: 0.96;
+  overflow-wrap: anywhere;
 }
 
 .decision-sequence li:nth-child(2) {
-  transform: translateX(6%);
+  transform: none;
 }
 
 .decision-sequence li:nth-child(3) {
-  transform: translateX(10%);
+  transform: none;
 }
 
 .decision-sequence .sequence-result {
-  width: calc(87% + 18vw);
+  width: 100%;
+  padding: 16px 48px 16px 20px;
   background: var(--mint);
   color: var(--ink);
-  clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%);
+  font-size: clamp(2rem, 9vw, 2.65rem);
 }
 
 .loss-line {
@@ -1075,6 +1099,131 @@ p {
   transform: none;
 }
 
+@media (min-width: 901px) {
+  .decision-grid {
+    min-height: 500px;
+    grid-template-columns: minmax(0, 5fr) minmax(460px, 7fr);
+    gap: clamp(54px, 8vw, 132px);
+  }
+
+  .decision-sequence {
+    padding-block: 40px;
+  }
+
+  .decision-sequence::before {
+    right: 0;
+    left: 0;
+    clip-path: polygon(13% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .decision-sequence li {
+    padding-inline: 26px;
+    font-size: clamp(2.05rem, 3.5vw, 3.3rem);
+  }
+
+  .decision-sequence li:nth-child(2) {
+    padding-left: clamp(42px, 5vw, 72px);
+  }
+
+  .decision-sequence .sequence-result {
+    padding: 16px 58px 16px clamp(52px, 6vw, 88px);
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+}
+
+@media (min-width: 1100px) and (min-aspect-ratio: 4 / 3) {
+  .hero {
+    display: block;
+  }
+
+  .hero-art,
+  .hero-shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-art {
+    z-index: -3;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .hero-shade {
+    z-index: -2;
+    display: block;
+    background: linear-gradient(90deg, rgba(17, 17, 62, 0.97) 0%, rgba(17, 17, 62, 0.94) 50%, rgba(17, 17, 62, 0.82) 64%, rgba(17, 17, 62, 0.48) 78%, rgba(17, 17, 62, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .hero-stage {
+    min-height: calc(100dvh - var(--header-height));
+    padding-block: clamp(38px, 6vh, 68px);
+    align-items: center;
+  }
+
+  .hero-copy {
+    width: min(58vw, 1100px);
+  }
+
+  .hero h1 {
+    max-width: none;
+    font-size: clamp(3rem, 4.2vw, 4.95rem);
+    line-height: 0.92;
+  }
+
+  .hero h1 span {
+    /* Keep the authored two-line rhythm at normal size, but permit reflow when
+       users enlarge text. Semantic copy must never become the clipped plane. */
+    white-space: normal;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 1099px) and (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 62%) minmax(200px, 38%);
+  }
+
+  .hero-stage {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(calc(100% - 24px), var(--page-max));
+    min-height: calc(100dvh - var(--header-height));
+    padding-block: clamp(10px, 4vh, 20px);
+    align-items: center;
+  }
+
+  .hero-art {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+  .hero h1 {
+    max-width: none;
+    margin-bottom: 10px;
+    font-size: clamp(1.85rem, 4.3vw, 2.6rem);
+  }
+
+  .hero-copy > p {
+    margin-bottom: 12px;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    line-height: 1.32;
+  }
+
+  .hero .primary-action {
+    min-height: 44px;
+    padding-block: 12px;
+    font-size: 0.86rem;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .motion-ready .hero-copy h1 span,
   .motion-ready .hero-copy > p,
@@ -1100,12 +1249,30 @@ p {
   from {
     opacity: 0;
     transform: translateY(24px);
-    clip-path: inset(0 0 24% 0);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (max-width: 1439px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .has-js .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  html:not(.has-js) .mobile-nav {
+    display: grid;
+  }
+
+  .has-js .mobile-nav:not([hidden]) {
+    display: grid;
   }
 }
 
@@ -1122,14 +1289,6 @@ p {
 
   .nav-action {
     padding-inline: 12px;
-  }
-
-  .hero-copy {
-    width: 76%;
-  }
-
-  .hero h1 {
-    font-size: clamp(3.05rem, 5.3vw, 4.15rem);
   }
 
   .decision-grid {
@@ -1186,45 +1345,6 @@ p {
     display: grid;
   }
 
-  .hero,
-  .hero-stage {
-    min-height: calc(100dvh - var(--header-height));
-  }
-
-  .hero-art {
-    top: 42%;
-    height: 58%;
-    object-position: 70% center;
-  }
-
-  .hero-shade {
-    background: linear-gradient(180deg, rgba(17, 17, 62, 1) 0%, rgba(17, 17, 62, 1) 43%, rgba(17, 17, 62, 0.76) 62%, rgba(17, 17, 62, 0.12) 100%);
-  }
-
-  .hero-stage {
-    padding-block: 46px 42vh;
-    align-items: flex-start;
-  }
-
-  .hero-copy {
-    width: 100%;
-  }
-
-  .hero h1 {
-    max-width: none;
-    font-size: clamp(2.9rem, 11.8vw, 3.65rem);
-    line-height: 0.9;
-  }
-
-  .hero h1 span {
-    white-space: normal;
-  }
-
-  .hero-copy > p {
-    max-width: 38ch;
-    font-size: 1rem;
-  }
-
   .decision-grid,
   .offer-stage,
   .proof-grid,
@@ -1240,33 +1360,6 @@ p {
 
   .decision-copy h2 {
     max-width: 11ch;
-  }
-
-  .decision-sequence {
-    width: calc(100% + 16px);
-  }
-
-  .decision-sequence::before {
-    right: -32px;
-    left: -16px;
-  }
-
-  .decision-sequence p {
-    padding-inline: 18px;
-    font-size: clamp(2.2rem, 9vw, 3.4rem);
-  }
-
-  .decision-sequence li:nth-child(2) {
-    transform: translateX(3%);
-  }
-
-  .decision-sequence li:nth-child(3) {
-    transform: translateX(6%);
-  }
-
-  .decision-sequence .sequence-result {
-    width: 98%;
-    padding-right: 50px;
   }
 
   .loss-line {
@@ -1415,21 +1508,16 @@ p {
 }
 
 @media (max-width: 520px) {
+  .header-inner {
+    gap: 12px;
+  }
+
   h2 {
     font-size: clamp(2.75rem, 13vw, 4rem);
   }
 
   h3 {
     font-size: clamp(2rem, 9vw, 2.9rem);
-  }
-
-  .hero-stage {
-    padding-top: 38px;
-  }
-
-  .hero h1 {
-    margin-bottom: 20px;
-    font-size: clamp(2.75rem, 11.8vw, 3.55rem);
   }
 
   .hero-copy > p {
@@ -1522,7 +1610,7 @@ p {
   }
 
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.35rem;
   }
 
   .hero-copy > p {

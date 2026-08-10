@@ -1,0 +1,21 @@
+{
+  "name": "belivinmedia-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BELIVIN MEDIA static website and responsive release checks",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "lint:html": "html-validate index.html datenschutz.html impressum.html",
+    "lint:css": "csstree-validator styles.css",
+    "lint:js": "node --check script.js",
+    "test:responsive": "node .impeccable/responsive-qa.mjs",
+    "qa": "npm run lint:html && npm run lint:css && npm run lint:js && npm run test:responsive"
+  },
+  "devDependencies": {
+    "csstree-validator": "4.0.1",
+    "html-validate": "11.6.2",
+    "playwright": "1.62.1"
+  }
+}
