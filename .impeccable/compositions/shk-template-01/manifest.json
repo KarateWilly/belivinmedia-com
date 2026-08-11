@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "stage": "desktop-composition-selection",
+  "direction_source_id": "grounded-shk-inbetriebnahme-pass-v1",
+  "model": "gpt-image-2-high",
+  "final_asset": false,
+  "upscale": false,
+  "frame": "1672x941 landscape",
+  "items": [
+    {
+      "id": "wohnwaerme",
+      "source": "local-generation-cache",
+      "visual_qa": "pass after headline edit: two-line hero, natural family background, plausible recessed manifold and technician"
+    },
+    {
+      "id": "uebergabe",
+      "source": "local-generation-cache",
+      "visual_qa": "pass after installation edit: compact recessed service cabinet, credible handover interaction, clean family context"
+    },
+    {
+      "id": "umbau",
+      "source": "local-generation-cache",
+      "visual_qa": "pass as composition sketch: strong renovation-to-home story; final asset requires stricter floor-system and manifold audit"
+    }
+  ]
+}

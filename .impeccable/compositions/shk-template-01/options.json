@@ -1,0 +1,45 @@
+{
+  "title": "SHK Template 01 - Desktop-Komposition",
+  "question": "Gleiche Inbetriebnahme-Pass-Welt, drei Verkaufsdramaturgien. Welche Komposition wird zur Desktop-Baseline?",
+  "options": [
+    {
+      "id": "wohnwaerme",
+      "label": "Wohnwärme",
+      "kicker": "EMPFOHLEN",
+      "lineage": "Inbetriebnahme-Pass × bewohntes Familienhaus",
+      "thesis": "Das warme Zuhause führt; der Techniker und der saubere Verteiler liefern den sichtbaren Kompetenzbeweis.",
+      "palette": ["#F0EEE7", "#252829", "#AEB3B2", "#C93412"],
+      "materials": ["Mineralputz", "Eichenholz", "Messingverteiler"],
+      "viewport": "Links klare Anfragehierarchie, rechts natürliche Familie und Techniker an einem bündig eingebauten Wohnverteiler.",
+      "risk": "Die Heizung dominiert; Bad und Wasser müssen in den Folgesektionen ebenso überzeugend sichtbar werden.",
+      "sketch": ".impeccable/compositions/shk-template-01/wohnwaerme.webp"
+    },
+    {
+      "id": "uebergabe",
+      "label": "Übergabe",
+      "kicker": "MENSCHLICHSTE VARIANTE",
+      "lineage": "Inbetriebnahme-Pass × verständliche Hauseinweisung",
+      "thesis": "Eigentümer und Techniker führen; die Website verkauft Verständlichkeit statt bloßer Gerätekompetenz.",
+      "palette": ["#F0EEE7", "#252829", "#AEB3B2", "#C93412"],
+      "materials": ["Mineralputz", "offene Servicenische", "Übergabeunterlage"],
+      "viewport": "Links kurze Botschaft, rechts ruhige Erklärung am geöffneten Wohn-Servicecabinet mit Familie im Hintergrund.",
+      "risk": "Die Szene ist vertrauensstark, aber weniger bildgewaltig und kann wie reine Beratung statt Umsetzung wirken.",
+      "sketch": ".impeccable/compositions/shk-template-01/uebergabe.webp"
+    },
+    {
+      "id": "umbau",
+      "label": "Umbau",
+      "kicker": "DYNAMISCHSTE VARIANTE",
+      "lineage": "Inbetriebnahme-Pass × sichtbare Wohnmodernisierung",
+      "thesis": "Der aktive Umbau führt direkt in den fertigen Familienraum und macht den Weg zum Ergebnis sichtbar.",
+      "palette": ["#F0EEE7", "#252829", "#AEB3B2", "#C93412"],
+      "materials": ["Mineralputz", "Fußbodenaufbau", "saubere Werkzeuge"],
+      "viewport": "Links eine kompakte Anfragefläche, rechts Fußbodenheizung und Verteiler vor dem fast fertigen Wohnbereich.",
+      "risk": "Mehr Baustelle bedeutet weniger unmittelbares Wohlgefühl und verlangt besonders präzise technische Bildgenerierung.",
+      "sketch": ".impeccable/compositions/shk-template-01/umbau.webp"
+    }
+  ],
+  "reroll": false,
+  "canon": false,
+  "steer": true
+}
