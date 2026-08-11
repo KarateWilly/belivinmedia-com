@@ -1,0 +1,73 @@
+{
+  "title": "SHK Template 01 — visuelle Welt",
+  "question": "Die Richtung Inbetriebnahme-Pass wurde zugewiesen. Behalten, einen Challenger wählen, neu würfeln oder gezielt steuern.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Inbetriebnahme-Pass",
+      "kicker": "DIE ZUGEWIESENE RICHTUNG",
+      "lineage": "SHK-Inbetriebnahme × hochwertige technische Übergabe",
+      "thesis": "Die Website macht Ordnung, Messbarkeit und verständliche Übergabe zum sichtbaren Qualitätsbeweis.",
+      "palette": ["#15191A", "#F1EFE8", "#AEB6B7", "#D94A32"],
+      "materials": ["gebürsteter Edelstahl", "Mineralpapier", "dokumentarische SHK-Fotografie"],
+      "viewport": "Ein Techniker misst an einer sauberen Anlage; ein ruhiges Übergabefeld trägt Identität, Region, Handlung und drei gezeichnete Leistungsbänder.",
+      "risk": "Wird bürokratisch, wenn Papierlogik die Fotografie und den großen Website-Maßstab verdrängt.",
+      "sketch": ".impeccable/sketches/shk-template-01/inbetriebnahme-pass.webp"
+    },
+    {
+      "id": "challenger-darkroom",
+      "label": "Safelight Commissioning",
+      "kicker": "CHALLENGER",
+      "lineage": "analoge Dunkelkammer × technische Inbetriebnahme",
+      "thesis": "SHK-Arbeit erscheint als kontrollierter Prozess aus Prüfen, Einstellen, Freigeben und Dokumentieren.",
+      "case": "Starke Prozesslogik, verliert aber gegen die zugewiesene Richtung bei unmittelbarer SHK-Erkennung.",
+      "palette": ["#0D0E0D", "#FFB100", "#6E6E6E", "#F3E6C4"],
+      "materials": ["mattschwarze Geräteoberfläche", "Safelight-Amber", "Prüfstreifen"],
+      "viewport": "Eine breite dunkle Werkstation mit amberfarbenem Prüflicht, realer Anlage und klaren Prozessstationen.",
+      "risk": "Kann wie ein Retro-Instrument oder Notdienstauftritt statt wie eine regionale SHK-Website wirken.",
+      "sketch": ".impeccable/sketches/shk-template-01/safelight-commissioning.webp",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-darkroom-safelight-bay.webp"
+    },
+    {
+      "id": "challenger-multiplane",
+      "label": "Versorgung in Schichten",
+      "kicker": "CHALLENGER",
+      "lineage": "Multiplane-Cel-Animation × verborgenes Haussystem",
+      "thesis": "Haus, Wärme, Wasser und Technik liegen als räumliche Ebenen übereinander und werden beim Scrollen verständlich.",
+      "case": "Mobile Tiefe und Atmosphäre sind stark; technische Glaubwürdigkeit bleibt schwächer als beim Inbetriebnahme-Pass.",
+      "palette": ["#10241C", "#536454", "#9BA9A4", "#D69A42"],
+      "materials": ["Gouache-Ebenen", "Nebelwaschung", "warmes Fensterlicht"],
+      "viewport": "Mehrere gemalte Haus- und Technikschichten führen vom regionalen Morgen bis zur warmen Wohnzone und zum Technikraum.",
+      "risk": "Die Bildwelt kann märchenhaft werden und einen echten Handwerksbetrieb wie ein Naturhotel erscheinen lassen.",
+      "sketch": ".impeccable/sketches/shk-template-01/versorgung-in-schichten.webp",
+      "hero": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn.webp"
+    },
+    {
+      "id": "challenger-deco",
+      "label": "Haustechnik-Premiere",
+      "kicker": "CHALLENGER",
+      "lineage": "Art-Déco-Kinolobby × meisterliche Haustechnik",
+      "thesis": "Der neue Auftritt inszeniert Planung und Installation als präzisen, erwartungsvollen Auftritt mit klaren Schwellen.",
+      "case": "Hoher Finish, aber die kulturelle Form überdeckt Gewerkenähe und Angebotsklarheit.",
+      "palette": ["#090A09", "#D3A75B", "#7D1015", "#F0E2C0"],
+      "materials": ["Lackschwarz", "gebürstetes Messing", "tiefroter Samt"],
+      "viewport": "Symmetrische Messingrahmen führen zu einem zentralen SHK-Motiv, einer markanten Headline und einem roten Kontaktfeld.",
+      "risk": "Verwandelt eine praktische Vertrauensentscheidung in Veranstaltungstheater und spricht viele SHK-Inhaber kulturell nicht an.",
+      "sketch": ".impeccable/sketches/shk-template-01/haustechnik-premiere.webp",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-deco-cinema-lobby-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/design-canon-deco-cinema-lobby.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "canonCard": {
+    "label": "Der hochwertige SHK-Standard",
+    "thesis": "Die vertraute deutsche SHK-Seite mit starkem Foto, klaren Leistungen, Region und Telefon — ohne gestalterisches Experiment.",
+    "viewport": "Helle Navigation, große Technikerfotografie, linksbündige Headline, sichtbare Telefonaktion und drei Leistungen im ersten Bildschirm.",
+    "risk": "Sicher und sofort verständlich, aber weniger erinnerbar und leichter mit jedem Wettbewerber austauschbar.",
+    "sketch": ".impeccable/sketches/shk-template-01/canon.webp"
+  },
+  "steer": true
+}

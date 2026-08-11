@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "stage": "visual-direction-sketches",
+  "model": "gpt-image-2-high",
+  "final_asset": false,
+  "upscale": false,
+  "frame": "1672x941 landscape",
+  "items": [
+    {
+      "id": "assigned",
+      "destination": "inbetriebnahme-pass.webp",
+      "source": "local-generation-cache",
+      "visual_qa": "pass after edit: website hierarchy restored, visible CTA, plausible indoor SHK installation"
+    },
+    {
+      "id": "challenger-darkroom",
+      "destination": "safelight-commissioning.webp",
+      "source": "local-generation-cache",
+      "visual_qa": "pass as direction sketch: strong SHK/process read; known risk is retro/emergency tone"
+    },
+    {
+      "id": "challenger-multiplane",
+      "destination": "versorgung-in-schichten.webp",
+      "source": "local-generation-cache",
+      "visual_qa": "pass after edit: indoor outdoor-fan artifact replaced by plausible buffer tank"
+    },
+    {
+      "id": "challenger-deco",
+      "destination": "haustechnik-premiere.webp",
+      "source": "local-generation-cache",
+      "visual_qa": "pass as direction sketch: technically legible; known risk is decorative overreach"
+    },
+    {
+      "id": "canon",
+      "destination": "canon.webp",
+      "source": "local-generation-cache",
+      "visual_qa": "pass as category-standard sketch: familiar desktop hierarchy and plausible heating scene"
+    }
+  ]
+}

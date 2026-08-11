@@ -8,8 +8,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "lint:html": "html-validate index.html datenschutz.html impressum.html",
-    "lint:css": "csstree-validator styles.css",
+    "lint:html": "html-validate index.html datenschutz.html impressum.html beispiele/shk/index.html beispiele/shk/design-1/index.html",
+    "lint:css": "csstree-validator styles.css && csstree-validator beispiele/shk/showroom.css && csstree-validator beispiele/shk/design-1/styles.css",
     "lint:js": "node --check script.js && node --check analytics.js",
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.mjs",
