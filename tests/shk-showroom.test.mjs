@@ -6,15 +6,36 @@ import test from "node:test";
 const ROOT = process.cwd();
 const SHOWROOM_PATH = path.join(ROOT, "beispiele/shk/index.html");
 const DESIGN_PATH = path.join(ROOT, "beispiele/shk/design-1/index.html");
+const NAVIGATION_PATH = path.join(ROOT, "beispiele/shk/design-1/navigation.js");
 const CALENDLY = "https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check";
 const ROBOTS = "noindex,nofollow,noarchive,nosnippet,max-image-preview:large";
 
-const [showroom, design, sitemap, vercel] = await Promise.all([
+const [showroom, design, navigation, product, sitemap, vercel] = await Promise.all([
   readFile(SHOWROOM_PATH, "utf8"),
   readFile(DESIGN_PATH, "utf8"),
+  readFile(NAVIGATION_PATH, "utf8"),
+  readFile(path.join(ROOT, "PRODUCT.md"), "utf8"),
   readFile(path.join(ROOT, "sitemap.xml"), "utf8"),
   readFile(path.join(ROOT, "vercel.json"), "utf8").then(JSON.parse),
 ]);
+
+test("SHK showroom launches as one three-template industry experience", () => {
+  assert.match(showroom, /So könnte auch Ihre Website aussehen\./);
+  assert.doesNotMatch(showroom, /1 DESIGN VERFÜGBAR|EIN LIVE-BEISPIEL/);
+  assert.match(product, /three distinct production-ready template worlds/);
+  assert.match(product, /there is no per-template A\/B\/C split/);
+});
+
+test("SHK header fragments use deterministic one-click navigation", () => {
+  const stylesheetPosition = design.indexOf('<link rel="stylesheet" href="./styles.css"');
+  const heroPreloadPosition = design.indexOf("hero-desktop-1920.avif");
+
+  assert.ok(stylesheetPosition > -1 && stylesheetPosition < heroPreloadPosition);
+  assert.match(design, /<link rel="stylesheet" href="\.\/styles\.css" \/>\s*<script src="\.\/navigation\.js"><\/script>/);
+  assert.match(navigation, /document\.fonts\.ready/);
+  assert.match(navigation, /scrollIntoView\(\{ behavior: "auto", block: "start" \}\)/);
+  assert.match(navigation, /history\.(?:replaceState|pushState)/);
+});
 
 test("SHK showroom surfaces remain link-only and noindex", () => {
   assert.match(showroom, new RegExp(`<meta name="robots" content="${ROBOTS}"`));
