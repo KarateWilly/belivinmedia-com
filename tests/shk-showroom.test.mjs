@@ -33,6 +33,8 @@ test("SHK calls to action use the approved Calendly event", () => {
   assert.ok(design.includes(CALENDLY));
   assert.match(showroom, /href="\.\/design-1\/"/);
   assert.doesNotMatch(design, /href="(?:tel:|mailto:)/);
+  assert.doesNotMatch(showroom, /↗/);
+  assert.doesNotMatch(design, /↗/);
 });
 
 test("SHK demonstration identity remains fictional and safe", () => {

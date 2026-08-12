@@ -16,7 +16,7 @@ BELIVIN itself uses the showroom to validate one trade and one finished design a
 
 BELIVIN MEDIA's public website explains and sells its website service. Its industry showrooms demonstrate what a finished website for a specific trade could look like without pretending that a cold lead has already received a personalized build.
 
-The current objective is one production-ready SHK example. As soon as it is approved, it can be sent to one suppression-checked third of the qualified SHK lead population. A second and third fixed design may be added later for the remaining thirds.
+Template 1, `Inbetriebnahme-Pass`, is the locked production baseline after wide-screen, copy and interaction polish. It can be sent to one suppression-checked third of the qualified SHK lead population. Template 2 will use the separately authored `Versorgung in Schichten` direction; a third fixed design may be added later for the remaining third.
 
 Success means that a recipient immediately recognizes the SHK context, trusts the visible craft level on both desktop and mobile, understands that this is an example direction, and requests the same quality for their own business.
 
@@ -70,6 +70,7 @@ The showroom is a truthful pre-sale demonstration, not a lead-specific demo gene
 3. One branch earns expansion before another branch begins.
 4. Mobile is an authored sales surface, not desktop damage control.
 5. Visual quality is a human-reviewed release requirement; technical compliance is only the floor.
+6. Template 2 must be recognizably more experimental than Template 1 and may not reuse the Inbetriebnahme-Pass composition with swapped copy.
 
 ## Accessibility & Inclusion
 

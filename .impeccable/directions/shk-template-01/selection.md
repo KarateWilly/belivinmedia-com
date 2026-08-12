@@ -4,4 +4,6 @@
 - Source ID: `grounded-shk-inbetriebnahme-pass-v1`
 - User qualification: Keep the selected direction, but replace the exploratory industrial emphasis with residential, family and home-renovation imagery. Technical systems are supporting proof.
 - Reserved future direction: `challenger-multiplane` — Versorgung in Schichten, candidate for Template 2.
+- Final status: Template 1 locked after production review and targeted 4K typography, WIIFM/PAS copy, anchor-stability and CTA polish.
+- Template 2 decision: `challenger-multiplane` — Versorgung in Schichten; build it as a separate, more experimental visual world rather than a copy-swapped derivative of Template 1.
 - Decision channel: conversation after visual review page; the local polling server expired before recording the browser choice.
