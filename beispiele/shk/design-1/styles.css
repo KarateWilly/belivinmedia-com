@@ -47,7 +47,8 @@
 }
 
 html {
-  scroll-padding-top: calc(var(--header-height) + 20px);
+  overflow-anchor: none;
+  scroll-behavior: auto;
 }
 
 body {
@@ -305,14 +306,14 @@ ol {
   min-height: 52px;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 0;
   padding: 14px 20px;
   border: 1px solid var(--graphite);
   background: var(--vermilion);
   color: var(--graphite);
   font-weight: 800;
   text-decoration: none;
-  transition: background-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+  transition: background-color 160ms var(--ease-out);
 }
 
 .header-action {
@@ -325,12 +326,6 @@ ol {
 .header-action:hover,
 .primary-action:hover {
   background: var(--vermilion-active);
-  transform: translateY(-2px);
-}
-
-.header-action:active,
-.primary-action:active {
-  transform: translateY(0);
 }
 
 .hero {
@@ -374,12 +369,18 @@ ol {
 }
 
 .hero-copy h1 {
-  width: min(800px, 58vw);
+  width: min(1060px, 58vw);
   max-width: none;
   margin-bottom: 28px;
   font-size: clamp(5.2rem, 8.4vw, 9.6rem);
   line-height: 0.78;
   text-transform: uppercase;
+}
+
+@media (min-width: 1251px) {
+  .hero-copy > .utility-label {
+    margin-bottom: 32px;
+  }
 }
 
 .hero-copy h1 span {
@@ -609,7 +610,7 @@ ol {
   min-height: 44px;
   align-items: center;
   align-self: flex-start;
-  gap: 18px;
+  gap: 0;
   padding-block: 7px;
   border-bottom: 2px solid var(--vermilion);
   font-weight: 800;
@@ -948,7 +949,7 @@ ol {
 
   .hero-actions .primary-action {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .service-promise {
@@ -1100,7 +1101,7 @@ ol {
 
   .closing-meta .primary-action {
     width: 100%;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .footer-layout {
