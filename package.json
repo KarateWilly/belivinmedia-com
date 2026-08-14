@@ -19,7 +19,7 @@
     "lint:html": "html-validate index.html datenschutz.html impressum.html beispiele/shk/index.html beispiele/shk/design-1/index.html beispiele/shk/design-2/index.html",
     "lint:css": "csstree-validator styles.css && csstree-validator legal.css && csstree-validator beispiele/shk/showroom.css && csstree-validator beispiele/shk/design-1/styles.css && csstree-validator beispiele/shk/design-2/styles.css",
     "lint:js": "node --check .impeccable/responsive-qa.mjs && node --check .impeccable/session-handoff-check.mjs && node --check beispiele/shk/design-1/navigation.js && node --check beispiele/shk/design-2/experience.js",
-    "lint:impeccable": "node $HOME/.claude/skills/impeccable/scripts/detect.mjs index.html styles.css impressum.html datenschutz.html legal.css",
+    "lint:impeccable": "node .impeccable/vendor/detect.mjs index.html styles.css impressum.html datenschutz.html legal.css",
     "test": "node --test tests/*.test.mjs",
     "test:responsive": "node .impeccable/responsive-qa.mjs",
     "test:shk-design-2": "node .impeccable/shk-design-2-qa.mjs",

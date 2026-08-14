@@ -3,7 +3,7 @@
   "workflow": "impeccable-new-work",
   "designAuthority": "impeccable-only",
   "state": "release-candidate-approved",
-  "updatedAt": "2026-08-14T15:33:10Z",
+  "updatedAt": "2026-08-14T15:40:50Z",
   "direction": {
     "name": "Auftragszentrale",
     "origin": "grounded",
@@ -197,7 +197,7 @@
       "reason": "A fresh session can reconstruct current state from the global skill, repository contracts, manifests, registry, hashes, locks, and executable check without chat history.",
       "workflowBindings": {
         "AGENTS.md": "b8a361bd4353efb5a895eb50000f8140b39839fa76237dcb8a6d0b0eb42be34b",
-        "package.json": "3e2b9d63b79dddb5c81339dfc559d6903c8fdf538b5dc15bfa4970e6263be7bd",
+        "package.json": "34d66aaaca7caebf7d7231c4be24efe30bb04160139710ddaf7da5a3766378ff",
         ".impeccable/session-handoff-check.mjs": "20d089b7eae8bd501d295660baa93b6555cf46d956865f1944b6481a773896a0",
         ".impeccable/main-site-production-gate.mjs": "7281427e30b9b74d8e4b8519a3807295a8375c79845e29c7ae27e2d17ef04dd5",
         "tests/main-site-production-gate.test.mjs": "0728ea594903fd1bb7271395bb5335962e4805f3b0109a7f461df9becffd7773",
