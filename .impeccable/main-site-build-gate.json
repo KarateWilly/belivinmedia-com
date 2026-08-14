@@ -3,7 +3,7 @@
   "workflow": "impeccable-new-work",
   "designAuthority": "impeccable-only",
   "state": "release-candidate-approved",
-  "updatedAt": "2026-08-14T15:57:31Z",
+  "updatedAt": "2026-08-14T16:02:40Z",
   "direction": {
     "name": "Auftragszentrale",
     "origin": "grounded",
@@ -141,10 +141,10 @@
       "workflow": "global BELIVIN skill v1.3.0, canonical delivery standard, repository adapter, AGENTS.md, deterministic handoff check and fail-closed gate updated"
     },
     "releaseBindings": {
-      "index.html": "96b4609e066440498c1a5857b620d8043241ff64f00aaca2efeba10e198460f5",
+      "index.html": "2327a92550df4dcc23ae53443740d7275fa53edae2d7a36720523488768d9070",
       "styles.css": "0fc66aa6065a66d8dd1e9992ed222873348cd418576f204f6d56fd1724c6bb47",
-      "impressum.html": "614cc2496ad068d89c7642a3b7a5024f557435a66e6d51308addd28c8a5ef462",
-      "datenschutz.html": "9512195106bde460973b3e7d7e3896a8881ec5c3da63da96eba62957b768ed3a",
+      "impressum.html": "57de53f8de96b39e3c3afa11a0b055565cd4a0b0e8217ab39dde435a56b5a68e",
+      "datenschutz.html": "c39e2ce9f5b3f2df2dcd18bf5ca86a9f6229d79bcc77462eaa7d4d74ff75da0a",
       "legal.css": "e40f1de0bb003ff817a5a9d9d6a7c7d6bd6c1858cbb1ac6cc5d08717e3d8bcc1"
     },
     "releaseReadiness": {
@@ -201,7 +201,7 @@
         ".impeccable/session-handoff-check.mjs": "20d089b7eae8bd501d295660baa93b6555cf46d956865f1944b6481a773896a0",
         ".impeccable/main-site-production-gate.mjs": "e45598e7879cf1cdd7651284174327f1111c74f0a91b7a5a7e1fda4d4dbcb642",
         "tests/main-site-production-gate.test.mjs": "805c89978bfc27d7cf7d97708369d1f3978fdfa35fcbdf171db6adc234fa5f7a",
-        "tests/deploy-surface.test.mjs": "400ad1c9fd31367d681d8f49733ce8860180b54394801de8245bf65a0722f268",
+        "tests/deploy-surface.test.mjs": "32fc29eac8e60d6688a79f6676f87911c2efc30411b065813cd5e8dd9fe9cf13",
         "tests/shk-showroom.test.mjs": "60300fa897b7436cd3b9d1546ca009534bf9195e4fdf3aa7e56d110b3c1c25fa"
       }
     },
