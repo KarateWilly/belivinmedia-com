@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { chmodSync, cpSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { chmodSync, cpSync, mkdtempSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import test from 'node:test';
@@ -37,7 +37,10 @@ function run(root, action) {
 }
 
 function lockState(root, path) {
-  return execFileSync('ls', ['-lO', path], { cwd: root, encoding: 'utf8' });
+  if (process.platform === 'darwin') {
+    return execFileSync('ls', ['-lO', path], { cwd: root, encoding: 'utf8' });
+  }
+  return (statSync(join(root, path)).mode & 0o222) === 0 ? 'uchg' : '-';
 }
 
 function createFixture({ upstream = false, selectedRevision = false, heroProof = false, visualApproval = false } = {}) {

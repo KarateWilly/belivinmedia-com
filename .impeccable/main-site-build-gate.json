@@ -3,7 +3,7 @@
   "workflow": "impeccable-new-work",
   "designAuthority": "impeccable-only",
   "state": "release-candidate-approved",
-  "updatedAt": "2026-08-14T15:40:50Z",
+  "updatedAt": "2026-08-14T15:48:06Z",
   "direction": {
     "name": "Auftragszentrale",
     "origin": "grounded",
@@ -199,8 +199,8 @@
         "AGENTS.md": "b8a361bd4353efb5a895eb50000f8140b39839fa76237dcb8a6d0b0eb42be34b",
         "package.json": "34d66aaaca7caebf7d7231c4be24efe30bb04160139710ddaf7da5a3766378ff",
         ".impeccable/session-handoff-check.mjs": "20d089b7eae8bd501d295660baa93b6555cf46d956865f1944b6481a773896a0",
-        ".impeccable/main-site-production-gate.mjs": "7281427e30b9b74d8e4b8519a3807295a8375c79845e29c7ae27e2d17ef04dd5",
-        "tests/main-site-production-gate.test.mjs": "0728ea594903fd1bb7271395bb5335962e4805f3b0109a7f461df9becffd7773",
+        ".impeccable/main-site-production-gate.mjs": "e45598e7879cf1cdd7651284174327f1111c74f0a91b7a5a7e1fda4d4dbcb642",
+        "tests/main-site-production-gate.test.mjs": "805c89978bfc27d7cf7d97708369d1f3978fdfa35fcbdf171db6adc234fa5f7a",
         "tests/shk-showroom.test.mjs": "60300fa897b7436cd3b9d1546ca009534bf9195e4fdf3aa7e56d110b3c1c25fa"
       }
     },

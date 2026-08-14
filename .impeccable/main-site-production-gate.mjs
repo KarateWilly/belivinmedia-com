@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { access, mkdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { dirname, extname, resolve } from 'node:path';
@@ -66,10 +67,21 @@ async function requireFile(relativePath, label, extensions = null) {
 }
 
 function imageDimensions(absolutePath, label) {
-  const result = spawnSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', absolutePath], { encoding: 'utf8' });
-  if (result.status !== 0) throw new Error(`${label}: Bildabmessungen nicht lesbar`);
-  const width = Number(result.stdout.match(/pixelWidth:\s*(\d+)/)?.[1]);
-  const height = Number(result.stdout.match(/pixelHeight:\s*(\d+)/)?.[1]);
+  let width;
+  let height;
+  if (process.platform === 'darwin') {
+    const result = spawnSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', absolutePath], { encoding: 'utf8' });
+    if (result.status !== 0) throw new Error(`${label}: Bildabmessungen nicht lesbar`);
+    width = Number(result.stdout.match(/pixelWidth:\s*(\d+)/)?.[1]);
+    height = Number(result.stdout.match(/pixelHeight:\s*(\d+)/)?.[1]);
+  } else {
+    const bytes = readFileSync(absolutePath);
+    const isPng = bytes.length >= 24
+      && bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+    if (!isPng) throw new Error(`${label}: plattformübergreifend werden derzeit PNG-Abmessungen unterstützt`);
+    width = bytes.readUInt32BE(16);
+    height = bytes.readUInt32BE(20);
+  }
   if (!width || !height) throw new Error(`${label}: ungültige Bildabmessungen`);
   return { width, height };
 }
@@ -528,9 +540,15 @@ async function validateHeroProof(upstream) {
 function changeFlags(enabled, relativeTargets) {
   const existing = relativeTargets.filter(path => spawnSync('test', ['-e', path], { cwd: root }).status === 0);
   if (existing.length === 0) return;
-  const flag = enabled ? 'uchg' : 'nouchg';
-  const result = spawnSync('chflags', [flag, ...existing], { cwd: root, encoding: 'utf8' });
-  if (result.status !== 0) throw new Error(result.stderr.trim() || `chflags ${flag} fehlgeschlagen`);
+  if (process.platform === 'darwin') {
+    const flag = enabled ? 'uchg' : 'nouchg';
+    const result = spawnSync('chflags', [flag, ...existing], { cwd: root, encoding: 'utf8' });
+    if (result.status !== 0) throw new Error(result.stderr.trim() || `chflags ${flag} fehlgeschlagen`);
+    return;
+  }
+  const mode = enabled ? 'a-w' : 'u+w';
+  const result = spawnSync('chmod', [mode, ...existing], { cwd: root, encoding: 'utf8' });
+  if (result.status !== 0) throw new Error(result.stderr.trim() || `chmod ${mode} fehlgeschlagen`);
 }
 
 async function prepareHeroFiles() {
@@ -548,14 +566,19 @@ async function prepareHeroFiles() {
 function lockStatus(relativeTargets) {
   const existing = relativeTargets.filter(path => spawnSync('test', ['-e', path], { cwd: root }).status === 0);
   if (existing.length === 0) return;
-  const result = spawnSync('ls', ['-lO', ...existing], { cwd: root, encoding: 'utf8' });
+  const options = process.platform === 'darwin' ? ['-lO', ...existing] : ['-l', ...existing];
+  const result = spawnSync('ls', options, { cwd: root, encoding: 'utf8' });
   process.stdout.write(result.stdout);
   if (result.status !== 0) throw new Error(result.stderr.trim() || 'Lock-Status nicht lesbar');
 }
 
 function isImmutable(relativePath) {
-  const result = spawnSync('ls', ['-lO', relativePath], { cwd: root, encoding: 'utf8' });
-  return result.status === 0 && /\buchg\b/.test(result.stdout);
+  if (process.platform === 'darwin') {
+    const result = spawnSync('ls', ['-lO', relativePath], { cwd: root, encoding: 'utf8' });
+    return result.status === 0 && /\buchg\b/.test(result.stdout);
+  }
+  const result = spawnSync('test', ['-w', relativePath], { cwd: root });
+  return result.status !== 0;
 }
 
 async function validateCommit() {
