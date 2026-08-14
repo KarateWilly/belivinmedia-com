@@ -328,7 +328,7 @@ body { overflow-x: hidden; overflow-y: auto; }
   width: 1672px;
   margin: 0;
   overflow: hidden;
-  background: #171a18 url("/.impeccable/assets/belivin-main-site/graphite-field-sharp-1672x1400.webp") center / cover no-repeat;
+  background: #171a18 url("/public/main-site/graphite-field-sharp-1672x1400.webp") center / cover no-repeat;
 }
 .work-surface::before,
 .work-surface::after {
@@ -461,7 +461,7 @@ body { overflow-x: hidden; overflow-y: auto; }
   grid-template-columns: 230px 1fr;
   align-items: center;
   padding: 50px 90px;
-  background: url("/.impeccable/assets/belivin-main-site/region-sign-1200x360.webp") center / 100% 100% no-repeat;
+  background: url("/public/main-site/region-sign-1200x360.webp") center / 100% 100% no-repeat;
 }
 .region-sign svg {
   width: 122px;
@@ -499,7 +499,7 @@ body { overflow-x: hidden; overflow-y: auto; }
   gap: 40px;
   padding: 38px 92px 30px 112px;
   color: #171916;
-  background: url("/.impeccable/assets/belivin-main-site/closing-ticket-1000x262.webp") center / 100% 100% no-repeat;
+  background: url("/public/main-site/closing-ticket-1000x262.webp") center / 100% 100% no-repeat;
 }
 .closing-ticket h2 {
   max-width: 555px;
@@ -556,7 +556,7 @@ body { overflow-x: hidden; overflow-y: auto; }
   }
   body {
     overflow-x: hidden;
-    background: #171a18 url("/.impeccable/assets/belivin-main-site/graphite-field-sharp-1672x1400.webp") center top / auto 1200px repeat-y;
+    background: #171a18 url("/public/main-site/graphite-field-sharp-1672x1400.webp") center top / auto 1200px repeat-y;
   }
   .page-shell,
   .work-surface,
@@ -819,7 +819,7 @@ body { overflow-x: hidden; overflow-y: auto; }
 
   .work-surface {
     height: auto;
-    background-image: url("/.impeccable/assets/belivin-main-site/graphite-field-sharp-1672x1400.webp");
+    background-image: url("/public/main-site/graphite-field-sharp-1672x1400.webp");
   }
   .process-section { min-height: 620px; padding: 78px clamp(28px, 5vw, 66px) 82px; }
   .section-heading {

@@ -40,7 +40,7 @@ body {
   min-width: 320px;
   margin: 0;
   color: var(--paper);
-  background: var(--graphite) url("/.impeccable/assets/belivin-main-site/graphite-field-sharp-1672x1400.webp") center top / 1672px auto repeat-y;
+  background: var(--graphite) url("/public/main-site/graphite-field-sharp-1672x1400.webp") center top / 1672px auto repeat-y;
   font-family: "IBM Plex Sans Condensed", sans-serif;
   font-size: 18px;
   line-height: 1.55;
