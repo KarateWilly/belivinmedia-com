@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "comp-a-leitstand",
+  "label": "A · Leitstand",
+  "path": ".impeccable/mocks/belivin-main-site/comp-a-leitstand.png",
+  "prompt": "BELIVIN Auftragszentrale Hi-Fi Comp A2 Leitstand. Real German desktop web surface, front-on. Top navigation rail, left briefing sheet with exact locked copy and material orange 15 Min. Website-Check ticket, right three-lane GESEHEN-VERSTANDEN-ANGEFRAGT system, prominent truthful SHK live industry example, continuous four-step second fold. Graphite enamel, work paper, aluminum, green enamel. No invented clients, orders, dates, metrics or outcomes.",
+  "generation": {
+    "provider": "openai-codex",
+    "model": "gpt-image-2-high",
+    "quality": "high",
+    "upscaled": true,
+    "referenceImages": [
+      ".impeccable/sketches/belivin-main-site-handwerk/auftragszentrale.png",
+      "public/beispiele/shk/design-1/hero-desktop-1280.webp"
+    ]
+  },
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "copyPath": ".impeccable/copy/belivin-main-site-approved.md",
+  "copySha256": "74601c6c5865eea1811fc0a822239e664d9f68454a0328a625c32325d843ce76",
+  "topology": "Leitstand: große Briefing-Arbeitskarte links, drei vertikale Anfragebahnen rechts, durchgehender Workflow-Second-Fold.",
+  "truthReview": {
+    "status": "accepted",
+    "notes": "Kein Kundenprojekt, keine Auftragsnummern, Termine, Rankings, Ratings oder Ergebnisclaims. SHK-Proof klar als Branchenbeispiel markiert. A1 wurde wegen erfundener operativer Daten verworfen; dies ist A2."
+  },
+  "approved": false
+}

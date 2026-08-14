@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 2,
+  "workflow": "impeccable-new-work",
+  "designAuthority": "impeccable-only",
+  "state": "release-candidate-approved",
+  "updatedAt": "2026-08-14T15:33:10Z",
+  "direction": {
+    "name": "Auftragszentrale",
+    "origin": "grounded",
+    "status": "approved",
+    "approvedBy": "Mario",
+    "approvedAt": "2026-08-13",
+    "approvalRecord": ".impeccable/approvals/belivin-main-site-direction.json",
+    "seedKey": "6d6ca027",
+    "decisionSketch": ".impeccable/sketches/belivin-main-site-handwerk/auftragszentrale.png",
+    "decisionCard": ".impeccable/questions/belivin-main-site-auftragszentrale.json",
+    "contractSource": ".impeccable/directions/belivin-main-site-handwerk/proposal.md",
+    "directionReferences": [
+      {
+        "type": "grounded-direction-card",
+        "path": ".impeccable/questions/belivin-main-site-auftragszentrale.json"
+      },
+      {
+        "type": "direction-sketch",
+        "path": ".impeccable/sketches/belivin-main-site-handwerk/auftragszentrale.png"
+      }
+    ],
+    "qualityBarReferences": []
+  },
+  "copy": {
+    "status": "locked",
+    "lockedBy": "Jarvis",
+    "lockedAt": "2026-08-13T21:33:00Z",
+    "path": ".impeccable/copy/belivin-main-site-approved.md",
+    "sha256": "6e1ccd3867c69129dde449826b7dd5a0d17e62e901346675ce6e3eed241f680c"
+  },
+  "visualization": {
+    "comps": [
+      {
+        "path": ".impeccable/mocks/belivin-main-site/comp-a-leitstand.png",
+        "sidecar": ".impeccable/mocks/belivin-main-site/comp-a-leitstand.json"
+      },
+      {
+        "path": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png",
+        "sidecar": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.json"
+      },
+      {
+        "path": ".impeccable/mocks/belivin-main-site/comp-c-pruefplatz.png",
+        "sidecar": ".impeccable/mocks/belivin-main-site/comp-c-pruefplatz.json"
+      }
+    ],
+    "selection": {
+      "status": "approved",
+      "approvedBy": "Mario",
+      "approvedAt": "2026-08-13T21:16:38Z",
+      "approvalRecord": ".impeccable/approvals/belivin-main-site-comp.json",
+      "path": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png"
+    },
+    "selectedCompRevision": {
+      "status": "approved",
+      "approvedBy": "Mario",
+      "approvedAt": "2026-08-13T21:33:00Z",
+      "approvalRecord": ".impeccable/approvals/belivin-main-site-comp-revision.json",
+      "path": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+      "sidecar": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.json"
+    }
+  },
+  "surfaceBrief": {
+    "path": ".impeccable/surfaces/index.md"
+  },
+  "heroContent": {
+    "path": ".impeccable/hero-content.json"
+  },
+  "inventory": {
+    "status": "complete",
+    "completedAt": "2026-08-13T23:11:43Z",
+    "path": ".impeccable/mocks/belivin-main-site/fidelity-inventory.json"
+  },
+  "assetProducer": {
+    "status": "complete",
+    "completedAt": "2026-08-13T23:11:43Z",
+    "producer": "impeccable-asset-producer",
+    "manifest": ".impeccable/assets/belivin-main-site/producer-manifest.json"
+  },
+  "heroProof": {
+    "status": "pass",
+    "completedAt": "2026-08-14T11:42:49Z",
+    "reason": "Byte-identical browser-native master transfer plus separate B4 headline and contour thresholds passed. Complete pin/revenue source bboxes and Mario-approved smoothing are provenance-bound; real proof exception remains explicit.",
+    "heroHtml": ".impeccable/hero-build/index.html",
+    "heroCss": ".impeccable/hero-build/styles.css",
+    "screenshot": ".impeccable/hero-proof/screenshot.png",
+    "overlay": ".impeccable/hero-proof/overlay.png",
+    "comparisonReport": ".impeccable/hero-proof/fidelity-matrix.json"
+  },
+  "implementation": {
+    "status": "visually-approved",
+    "completedAt": "2026-08-14T12:34:08Z",
+    "reason": "Desktop master transfer, sharp root material, independent tablet/mobile compositions, redesigned script-free legal pages, responsive browser matrix, current DIEZA corporate records and fail-closed industry registry are complete. Mario explicitly approved the complete release candidate for commit and main push.",
+    "desktopScreenshot": ".impeccable/main-site-desktop-responsive-final.png",
+    "desktopScreenshotSha256": "f12d75c50bcf8a8c057e4b13409ef9758bfb4062c77d1e7811afd406b39a1560",
+    "firstViewportScreenshot": ".impeccable/main-site-first-viewport-responsive-final.png",
+    "firstViewportSha256": "066cfe6bcce949a1b60b3cec9809ae6ce0639f5e8d7e34c176a34099997bf3d4",
+    "firstViewportHeroTransfer": {
+      "mae": 0,
+      "maxChannelDelta": 0,
+      "changedPixels": 0,
+      "heroProofScreenshotSha256": "066cfe6bcce949a1b60b3cec9809ae6ce0639f5e8d7e34c176a34099997bf3d4"
+    },
+    "indexHtmlSha256": "3ee5834963a4c898d8ff55fa9b54e06dca6976b7a42f9eaf5d43fd001ba9f50d",
+    "stylesCssSha256": "de9716d8c6937a873a5e43ee3b4b978045907497d60ae8561cfda86249fc8bb2",
+    "browserProof": {
+      "chromium": "pass",
+      "webkit": "pass",
+      "desktopViewport": [1672, 941],
+      "documentSize": [1672, 2671],
+      "responsiveViewports": [[1366, 900], [1024, 900], [768, 1024], [430, 932], [390, 844], [360, 800]],
+      "legalViewports": [[1440, 900], [768, 1024], [390, 844]],
+      "headerNavigationClicks": 4,
+      "headerNavigationHitTests": 4,
+      "duplicateIds": 0,
+      "forbiddenCopyMatches": 0,
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "shkRouteStatus": 200,
+      "impressumStatus": 200,
+      "datenschutzStatus": 200,
+      "htmlValidate": "pass",
+      "cssValidate": "pass including legal.css",
+      "impeccableDetector": "main and legal pass",
+      "tests": "22/22 pass",
+      "responsiveQa": "17/17 pass in Chromium and WebKit; max CLS 0",
+      "shkDesign2Qa": "12 viewports × 2 engines plus 150/200 percent text scaling pass"
+    },
+    "reviewCorrections": {
+      "status": "complete",
+      "productPin": "complete B4 source bbox restored; cubic contour; browser overlay IoU 0.9664",
+      "regionPin": "same corrected bound SVG reused; geometric precision; zero-blur shadow",
+      "revenueArrow": "complete B4 source bbox restored; 11-point polygon; browser overlay IoU 0.885",
+      "closingHeadline": "left padding increased by 42px; heading begins at x=448 outside hazard strip",
+      "rootMaterialSharpness": "source-level defocus removed with accepted local B variant; Laplacian variance 2.389 to 24.022; first viewport remains byte-identical",
+      "workflow": "global BELIVIN skill v1.3.0, canonical delivery standard, repository adapter, AGENTS.md, deterministic handoff check and fail-closed gate updated"
+    },
+    "releaseBindings": {
+      "index.html": "3ee5834963a4c898d8ff55fa9b54e06dca6976b7a42f9eaf5d43fd001ba9f50d",
+      "styles.css": "de9716d8c6937a873a5e43ee3b4b978045907497d60ae8561cfda86249fc8bb2",
+      "impressum.html": "614cc2496ad068d89c7642a3b7a5024f557435a66e6d51308addd28c8a5ef462",
+      "datenschutz.html": "9512195106bde460973b3e7d7e3896a8881ec5c3da63da96eba62957b768ed3a",
+      "legal.css": "a0e9b6762bc7d6d67d8d866de01b8d734fa2c59639b801edfad3cc023e0accbd"
+    },
+    "releaseReadiness": {
+      "responsive": {
+        "status": "pass",
+        "completedAt": "2026-08-14T12:34:08Z",
+        "qaScript": ".impeccable/responsive-qa.mjs",
+        "qaScriptSha256": "c6047406cfd9424796d67fdac239ddabf9d9ae6d333f4ef7564799f6d344235b",
+        "checks": 17,
+        "engines": ["chromium", "webkit"],
+        "maxCls": 0,
+        "desktopMasterTransferChangedPixels": 0
+      },
+      "legal": {
+        "status": "pass",
+        "reason": "Registration number, license number, issuing authority and registered premises were verified against the current DIEZA Certificate of Formation and Trade License; updated legal pages passed HTML, detector, responsive and visual QA.",
+        "licensingAuthorityVerified": true,
+        "licensingAuthority": "Dubai Integrated Economic Zones Authority (DIEZA)",
+        "registrationNumber": "70291",
+        "licenseNumber": "72291",
+        "registeredPremises": "IFZA Properties, DSO-IFZA, Dubai Silicon Oasis",
+        "verifiedAt": "2026-08-14T15:20:48Z",
+        "verificationSources": {
+          "tradeLicenseSha256": "7cced4f6da22c6bd04c723e8a8bfe7f8ef357120776313413fb19b2d77179f30",
+          "certificateOfFormationSha256": "0fb4cbcaa37de37f8770e69dbf4bd2c31ed95ea1f52cecadbe3629a75fabdc80"
+        },
+        "visualEvidence": {
+          "impressumDesktop": "cb6202dcce45124a8f8e779d8a2ec7e665ada4d8d740797991f1df9c7992cdce",
+          "impressumMobile": "aec054e7aa918c1abd9a6a469a066f13823f2129d2e372added73e8ecac8d0f3",
+          "datenschutzDesktop": "9ead6ba792f6cb2c9333e625897dd5b6ec243771c98870067873f0cf17912937",
+          "datenschutzMobile": "2e0266cd73cfa7c908fc4f8b5abe0bceefec1bf4532eaaa4f83745a9fdd0fe5b"
+        },
+        "trackerFree": true,
+        "scriptFree": true,
+        "impeccableDetector": "pass",
+        "hostingDataFlows": ["Cloudflare", "Vercel"],
+        "externalBookingLink": "Calendly link only; no embed"
+      },
+      "industryRegistry": {
+        "status": "pass",
+        "path": "beispiele/industry-registry.json",
+        "sha256": "bdb6b4fd5d74eda3a8b7ef81dc929427b5f2b2192f5eb781b8eb2e1e424e20f9",
+        "shk": "2/3 production templates; public hub and outreach blocked"
+      }
+    },
+    "sessionHandoff": {
+      "status": "ready",
+      "checkCommand": "npm run handoff:check",
+      "checkScript": ".impeccable/session-handoff-check.mjs",
+      "reason": "A fresh session can reconstruct current state from the global skill, repository contracts, manifests, registry, hashes, locks, and executable check without chat history.",
+      "workflowBindings": {
+        "AGENTS.md": "b8a361bd4353efb5a895eb50000f8140b39839fa76237dcb8a6d0b0eb42be34b",
+        "package.json": "3e2b9d63b79dddb5c81339dfc559d6903c8fdf538b5dc15bfa4970e6263be7bd",
+        ".impeccable/session-handoff-check.mjs": "20d089b7eae8bd501d295660baa93b6555cf46d956865f1944b6481a773896a0",
+        ".impeccable/main-site-production-gate.mjs": "7281427e30b9b74d8e4b8519a3807295a8375c79845e29c7ae27e2d17ef04dd5",
+        "tests/main-site-production-gate.test.mjs": "0728ea594903fd1bb7271395bb5335962e4805f3b0109a7f461df9becffd7773",
+        "tests/shk-showroom.test.mjs": "60300fa897b7436cd3b9d1546ca009534bf9195e4fdf3aa7e56d110b3c1c25fa"
+      }
+    },
+    "visualApproval": {
+      "status": "approved",
+      "approvedBy": "Mario",
+      "approvedAt": "2026-08-14T15:33:10Z",
+      "approvalRecord": ".impeccable/approvals/belivin-main-site-desktop-build.json"
+    }
+  }
+}

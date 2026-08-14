@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 2,
+  "disposition": "pass",
+  "firstViewportOnly": true,
+  "completedAt": "2026-08-14T11:42:49Z",
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "approvedCompPath": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+  "approvedCompSha256": "bf165deeaa2f8460484e447c4e4f040004a37155964cd14e07e25fd82e95b2e7",
+  "productionSourceManifest": ".impeccable/comp-builds/belivin-main-site-b4/source-manifest.json",
+  "productionSourceManifestSha256": "c92bbad4f1eefe6c914665864a32e07a0ca1f6d7ee7d87b7f150f8ad056e2ac1",
+  "heroHtmlSha256": "051a840f3bef07d5e59bdbc8a68d503a628efd250beff26bbddf7d71bc5df82f",
+  "heroCssSha256": "e476b992b7b622eac877befaef35238fa7c97a669cec45add98f36402e7db2cf",
+  "screenshotSha256": "066cfe6bcce949a1b60b3cec9809ae6ce0639f5e8d7e34c176a34099997bf3d4",
+  "overlaySha256": "7d3c78f25cd305f5f243f383381521346a9b0d8a8dfd20294414d7c3600ec64e",
+  "inventorySha256": "e6eaf7aee61df7b5f8f7d099e96de3ac4b523826f835d366022151e24fe9926e",
+  "heroContentSha256": "93e0db366ce561f30f89ca35a33a7a9f0a5535d0026ed49b4606a2485b024190",
+  "sourceTransfer": {
+    "htmlByteEqual": true,
+    "cssByteEqual": true,
+    "masterRenderMae": 0.0,
+    "masterRenderMaxChannelDelta": 0,
+    "masterRenderChangedPixels": 0
+  },
+  "objectiveFidelity": {
+    "headlineMaskIou": 0.4928,
+    "headlineMinimum": 0.45,
+    "contourMinimum": 0.7,
+    "contourRange": [
+      0.7164,
+      0.9664
+    ],
+    "regionMeanAbsoluteRgbError": {
+      "full": 25.058,
+      "header": 15.753,
+      "copy": 36.928,
+      "mechanism": 13.205,
+      "cta": 17.027,
+      "proof": 58.218,
+      "products": 16.279
+    },
+    "realProofException": "A real 1280x1082 Chromium screenshot replaces model-painted proof content truthfully while preserving the approved frame and aperture."
+  },
+  "evidence": {
+    "screenshot": ".impeccable/hero-proof/screenshot.png",
+    "overlay": ".impeccable/hero-proof/overlay.png",
+    "sideBySide": ".impeccable/hero-proof/side-by-side.png",
+    "diff": ".impeccable/hero-proof/diff.png",
+    "browser": "Chromium via Playwright",
+    "browserGate": {
+      "documentOverflow": false,
+      "consoleErrors": 0,
+      "pageErrors": 0,
+      "loadedFonts": [
+        "League Gothic",
+        "IBM Plex Sans Condensed"
+      ],
+      "headlineLines": 2,
+      "approvedCopyBoundSemantically": true,
+      "shkRouteStatus": 200,
+      "forbiddenCopyMatches": [],
+      "headerNavigationHitTest": "pass; decorative mechanism layer pointer-events none",
+      "htmlValidateAria": "pass; locked copy exposed with visually-hidden semantic text"
+    }
+  },
+  "matrix": [
+    {
+      "inventoryId": "hero-topology",
+      "verdict": "match",
+      "evidence": "Approved 1672x941 positions and layer topology are retained."
+    },
+    {
+      "inventoryId": "reading-order",
+      "verdict": "match",
+      "evidence": "Semantic and visual order remains headline, support, mechanism, CTA, proof, products."
+    },
+    {
+      "inventoryId": "focal-mass",
+      "verdict": "match",
+      "evidence": "Headline, proof, orange ticket and product rail retain approved relative mass."
+    },
+    {
+      "inventoryId": "type-system",
+      "verdict": "match",
+      "evidence": "League Gothic is self-hosted under OFL; headline mask IoU 0.4928 exceeds the bound 0.45 minimum and replaces prior Archivo IoU 0.266."
+    },
+    {
+      "inventoryId": "physical-material-stage",
+      "verdict": "match",
+      "evidence": "Bound material-stage hash renders graphite, paper, metal, clamps, ticket and proof frame."
+    },
+    {
+      "inventoryId": "shk-live-proof",
+      "verdict": "acceptable-adaptation",
+      "evidence": "Real undistorted Chromium screenshot at the exact aperture ratio replaces generated proof claims; desktop hero, photo, CTA and service cards are visible."
+    },
+    {
+      "inventoryId": "header-navigation",
+      "verdict": "match",
+      "evidence": "Brand, four navigation links and the B4-traced header pin occupy the approved rail; pin contour IoU 0.8565."
+    },
+    {
+      "inventoryId": "primary-ticket-cta",
+      "verdict": "match",
+      "evidence": "The entire approved orange ticket is the Calendly CTA and contains exact locked CTA copy."
+    },
+    {
+      "inventoryId": "second-fold-products",
+      "verdict": "match",
+      "evidence": "Three product cells preserve approved dividers, icon plates, headings, rules and copy baselines."
+    },
+    {
+      "inventoryId": "status-and-product-icons",
+      "verdict": "match",
+      "evidence": "B4-derived production symbols are reused. Complete-bbox overlay IoU: eye .8428, bulb .7164, mail .9088, build .9101, local .9664, revenue .8850, header pin .8565. Local/revenue smoothing is Mario-approved and provenance-bound."
+    },
+    {
+      "inventoryId": "route-diagram",
+      "verdict": "match",
+      "evidence": "Both top arrows and full lower route are traced from approved B4 pixels; IoU .8122/.8000/.8258."
+    },
+    {
+      "inventoryId": "layer-contract",
+      "verdict": "match",
+      "evidence": "Real proof sits below material alpha aperture; exact route, SVGs and semantic HTML sit above without blocking links."
+    }
+  ],
+  "addedWithoutApproval": []
+}

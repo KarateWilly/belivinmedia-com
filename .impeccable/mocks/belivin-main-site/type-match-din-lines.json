@@ -1,0 +1,84 @@
+{
+  "reference_line_bboxes": [
+    [
+      18,
+      29,
+      410,
+      82
+    ],
+    [
+      18,
+      99,
+      408,
+      162
+    ]
+  ],
+  "results": [
+    {
+      "name": "DINish Condensed Black",
+      "font": "/tmp/dinish/fonts/ttf/DINishCondensed/DINishCondensed-Black.ttf",
+      "mean_iou": 0.3457,
+      "line_ious": [
+        0.3516,
+        0.3398
+      ],
+      "size": 75,
+      "tracking": -4.0
+    },
+    {
+      "name": "DINish Condensed Heavy",
+      "font": "/tmp/dinish/fonts/ttf/DINishCondensed/DINishCondensed-Heavy.ttf",
+      "mean_iou": 0.3266,
+      "line_ious": [
+        0.3278,
+        0.3253
+      ],
+      "size": 74,
+      "tracking": -4.0
+    },
+    {
+      "name": "DINish Condensed Bold",
+      "font": "/tmp/dinish/fonts/ttf/DINishCondensed/DINishCondensed-Bold.ttf",
+      "mean_iou": 0.3102,
+      "line_ious": [
+        0.3039,
+        0.3165
+      ],
+      "size": 74,
+      "tracking": -4.0
+    },
+    {
+      "name": "D-DIN Condensed Bold",
+      "font": "/tmp/datto-d-din/D-DINCondensed-Bold.ttf",
+      "mean_iou": 0.3092,
+      "line_ious": [
+        0.3397,
+        0.2787
+      ],
+      "size": 75,
+      "tracking": -2.0
+    },
+    {
+      "name": "macOS DIN Condensed Bold",
+      "font": "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
+      "mean_iou": 0.3063,
+      "line_ious": [
+        0.3315,
+        0.2812
+      ],
+      "size": 64,
+      "tracking": -4.0
+    },
+    {
+      "name": "DINish Condensed SemiBold",
+      "font": "/tmp/dinish/fonts/ttf/DINishCondensed/DINishCondensed-SemiBold.ttf",
+      "mean_iou": 0.2933,
+      "line_ious": [
+        0.2934,
+        0.2932
+      ],
+      "size": 74,
+      "tracking": -4.0
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "approvedCompPath": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+  "approvedCompSha256": "bf165deeaa2f8460484e447c4e4f040004a37155964cd14e07e25fd82e95b2e7",
+  "copyPath": ".impeccable/copy/belivin-main-site-approved.md",
+  "copySha256": "6e1ccd3867c69129dde449826b7dd5a0d17e62e901346675ce6e3eed241f680c",
+  "viewport": { "width": 1672, "height": 941 },
+  "items": [
+    {
+      "id": "hero-topology",
+      "role": "topology",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Header 0–103; copy x52–449; statusroute x478–993; CTA x80–714 y576–742; Proof x1012–1651; Second Fold ab y760. Keine Neuanordnung."
+    },
+    {
+      "id": "reading-order",
+      "role": "reading-order",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Headline → Support → Statusroute → CTA → SHK-Proof → Produkt-Trias; semantische DOM-Reihenfolge bleibt logisch, visuelle Position entspricht B4."
+    },
+    {
+      "id": "focal-mass",
+      "role": "focal-scale",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Headline und Proof sind die zwei größten Fokalflächen; CTA ist breiteste Aktionsfläche; Mechanismus bleibt kompakter Vermittler dazwischen."
+    },
+    {
+      "id": "type-system",
+      "role": "typography",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Archivo Variable bei nativer Width-Achse 62% und Gewicht 700 für Display/Utility; IBM Plex Sans Condensed 400 für Body; beide selbst gehostet; Headline exakt zwei Zeilen.",
+      "compressionClass": "condensed industrial grotesk",
+      "headlineSampleComparison": "PASS: echter Chromium-1:1-Vergleich unter `.impeccable/mocks/belivin-main-site/type-proof-browser.png`; Archivo Variable wdth 62% trifft B4-Kompression und Zeilenrhythmus, IBM Plex Condensed wurde als Display verworfen."
+    },
+    {
+      "id": "physical-material-stage",
+      "role": "material",
+      "medium": "generated-raster",
+      "commitment": "Ein 1672×941 Materialstage reproduziert Graphit-Emaille, Papierfaser, Aluminiumrails, Clips, Schrauben, Ticket und Proof-Rahmen. Core Text/Icons/Proof werden entfernt; Proof-Innenfenster erhält Alpha. Keine CSS-Materialsimulation.",
+      "assetPath": ".impeccable/assets/belivin-main-site/material-stage-1672x941.png",
+      "produce": true
+    },
+    {
+      "id": "shk-live-proof",
+      "role": "proof",
+      "medium": "existing-project-asset",
+      "commitment": "Ein echter Chromium-Screenshot der bestehenden Route `/beispiele/shk/design-1/` zeigt Navigation, Headline, CTA und Foto vollständig im transparenten Proof-Fenster; kein `cover`-Crop. Sichtbarer Link führt zur realen Route.",
+      "assetPath": ".impeccable/mocks/belivin-main-site/shk-design-1-live-1280x720.png",
+      "sourceRoute": "/beispiele/shk/design-1/",
+      "sourceViewport": { "width": 1280, "height": 720 },
+      "fit": "contain"
+    },
+    {
+      "id": "header-navigation",
+      "role": "navigation",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Logo, vier Navigationslinks und Region bleiben semantisch und an B4-Positionen; Materialrail liegt nicht klickblockierend darüber."
+    },
+    {
+      "id": "primary-ticket-cta",
+      "role": "primary-cta",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Das physische Ticket stammt aus dem Rasterstage; CTA-Text und gesamter 634×166-Hitbereich sind ein semantischer Calendly-Link. Kein Standardbutton.",
+      "semanticControl": true
+    },
+    {
+      "id": "second-fold-products",
+      "role": "second-fold",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Genau drei gleichgewichtete Felder: WEBSITE BAUEN, LOKAL SICHTBAR WERDEN, MEHR UMSATZ. Identische Icon-, Headline- und Body-Baselines."
+    },
+    {
+      "id": "status-and-product-icons",
+      "role": "icon-system",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Auge, Glühbirne, Brief, Monitor/Zirkel, Standort und Umsatzpfeil als authored SVG in konsistenter 3–4 px Strichstärke; keine Unicode-Symbole. Browsergerendertes System visuell akzeptiert.",
+      "assetPath": ".impeccable/assets/belivin-main-site/icon-sprite.svg",
+      "reviewProof": ".impeccable/mocks/belivin-main-site/vector-proof.png"
+    },
+    {
+      "id": "route-diagram",
+      "role": "mechanism-diagram",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Weiße GESEHEN→VERSTANDEN→ANGEFRAGT-Verbindung und untere Sammelroute als skalierbares authored SVG; Pfeilrichtung entspricht der Aussage.",
+      "assetPath": ".impeccable/assets/belivin-main-site/route-system-1672x941.svg"
+    },
+    {
+      "id": "layer-contract",
+      "role": "overlap-z-order",
+      "medium": "semantic-html-css-svg",
+      "commitment": "Proof live hinter Alpha-Fenster; Rasterstage darüber; SVG und Text darüber; Fokuszustände ganz oben. Dekoration pointer-events:none."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "surface": "BELIVIN Hauptseite einschließlich Desktop, Tablet, Mobile, Impressum und Datenschutz",
+  "status": "approved",
+  "approvedBy": "Mario",
+  "approvedAt": "2026-08-14T15:33:10Z",
+  "source": "chat-explicit",
+  "evidence": "freigegeben commit und push dann schau ich es mir mal live an auf mehreren geräten und mobil und kann mehr darüber sagen",
+  "selectedPath": ".impeccable/main-site-desktop-responsive-final.png",
+  "scope": "complete-release-candidate",
+  "decision": "Final freigegeben; committen und main pushen."
+}

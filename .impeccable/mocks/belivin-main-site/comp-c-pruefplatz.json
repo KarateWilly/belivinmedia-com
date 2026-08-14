@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "comp-c-pruefplatz",
+  "label": "C · Prüfplatz",
+  "path": ".impeccable/mocks/belivin-main-site/comp-c-pruefplatz.png",
+  "prompt": "BELIVIN Auftragszentrale Hi-Fi Comp C Prüfplatz. Real German desktop web surface, front-on. Left briefing sheet with exact locked copy and material orange Website-Check ticket, very large central aluminum-framed truthful SHK live website proof, right vertical GESEHEN-VERSTANDEN-ANGEFRAGT status rail, four-step second fold. Graphite enamel, work paper, aluminum, green enamel. No invented clients, orders, dates, metrics or outcomes.",
+  "generation": {
+    "provider": "openai-codex",
+    "model": "gpt-image-2-high",
+    "quality": "high",
+    "upscaled": true,
+    "referenceImages": [
+      "public/beispiele/shk/design-1/hero-desktop-1280.webp"
+    ]
+  },
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "copyPath": ".impeccable/copy/belivin-main-site-approved.md",
+  "copySha256": "74601c6c5865eea1811fc0a822239e664d9f68454a0328a625c32325d843ce76",
+  "topology": "Prüfplatz: Briefing links, sehr großer zentraler Website-Proof im Aluminium-Prüfrahmen, kompakte vertikale Statusrail rechts, vierstufiger Second Fold.",
+  "truthReview": {
+    "status": "accepted",
+    "notes": "Keine Kundenidentität, Auftragsdaten, Rankings, Ratings oder Ergebnisclaims. Proof klar als Live-Branchenbeispiel und nicht als Kundenprojekt markiert."
+  },
+  "approved": false
+}

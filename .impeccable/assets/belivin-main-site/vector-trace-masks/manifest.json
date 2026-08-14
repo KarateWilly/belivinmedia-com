@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 2,
+  "source": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+  "sourceSha256": "bf165deeaa2f8460484e447c4e4f040004a37155964cd14e07e25fd82e95b2e7",
+  "method": "B4 pixels -> complete OpenCV Otsu masks -> production contours. Local/revenue were bbox-completed and geometry-smoothed after Mario visual review; no new symbol concept.",
+  "items": {
+    "seen": {
+      "bbox": [
+        508,
+        300,
+        585,
+        365
+      ],
+      "polarity": "dark",
+      "selection": "all",
+      "threshold": 122.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/seen.png",
+      "maskSha256": "7c0a0f6bd095f7c484043463d051cd367c967c6063af34e9158f26243a3d6ad7",
+      "pixels": 994,
+      "maskBboxLocal": [
+        4,
+        17,
+        70,
+        59
+      ]
+    },
+    "understood": {
+      "bbox": [
+        699,
+        299,
+        769,
+        370
+      ],
+      "polarity": "dark",
+      "selection": "all",
+      "threshold": 118.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/understood.png",
+      "maskSha256": "b964451e6d53dd83136eb05759a09da3d66a5893dcd78daf5c1eadad76bcac7f",
+      "pixels": 572,
+      "maskBboxLocal": [
+        5,
+        7,
+        60,
+        68
+      ]
+    },
+    "requested": {
+      "bbox": [
+        886,
+        309,
+        955,
+        365
+      ],
+      "polarity": "dark",
+      "selection": "all",
+      "threshold": 114.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/requested.png",
+      "maskSha256": "8f9379d9105a5001e7921663e2782d726450b12142a9efb81f680b1be2f43d29",
+      "pixels": 1850,
+      "maskBboxLocal": [
+        6,
+        8,
+        62,
+        48
+      ]
+    },
+    "build": {
+      "bbox": [
+        86,
+        809,
+        173,
+        902
+      ],
+      "polarity": "light",
+      "selection": "all",
+      "threshold": 100.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/build.png",
+      "maskSha256": "3e5efb5edbab313b54862aeba409fdbd409bd1d270686ae6f4687dd2d4a6b707",
+      "pixels": 2594,
+      "maskBboxLocal": [
+        5,
+        13,
+        87,
+        90
+      ]
+    },
+    "local": {
+      "bbox": [
+        635,
+        805,
+        728,
+        906
+      ],
+      "polarity": "light",
+      "selection": "largest",
+      "threshold": 101.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/local-expanded.png",
+      "maskSha256": "6f14a51cab291cbc61164d3b01a7ebd60aa69c6bf16aede33d9578a189d3d493",
+      "pixels": 1975,
+      "maskBboxLocal": [
+        14,
+        13,
+        63,
+        87
+      ],
+      "refinement": {
+        "status": "mario-approved-correction",
+        "reason": "Original trace crop clipped four source pixels on the left; full source bbox restored and the same pin silhouette smoothed as cubic geometry.",
+        "browserOverlayIou": 0.9664
+      }
+    },
+    "revenue": {
+      "bbox": [
+        1145,
+        805,
+        1255,
+        906
+      ],
+      "polarity": "light",
+      "selection": "largest",
+      "threshold": 97.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/revenue-expanded.png",
+      "maskSha256": "9784072531f1eb796ece9fca007e439e2661b2a21f1e27dc3887a070b782fa0d",
+      "pixels": 1213,
+      "maskBboxLocal": [
+        17,
+        15,
+        89,
+        83
+      ],
+      "refinement": {
+        "status": "mario-approved-correction",
+        "reason": "Original trace crop clipped the left contour; full source bbox restored and simplified to an 11-point polygon without changing the B4 arrow mass.",
+        "sourcePolygonIou": 0.9494,
+        "browserOverlayIou": 0.885
+      }
+    },
+    "header-pin": {
+      "bbox": [
+        1385,
+        34,
+        1411,
+        67
+      ],
+      "polarity": "light",
+      "selection": "largest",
+      "threshold": 93.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/header-pin.png",
+      "maskSha256": "8f280823d87c330cfdca8292f53c4c8442ad5a24658e16fbe20a39054f85b0e0",
+      "pixels": 202,
+      "maskBboxLocal": [
+        5,
+        7,
+        21,
+        29
+      ]
+    },
+    "top_arrow_1": {
+      "bbox": [
+        617,
+        184,
+        655,
+        216
+      ],
+      "polarity": "light",
+      "selection": "all",
+      "threshold": 107.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/top_arrow_1.png",
+      "maskSha256": "b588d873e3e47cd8026910169201c0842e7d500fe84d8a355c0cd52de1ded21c",
+      "pixels": 235,
+      "maskBboxLocal": [
+        3,
+        6,
+        35,
+        28
+      ]
+    },
+    "top_arrow_2": {
+      "bbox": [
+        806,
+        184,
+        845,
+        216
+      ],
+      "polarity": "light",
+      "selection": "all",
+      "threshold": 104.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/top_arrow_2.png",
+      "maskSha256": "cd17d42bac2a995108a73653b1c36dba66582ffcc5ca2b06c958a5e90932b507",
+      "pixels": 230,
+      "maskBboxLocal": [
+        4,
+        6,
+        37,
+        28
+      ]
+    },
+    "lower_route": {
+      "bbox": [
+        532,
+        480,
+        997,
+        603
+      ],
+      "polarity": "light",
+      "selection": "all",
+      "threshold": 78.0,
+      "maskPath": ".impeccable/assets/belivin-main-site/vector-trace-masks/lower_route.png",
+      "maskSha256": "e00b8f63eab8bd811ff456784d3c3da6e2d7f98e287e3a6ae40bb770861b2efc",
+      "pixels": 4151,
+      "maskBboxLocal": [
+        4,
+        7,
+        461,
+        122
+      ]
+    }
+  },
+  "outputs": {
+    "iconSprite": ".impeccable/assets/belivin-main-site/icon-sprite.svg",
+    "iconSpriteSha256": "43747e5614a5a8c0f7e6b1587d2f262ef6f5627e5400832092620fcc7b032427",
+    "route": ".impeccable/assets/belivin-main-site/route-system-1672x941.svg",
+    "routeSha256": "a79eca8e6ffcb335e74645b797bf64d59692b2fa0d414e4f1884ee02089a4d8e"
+  }
+}

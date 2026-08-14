@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "source": "chat-explicit",
+  "approvedBy": "Mario",
+  "approvedAt": "2026-08-13T21:33:00Z",
+  "selectedPath": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+  "parentSelectedPath": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png",
+  "decision": "B topology approved with requested humanized copy revision",
+  "evidence": "Mario: Ansonsten freigegeben."
+}

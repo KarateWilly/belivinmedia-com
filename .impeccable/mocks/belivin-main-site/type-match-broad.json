@@ -1,0 +1,477 @@
+{
+  "reference_line_bboxes": [
+    [
+      18,
+      29,
+      410,
+      82
+    ],
+    [
+      18,
+      99,
+      408,
+      162
+    ]
+  ],
+  "results": [
+    {
+      "name": "League Gothic wd100",
+      "font": "/tmp/belivin-font-candidates/league-gothic.ttf",
+      "axes": [
+        100
+      ],
+      "score": 0.3589,
+      "iou": 0.3862,
+      "size": 74,
+      "tracking": -2.5,
+      "line_ious": [
+        0.3961766220391349,
+        0.37623762376237624
+      ],
+      "dims": [
+        [
+          405,
+          55
+        ],
+        [
+          399,
+          56
+        ]
+      ]
+    },
+    {
+      "name": "League Gothic wd85",
+      "font": "/tmp/belivin-font-candidates/league-gothic.ttf",
+      "axes": [
+        85
+      ],
+      "score": 0.302,
+      "iou": 0.3275,
+      "size": 76,
+      "tracking": 0.5,
+      "line_ious": [
+        0.36621703241393194,
+        0.28877544166050917
+      ],
+      "dims": [
+        [
+          400,
+          57
+        ],
+        [
+          397,
+          57
+        ]
+      ]
+    },
+    {
+      "name": "League Gothic wd75",
+      "font": "/tmp/belivin-font-candidates/league-gothic.ttf",
+      "axes": [
+        75
+      ],
+      "score": 0.2477,
+      "iou": 0.3085,
+      "size": 78,
+      "tracking": 0.5,
+      "line_ious": [
+        0.32037808182959876,
+        0.2965451055662188
+      ],
+      "dims": [
+        [
+          353,
+          58
+        ],
+        [
+          349,
+          59
+        ]
+      ]
+    },
+    {
+      "name": "Bebas Neue",
+      "font": "/tmp/belivin-font-candidates/bebas-neue.ttf",
+      "axes": null,
+      "score": 0.2305,
+      "iou": 0.2981,
+      "size": 56,
+      "tracking": -2.5,
+      "line_ious": [
+        0.2953169156237384,
+        0.3009655550229405
+      ],
+      "dims": [
+        [
+          383,
+          41
+        ],
+        [
+          399,
+          41
+        ]
+      ]
+    },
+    {
+      "name": "Fjalla One",
+      "font": "/tmp/belivin-font-candidates/fjalla-one.ttf",
+      "axes": null,
+      "score": 0.2152,
+      "iou": 0.2667,
+      "size": 49,
+      "tracking": -2.5,
+      "line_ious": [
+        0.25158326953859,
+        0.28178046020369674
+      ],
+      "dims": [
+        [
+          399,
+          45
+        ],
+        [
+          394,
+          44
+        ]
+      ]
+    },
+    {
+      "name": "Oswald w500",
+      "font": "/tmp/belivin-font-candidates/oswald.ttf",
+      "axes": [
+        500
+      ],
+      "score": 0.1973,
+      "iou": 0.2673,
+      "size": 49,
+      "tracking": -2.0,
+      "line_ious": [
+        0.290304114490161,
+        0.24425519418544894
+      ],
+      "dims": [
+        [
+          405,
+          40
+        ],
+        [
+          393,
+          40
+        ]
+      ]
+    },
+    {
+      "name": "Barlow Condensed Black",
+      "font": "/tmp/belivin-font-candidates/barlow-condensed-black.ttf",
+      "axes": null,
+      "score": 0.1965,
+      "iou": 0.2729,
+      "size": 50,
+      "tracking": -2.5,
+      "line_ious": [
+        0.2915609343483636,
+        0.25431207380665866
+      ],
+      "dims": [
+        [
+          403,
+          38
+        ],
+        [
+          394,
+          38
+        ]
+      ]
+    },
+    {
+      "name": "DINish VF wd75 w800",
+      "font": "/tmp/dinish/fonts/ttf/variable/DINish[slnt,wdth,wght].ttf",
+      "axes": [
+        75,
+        0,
+        800
+      ],
+      "score": 0.1936,
+      "iou": 0.2646,
+      "size": 55,
+      "tracking": -2.5,
+      "line_ious": [
+        0.27846902894238573,
+        0.2507062146892655
+      ],
+      "dims": [
+        [
+          401,
+          38
+        ],
+        [
+          388,
+          40
+        ]
+      ]
+    },
+    {
+      "name": "Saira Condensed ExtraBold",
+      "font": "/tmp/belivin-font-candidates/saira-condensed-extrabold.ttf",
+      "axes": null,
+      "score": 0.189,
+      "iou": 0.2597,
+      "size": 51,
+      "tracking": -2.0,
+      "line_ious": [
+        0.2715896589658966,
+        0.24784129023050025
+      ],
+      "dims": [
+        [
+          396,
+          39
+        ],
+        [
+          397,
+          39
+        ]
+      ]
+    },
+    {
+      "name": "Oswald w700",
+      "font": "/tmp/belivin-font-candidates/oswald.ttf",
+      "axes": [
+        700
+      ],
+      "score": 0.1881,
+      "iou": 0.2611,
+      "size": 47,
+      "tracking": -2.0,
+      "line_ious": [
+        0.2787255909558068,
+        0.24349363507779348
+      ],
+      "dims": [
+        [
+          403,
+          39
+        ],
+        [
+          397,
+          40
+        ]
+      ]
+    },
+    {
+      "name": "macOS DIN Condensed Bold",
+      "font": "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
+      "axes": null,
+      "score": 0.1874,
+      "iou": 0.253,
+      "size": 57,
+      "tracking": -1.0,
+      "line_ious": [
+        0.24776929116996216,
+        0.2581954656862745
+      ],
+      "dims": [
+        [
+          402,
+          40
+        ],
+        [
+          389,
+          41
+        ]
+      ]
+    },
+    {
+      "name": "Saira Condensed Bold",
+      "font": "/tmp/belivin-font-candidates/saira-condensed-bold.ttf",
+      "axes": null,
+      "score": 0.1849,
+      "iou": 0.2555,
+      "size": 53,
+      "tracking": -2.5,
+      "line_ious": [
+        0.2709745022703458,
+        0.23999424128995106
+      ],
+      "dims": [
+        [
+          401,
+          40
+        ],
+        [
+          398,
+          40
+        ]
+      ]
+    },
+    {
+      "name": "Barlow Condensed ExtraBold",
+      "font": "/tmp/belivin-font-candidates/barlow-condensed-extrabold.ttf",
+      "axes": null,
+      "score": 0.1811,
+      "iou": 0.2553,
+      "size": 51,
+      "tracking": -2.5,
+      "line_ious": [
+        0.2764442099709839,
+        0.23417078621250084
+      ],
+      "dims": [
+        [
+          401,
+          38
+        ],
+        [
+          392,
+          38
+        ]
+      ]
+    },
+    {
+      "name": "Teko w500",
+      "font": "/tmp/belivin-font-candidates/teko.ttf",
+      "axes": [
+        500
+      ],
+      "score": 0.175,
+      "iou": 0.2422,
+      "size": 58,
+      "tracking": -2.5,
+      "line_ious": [
+        0.26748914466882623,
+        0.2169460615837834
+      ],
+      "dims": [
+        [
+          401,
+          40
+        ],
+        [
+          388,
+          40
+        ]
+      ]
+    },
+    {
+      "name": "Barlow Condensed Bold",
+      "font": "/tmp/belivin-font-candidates/barlow-condensed-bold.ttf",
+      "axes": null,
+      "score": 0.1632,
+      "iou": 0.2373,
+      "size": 51,
+      "tracking": -2.0,
+      "line_ious": [
+        0.25110650069156293,
+        0.2235827991068213
+      ],
+      "dims": [
+        [
+          401,
+          38
+        ],
+        [
+          392,
+          38
+        ]
+      ]
+    },
+    {
+      "name": "D-DIN Condensed Bold",
+      "font": "/tmp/datto-d-din/D-DINCondensed-Bold.ttf",
+      "axes": null,
+      "score": 0.16,
+      "iou": 0.2336,
+      "size": 54,
+      "tracking": -2.0,
+      "line_ious": [
+        0.24798429502909627,
+        0.21930598441405674
+      ],
+      "dims": [
+        [
+          400,
+          38
+        ],
+        [
+          388,
+          38
+        ]
+      ]
+    },
+    {
+      "name": "Oswald w600",
+      "font": "/tmp/belivin-font-candidates/oswald.ttf",
+      "axes": [
+        600
+      ],
+      "score": 0.1596,
+      "iou": 0.2292,
+      "size": 47,
+      "tracking": -2.0,
+      "line_ious": [
+        0.24357379767827528,
+        0.21481001727115717
+      ],
+      "dims": [
+        [
+          400,
+          39
+        ],
+        [
+          391,
+          39
+        ]
+      ]
+    },
+    {
+      "name": "Teko w600",
+      "font": "/tmp/belivin-font-candidates/teko.ttf",
+      "axes": [
+        600
+      ],
+      "score": 0.1422,
+      "iou": 0.2251,
+      "size": 52,
+      "tracking": -2.0,
+      "line_ious": [
+        0.25626431595752064,
+        0.1939679415073116
+      ],
+      "dims": [
+        [
+          399,
+          35
+        ],
+        [
+          389,
+          35
+        ]
+      ]
+    },
+    {
+      "name": "Teko w700",
+      "font": "/tmp/belivin-font-candidates/teko.ttf",
+      "axes": [
+        700
+      ],
+      "score": 0.1384,
+      "iou": 0.2275,
+      "size": 49,
+      "tracking": -2.5,
+      "line_ious": [
+        0.2559619506966774,
+        0.19910560715514275
+      ],
+      "dims": [
+        [
+          404,
+          34
+        ],
+        [
+          389,
+          34
+        ]
+      ]
+    }
+  ]
+}

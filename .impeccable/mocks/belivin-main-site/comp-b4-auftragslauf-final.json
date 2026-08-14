@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "comp-b4-auftragslauf-final",
+  "label": "B4 · Auftragslauf · final freigegeben",
+  "path": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+  "revisionOf": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png",
+  "revisionChain": [
+    ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png",
+    ".impeccable/mocks/belivin-main-site/comp-b2-auftragslauf.png",
+    ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png"
+  ],
+  "prompt": "BELIVIN Auftragszentrale final approved Comp B4. Selected horizontal Auftragslauf topology preserved from original Comp B. Final simple German copy for trades: Websites fürs Handwerk; Interessenten fragen direkt an; CTA support only Kostenlos · unverbindlich; local visibility where customers really search; inquiries become orders and revenue. No topology or material-world change.",
+  "generation": {
+    "provider": "openai-codex",
+    "model": "gpt-image-2-high",
+    "quality": "high",
+    "upscaled": true,
+    "revisionOf": ".impeccable/mocks/belivin-main-site/comp-b2-auftragslauf.png"
+  },
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "copyPath": ".impeccable/copy/belivin-main-site-approved.md",
+  "copySha256": "6e1ccd3867c69129dde449826b7dd5a0d17e62e901346675ce6e3eed241f680c",
+  "topology": "Auftragslauf unverändert: Headline links, horizontaler GESEHEN-VERSTANDEN-ANGEFRAGT-Fluss mittig, großer materieller CTA-Docket unten links, dominanter SHK-Proof rechts, drei indirekte Produktfelder im Second Fold.",
+  "review": {
+    "status": "accepted",
+    "topologyPreserved": true,
+    "materialWorldPreserved": true,
+    "copyMatched": true,
+    "rejectedPhrasesAbsent": true,
+    "pixelRepair": {
+      "reason": "generierten nachgestellten CTA-Trenner entfernt",
+      "bbox": [434, 706, 445, 718],
+      "changedPixels": 132,
+      "changedPixelsOutsideBbox": 0
+    }
+  },
+  "productionSource": {
+    "status": "bound",
+    "type": "browser-native-production-comp",
+    "manifest": ".impeccable/comp-builds/belivin-main-site-b4/source-manifest.json",
+    "preview": ".impeccable/comp-builds/belivin-main-site-b4/screenshot-final.png",
+    "copyMutationContract": "semantic-strings-only"
+  },
+  "approved": true
+}

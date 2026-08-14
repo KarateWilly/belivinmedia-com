@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "sourceType": "browser-native-production-comp",
+  "status": "bound",
+  "approvedComp": {
+    "path": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+    "sha256": "bf165deeaa2f8460484e447c4e4f040004a37155964cd14e07e25fd82e95b2e7"
+  },
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "copy": {
+    "path": ".impeccable/copy/belivin-main-site-approved.md",
+    "sha256": "6e1ccd3867c69129dde449826b7dd5a0d17e62e901346675ce6e3eed241f680c",
+    "mutationContract": "semantic-strings-only"
+  },
+  "source": {
+    "html": ".impeccable/comp-builds/belivin-main-site-b4/index.html",
+    "htmlSha256": "051a840f3bef07d5e59bdbc8a68d503a628efd250beff26bbddf7d71bc5df82f",
+    "css": ".impeccable/comp-builds/belivin-main-site-b4/styles.css",
+    "cssSha256": "e476b992b7b622eac877befaef35238fa7c97a669cec45add98f36402e7db2cf",
+    "preview": ".impeccable/comp-builds/belivin-main-site-b4/screenshot-final.png",
+    "previewSha256": "066cfe6bcce949a1b60b3cec9809ae6ce0639f5e8d7e34c176a34099997bf3d4"
+  },
+  "assets": [
+    {
+      "role": "display-font",
+      "path": "public/fonts/league-gothic-variable.ttf",
+      "sha256": "3b0e998c9a0034222394ffecdd383e6948259ad037b95555b139a217629ce1d0"
+    },
+    {
+      "role": "display-font-license",
+      "path": "public/fonts/OFL-League-Gothic.txt",
+      "sha256": "57674b62430148124bb4f2f07f33fc694c6a04f327227d04b796e5687c351e6c"
+    },
+    {
+      "role": "body-font-regular",
+      "path": "public/fonts/ibm-plex-sans-condensed-400.ttf",
+      "sha256": "0a2f7faf56d266b5270dfc76e709cd9d2642a353e565204515542ebe8c04625a"
+    },
+    {
+      "role": "body-font-semibold",
+      "path": "public/fonts/ibm-plex-sans-condensed-600.ttf",
+      "sha256": "c6ee08345b19b2d183a4863aadc62c451181fe28327bb910132cb2a108d47ada"
+    },
+    {
+      "role": "body-font-license",
+      "path": "public/fonts/OFL-IBM-Plex-Sans-Condensed.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    {
+      "role": "material-raster",
+      "path": ".impeccable/assets/belivin-main-site/material-stage-1672x941.png",
+      "sha256": "fa73db3836fb94b2924e98ce5e4149706de387d7abcc5d2037b31b2dfc399768"
+    },
+    {
+      "role": "exact-icon-sprite",
+      "path": ".impeccable/assets/belivin-main-site/icon-sprite.svg",
+      "sha256": "43747e5614a5a8c0f7e6b1587d2f262ef6f5627e5400832092620fcc7b032427"
+    },
+    {
+      "role": "exact-route-svg",
+      "path": ".impeccable/assets/belivin-main-site/route-system-1672x941.svg",
+      "sha256": "a79eca8e6ffcb335e74645b797bf64d59692b2fa0d414e4f1884ee02089a4d8e"
+    },
+    {
+      "role": "vector-trace-provenance",
+      "path": ".impeccable/assets/belivin-main-site/vector-trace-masks/manifest.json",
+      "sha256": "75f9ee8f92801f93238ebd4db9615dbc170ca3101bf4690b19682f42f2e665ef"
+    },
+    {
+      "role": "real-browser-proof",
+      "path": ".impeccable/mocks/belivin-main-site/shk-design-1-live-1280x1082.png",
+      "sha256": "9b991376773e0e363a1734f6e67ea825ce0958929a7bd58e5627b97e3698d9b5"
+    }
+  ],
+  "fidelity": {
+    "method": "approved B4 pixels versus final Chromium render at exactly 1672x941",
+    "thresholds": {
+      "headlineMaskIouMin": 0.45,
+      "contourIouMin": 0.7
+    },
+    "headline": {
+      "region": [45, 155, 465, 310],
+      "neutralLuminanceThreshold": 165,
+      "maskIou": 0.4928
+    },
+    "contours": [
+      { "id": "seen", "iou": 0.8428, "diffThreshold": 3 },
+      { "id": "understood", "iou": 0.7164, "diffThreshold": 3 },
+      { "id": "requested", "iou": 0.9088, "diffThreshold": 3 },
+      { "id": "build", "iou": 0.9101, "diffThreshold": 17 },
+      { "id": "local", "iou": 0.9664, "diffThreshold": 56 },
+      { "id": "revenue", "iou": 0.885, "diffThreshold": 23 },
+      { "id": "header-pin", "iou": 0.8565, "diffThreshold": 3 },
+      { "id": "top-arrow-1", "iou": 0.8122, "diffThreshold": 3 },
+      { "id": "top-arrow-2", "iou": 0.8, "diffThreshold": 3 },
+      { "id": "lower-route", "iou": 0.8258, "diffThreshold": 12 }
+    ],
+    "realProofException": "The right proof aperture uses a real browser screenshot. Its truthful page content intentionally replaces model-painted B4 proof content; frame, aperture and topology remain bound."
+  },
+  "immutableComponents": [
+    "font files and typographic roles",
+    "icon sprite contours",
+    "arrow and route contours",
+    "material stage",
+    "first-viewport geometry",
+    "proof frame"
+  ],
+  "forbidden": [
+    "model-painted core typography",
+    "model-painted icons or arrows",
+    "post-approval font substitution",
+    "post-approval icon or route redesign",
+    "hero-to-page equality presented as source-comp fidelity"
+  ]
+}

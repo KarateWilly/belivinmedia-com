@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "comp-b-auftragslauf",
+  "label": "B · Auftragslauf",
+  "path": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png",
+  "prompt": "BELIVIN Auftragszentrale Hi-Fi Comp B Auftragslauf. Real German desktop web surface, front-on. Full-width horizontal visit-to-inquiry routing line, left exact locked headline and support, central GESEHEN-VERSTANDEN-ANGEFRAGT sequence, largest orange material Website-Check docket, dominant truthful SHK live industry proof on right, continuous service second fold. Graphite enamel, work paper, aluminum, green enamel. No invented clients, orders, dates, metrics or outcomes.",
+  "generation": {
+    "provider": "openai-codex",
+    "model": "gpt-image-2-high",
+    "quality": "high",
+    "upscaled": true,
+    "referenceImages": [
+      "public/beispiele/shk/design-1/hero-desktop-1280.webp"
+    ]
+  },
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "copyPath": ".impeccable/copy/belivin-main-site-approved.md",
+  "copySha256": "74601c6c5865eea1811fc0a822239e664d9f68454a0328a625c32325d843ce76",
+  "topology": "Auftragslauf: horizontaler Besuch-zu-Anfrage-Fluss, großer CTA-Docket über der unteren Rail, Website-Proof als dominanter Abschluss rechts.",
+  "truthReview": {
+    "status": "accepted",
+    "notes": "Keine Kundenidentität, Auftragsdaten, Rankings, Ratings oder Ergebnisclaims. SHK-Proof klar als Live-Branchenbeispiel und nicht als Kundenprojekt markiert."
+  },
+  "approved": true
+}

@@ -1,0 +1,76 @@
+{
+  "title": "BELIVIN Hauptseite · Impeccable-Welt wählen",
+  "question": "Welche Impeccable-Welt soll genau einmal als vollständige Desktop-Webseite gebaut werden?",
+  "options": [
+    {
+      "id": "assigned-schaufenster-leitsystem",
+      "label": "Schaufenster-Leitsystem",
+      "kicker": "DER ROLL",
+      "lineage": "Lokale Schaufensterbeschriftung, Fassadenraster und architektonische Wegweisung",
+      "thesis": "Die Website wird zur klar beleuchteten digitalen Ladenfront des Betriebs.",
+      "palette": ["#f3f1e9", "#123e2a", "#e95132", "#b7c5bb"],
+      "materials": ["Schaufensterglas", "Cut-Vinyl", "Emaille-Schild", "Fassadenlinien"],
+      "viewport": "Eine durchgehende Ladenfront: Botschaft und Tür-CTA links, der echte Website-Beweis als beleuchtetes Schaufenster rechts.",
+      "risk": "Muss wie eine präzise Weboberfläche wirken, nicht wie eine Illustration eines Ladens.",
+      "sketch": ".impeccable/sketches/belivin-main-site-clean/schaufenster-leitsystem.png"
+    },
+    {
+      "id": "vernacular-ephemera-boarding-pass-and-gate-board",
+      "label": "Website-Pass & Anfrageboard",
+      "kicker": "IMPECCABLE TEMPLATE",
+      "lineage": "Boarding Pass & Live Gate Board",
+      "thesis": "Ein segmentierter Website-Pass führt sichtbar von Besuch zu Anfrage.",
+      "case": "Stärkste Produktklarheit: Statusfolge, Website-Beweis und Website-Check gehören bereits zur nativen Grammatik.",
+      "palette": ["#f7f6f1", "#111719", "#ffbd0a", "#727b82"],
+      "materials": ["Papierpass", "Live-Anzeigetafel", "Perforation", "Scanblock"],
+      "viewport": "Headline und direkter Check links; dominanter Website-Pass und Live-Statusboard rechts in einer gemeinsamen Komposition.",
+      "risk": "Die Reiseherkunft muss vollständig in eine Website- und Anfragegrammatik übersetzt werden.",
+      "sketch": ".impeccable/sketches/belivin-main-site-clean/boarding-pass-gate-board.png",
+      "hero": ".impeccable/directions/belivin-main-site-clean/quality-bars/boarding-pass-hero.webp",
+      "board": ".impeccable/directions/belivin-main-site-clean/quality-bars/boarding-pass-board.webp"
+    },
+    {
+      "id": "architecture-places-azulejo-station-hall",
+      "label": "Azulejo-Erzählwand",
+      "kicker": "IMPECCABLE TEMPLATE",
+      "lineage": "Azulejo Station Hall",
+      "thesis": "Die Website erzählt gute Arbeit als Folge handwerklich gemalter Kachelbilder.",
+      "case": "Stärkste sichtbare Material- und Handwerksidentität; der Mechanismus bleibt als ganze Kachelfolge verständlich.",
+      "palette": ["#f2efe2", "#123f92", "#4c74bd", "#d4a61e"],
+      "materials": ["Zinnglasur", "Kobalt-Pinselstrich", "Fugenraster", "Kartusche"],
+      "viewport": "Ein großformatiges Kachelbild führt über Headline und Website-Check in drei erzählende Proof-Panels.",
+      "risk": "Kann ornamental statt verkaufsstark lesen, wenn Beweis und CTA nicht dominant bleiben.",
+      "sketch": ".impeccable/sketches/belivin-main-site-clean/azulejo-station-hall.png",
+      "hero": ".impeccable/directions/belivin-main-site-clean/quality-bars/azulejo-hero.webp",
+      "board": ".impeccable/directions/belivin-main-site-clean/quality-bars/azulejo-board.webp"
+    },
+    {
+      "id": "scientific-notation-oscilloscope-signal-bench",
+      "label": "Signalbank",
+      "kicker": "IMPECCABLE TEMPLATE",
+      "lineage": "CRT Oscilloscope on a Signal Bench",
+      "thesis": "Ein unklares digitales Signal stabilisiert sich sichtbar zur verständlichen Website.",
+      "case": "Stärkster Vorher-Nachher-Mechanismus; der Website-Check wird zum Auslöser, der das Signal stabilisiert.",
+      "palette": ["#050b0b", "#39ef14", "#172915", "#ffae00"],
+      "materials": ["CRT-Glas", "Phosphorspur", "Graticule", "Pulverbeschichtetes Gehäuse"],
+      "viewport": "Eine einzige Messfläche trägt Headline, Website-Check, Signalverlauf und den stabilisierten Website-Beweis.",
+      "risk": "Kann für lokale KMU technischer wirken als nötig und muss Cyberpunk konsequent vermeiden.",
+      "sketch": ".impeccable/sketches/belivin-main-site-clean/oscilloscope-signal-bench.png",
+      "hero": ".impeccable/directions/belivin-main-site-clean/quality-bars/oscilloscope-hero.webp",
+      "board": ".impeccable/directions/belivin-main-site-clean/quality-bars/oscilloscope-board.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "canonCard": {
+    "label": "Der Kategorie-Standard",
+    "lineage": "Klare lokale Webagentur-Landingpage",
+    "thesis": "Das vertraute Agenturmodell, ohne besonderen governing metaphor, auf hohem Craft-Niveau.",
+    "palette": ["#f7f7f5", "#121818", "#174f4c", "#d9ddda"],
+    "materials": ["Klare Flächen", "Echte Website-Vorschau", "Präzise Typografie"],
+    "viewport": "Headline und CTA links, großer Website-Beweis rechts, drei klare Schritte darunter.",
+    "risk": "Maximal verständlich, aber weniger unverwechselbar als die Impeccable-Welten.",
+    "sketch": ".impeccable/sketches/belivin-main-site-clean/canon.png"
+  },
+  "steer": true
+}

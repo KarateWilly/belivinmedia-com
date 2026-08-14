@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "source": ".impeccable/mocks/belivin-main-site/comp-b4-auftragslauf-final.png",
+  "sourceSha256": "bf165deeaa2f8460484e447c4e4f040004a37155964cd14e07e25fd82e95b2e7",
+  "viewport": { "width": 1672, "height": 941 },
+  "regions": {
+    "header": { "x": 0, "y": 0, "width": 1672, "height": 103 },
+    "headline": { "x": 52, "y": 169, "width": 397, "height": 126 },
+    "support": { "x": 54, "y": 331, "width": 395, "height": 117 },
+    "statusRoute": { "x": 478, "y": 164, "width": 515, "height": 426 },
+    "statusCards": [
+      { "x": 478, "y": 164, "width": 140, "height": 315 },
+      { "x": 660, "y": 164, "width": 146, "height": 315 },
+      { "x": 846, "y": 164, "width": 146, "height": 315 }
+    ],
+    "primaryCta": { "x": 80, "y": 576, "width": 634, "height": 166 },
+    "proofFrame": { "x": 1012, "y": 120, "width": 639, "height": 608 },
+    "proofWindow": { "x": 1036, "y": 177, "width": 594, "height": 502 },
+    "secondFold": { "x": 0, "y": 760, "width": 1672, "height": 181 },
+    "products": [
+      { "x": 65, "y": 796, "width": 480, "height": 135 },
+      { "x": 621, "y": 796, "width": 480, "height": 135 },
+      { "x": 1148, "y": 796, "width": 480, "height": 135 }
+    ]
+  },
+  "zOrder": [
+    "live-proof",
+    "raster-material-stage",
+    "route-svg",
+    "semantic-copy-and-controls",
+    "focus-states"
+  ]
+}

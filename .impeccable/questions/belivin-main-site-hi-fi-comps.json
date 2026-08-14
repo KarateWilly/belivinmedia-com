@@ -1,0 +1,48 @@
+{
+  "title": "BELIVIN · Auftragszentrale · Hi-Fi-Comp",
+  "question": "Welche konkrete Produktionskomposition soll gebaut werden?",
+  "options": [
+    {
+      "id": "comp-a-leitstand",
+      "label": "A · Leitstand",
+      "kicker": "AUSGEWOGEN",
+      "lineage": "Briefingkarte links · drei Anfragebahnen rechts",
+      "thesis": "Mechanismus und Website-Proof teilen sich die Auftragszentrale auf Augenhöhe.",
+      "case": "Am nächsten an der gewählten Direction, aber jetzt ohne erfundene Auftragsdaten und mit echtem Proof.",
+      "palette": ["#1d211f", "#eee8d9", "#284c38", "#f05a1f"],
+      "materials": ["Graphit-Emaille", "Arbeitspapier", "Aluminium", "Emaille-Schilder"],
+      "viewport": "Große Headline-Arbeitskarte links, drei senkrechte Zustandsbahnen rechts, Workflow als durchgehender Second Fold.",
+      "risk": "Der Proof ist klar, aber weniger dominant als im Prüfplatz.",
+      "sketch": ".impeccable/mocks/belivin-main-site/comp-a-leitstand.png"
+    },
+    {
+      "id": "comp-b-auftragslauf",
+      "label": "B · Auftragslauf",
+      "kicker": "CONVERSION-FLUSS",
+      "lineage": "Besuch → Verständnis → Anfrage in einer horizontalen Route",
+      "thesis": "Der gesamte erste Viewport liest als ein bearbeitbarer Auftragsweg.",
+      "case": "Stärkster sichtbarer Conversion-Mechanismus und größter Website-Check-Träger.",
+      "palette": ["#1d211f", "#eee8d9", "#284c38", "#f05a1f"],
+      "materials": ["Graphit-Emaille", "Arbeitspapier", "Aluminium-Rails", "Prioritäts-Docket"],
+      "viewport": "Headline links, horizontale Statusroute in der Mitte, großer SHK-Prüfmonitor rechts, Service-Register darunter.",
+      "risk": "Dichter und lauter; Typografie und CTA brauchen in der Reproduktion besonders genaue Maßkontrolle.",
+      "sketch": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png"
+    },
+    {
+      "id": "comp-c-pruefplatz",
+      "label": "C · Prüfplatz",
+      "kicker": "QUALITÄTSBEWEIS",
+      "lineage": "Website-Proof als zentraler Prüfrahmen",
+      "thesis": "Die Qualität der gebauten Website steht sichtbar im Zentrum der Auftragszentrale.",
+      "case": "Stärkster Designbeweis, ruhigste Hierarchie und klarste Trennung von Aussage, Proof und Status.",
+      "palette": ["#1d211f", "#eee8d9", "#284c38", "#f05a1f"],
+      "materials": ["Graphit-Emaille", "Arbeitspapier", "Aluminium-Prüfrahmen", "Emaille-Statusrail"],
+      "viewport": "Briefing links, sehr großer SHK-Website-Proof mittig, vertikale Zustandsrail rechts, vierstufiger Second Fold.",
+      "risk": "Der Mechanismus ist weniger linear als im Auftragslauf und muss über die rechte Rail gelesen werden.",
+      "sketch": ".impeccable/mocks/belivin-main-site/comp-c-pruefplatz.png"
+    }
+  ],
+  "reroll": false,
+  "canon": false,
+  "steer": true
+}

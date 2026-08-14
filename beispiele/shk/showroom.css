@@ -199,6 +199,18 @@ dt,
   border: 1px solid var(--ink);
 }
 
+.design-entry + .design-entry {
+  margin-top: clamp(44px, 6vw, 96px);
+}
+
+.design-entry-two .design-copy {
+  background: #dfe3db;
+}
+
+.design-entry-two .design-visual img {
+  object-position: 50% 50%;
+}
+
 .design-visual {
   position: relative;
   display: block;

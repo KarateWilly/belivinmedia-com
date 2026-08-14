@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "comp-b2-auftragslauf",
+  "label": "B2 · Auftragslauf · Umsatzrevision",
+  "path": ".impeccable/mocks/belivin-main-site/comp-b2-auftragslauf.png",
+  "prompt": "BELIVIN Auftragszentrale Hi-Fi Comp B2. Gewählte horizontale Auftragslauf-Topologie aus Comp B pixelnah erhalten; ausschließlich sichtbare Inhaltsrevision: CTA ohne Mario, Proof als BRANCHENBEISPIEL · SHK, Produkt-Trias WEBSITE BAUEN / LOKAL SICHTBAR WERDEN / MEHR UMSATZ mit Kundennutzen. Kein defensiver Hinweis, keine AI-Sprache, keine erfundene Evidenz, kein Topologie-Wechsel.",
+  "generation": {
+    "provider": "openai-codex",
+    "model": "gpt-image-2-high",
+    "quality": "high",
+    "upscaled": true,
+    "revisionOf": ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png",
+    "referenceImages": [
+      ".impeccable/mocks/belivin-main-site/comp-b-auftragslauf.png"
+    ]
+  },
+  "viewport": {
+    "width": 1672,
+    "height": 941
+  },
+  "copyPath": ".impeccable/copy/belivin-main-site-approved.md",
+  "copySha256": "20023c5142d61594d5c2500f62de448cf067d987df3f0f0e6504a5f973f10360",
+  "topology": "Auftragslauf unverändert: horizontaler Besuch-zu-Anfrage-Fluss, großer CTA-Docket über der unteren Rail, Website-Proof als dominanter Abschluss rechts, drei indirekte Produktfelder im Second Fold.",
+  "contentRevision": {
+    "requestedBy": "Mario",
+    "requestedAt": "2026-08-13T21:16:38Z",
+    "changes": [
+      "direkt mit Mario entfernt",
+      "defensiven Kein-Kundenprojekt-Hinweis entfernt",
+      "Proof zu Branchenbeispiel · SHK vereinfacht",
+      "Produkt-Trias auf Website bauen, Lokal sichtbar werden, Mehr Umsatz geändert",
+      "Untertitel auf Kunden-WIIFM ausgerichtet",
+      "Website weiterführen durch umsatzbezogene Produktsicht ersetzt"
+    ]
+  },
+  "review": {
+    "status": "accepted-as-revision-candidate",
+    "topologyPreserved": true,
+    "copyMatched": true,
+    "materialWorldPreserved": true,
+    "rejectedPhrasesAbsent": true
+  },
+  "approved": false
+}

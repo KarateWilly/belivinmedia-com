@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "source": "structured-question",
+  "question": "Soll ich die Auftragszentrale jetzt genau einmal als vollständige Desktop-Webseite bauen?",
+  "answer": "Auftragszentrale bauen",
+  "approvedBy": "Mario",
+  "selectedPath": ".impeccable/sketches/belivin-main-site-handwerk/auftragszentrale.png",
+  "recordedAt": "2026-08-13T19:04:00Z"
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "copySha256": "6e1ccd3867c69129dde449826b7dd5a0d17e62e901346675ce6e3eed241f680c",
+  "brand": {
+    "name": "BELIVIN MEDIA",
+    "world": "AUFTRAGSZENTRALE"
+  },
+  "navigation": [
+    { "label": "LEISTUNGEN", "target": "#leistungen" },
+    { "label": "SO ARBEITEN WIR", "target": "#ablauf" },
+    { "label": "BRANCHENBEISPIEL", "target": "#branchenbeispiel" },
+    { "label": "KONTAKT", "target": "#kontakt" }
+  ],
+  "localMarker": "RHEINGAU · RHEIN-MAIN",
+  "headline": "Aus Website-Besuchern werden klare Anfragen.",
+  "support": "Wir bauen Websites fürs Handwerk. Damit Kunden sofort verstehen, was Sie anbieten – und bei Ihnen anfragen.",
+  "mechanism": [
+    { "state": "GESEHEN", "body": "Die richtigen Kunden finden Ihre Website.", "icon": "icon-seen" },
+    { "state": "VERSTANDEN", "body": "Ihr Angebot und der nächste Schritt sind sofort klar.", "icon": "icon-understood" },
+    { "state": "ANGEFRAGT", "body": "Interessenten fragen direkt bei Ihnen an.", "icon": "icon-requested" }
+  ],
+  "primaryCta": {
+    "label": "15 Min. Website-Check",
+    "support": "Kostenlos · unverbindlich",
+    "target": "https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check",
+    "targetBehavior": "new-tab"
+  },
+  "proof": {
+    "label": "BRANCHENBEISPIEL · SHK",
+    "title": "So kann ein SHK-Betrieb online wirken.",
+    "body": "Heizung, Bad und Service – klar erklärt und einfach angefragt.",
+    "linkLabel": "SHK-Beispiel ansehen",
+    "target": "/beispiele/shk/design-1/",
+    "browserAsset": ".impeccable/mocks/belivin-main-site/shk-design-1-live-1280x720.png",
+    "strip": ["WÄRME", "WASSER", "SERVICE", "ANFRAGE"]
+  },
+  "products": [
+    {
+      "title": "WEBSITE BAUEN",
+      "body": "Kunden verstehen sofort Ihr Angebot – und fragen leichter an.",
+      "icon": "icon-build"
+    },
+    {
+      "title": "LOKAL SICHTBAR WERDEN",
+      "body": "Sie werden dort gefunden, wo Ihre Kunden wirklich suchen.",
+      "icon": "icon-local"
+    },
+    {
+      "title": "MEHR UMSATZ",
+      "body": "Mehr Besucher werden zu klaren Anfragen – aus Anfragen werden Aufträge und Umsatz.",
+      "icon": "icon-revenue"
+    }
+  ],
+  "forbiddenVisiblePhrases": [
+    "direkt mit Mario",
+    "Kein Kundenprojekt",
+    "LIVE-BRANCHENBEISPIEL",
+    "Website weiterführen",
+    "klare nächste Schritte",
+    "Handwerk und lokale Unternehmen",
+    "können neue Aufträge werden"
+  ]
+}

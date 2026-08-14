@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-14",
+  "policy": {
+    "requiredProductionTemplatesPerIndustry": 3,
+    "publicIndustryHubRequiresCompleteShowroom": true,
+    "outreachRequiresCompleteShowroom": true,
+    "showroomRoutesRemainNoindex": true,
+    "placeholderIndustriesForbidden": true
+  },
+  "globalIndustryHub": {
+    "path": "/beispiele/",
+    "status": "blocked",
+    "reason": "No industry has three distinct production-ready templates yet. Do not publish an empty or placeholder hub."
+  },
+  "industries": {
+    "shk": {
+      "displayName": "Sanitär · Heizung · Klima",
+      "slug": "shk",
+      "showroomPath": "/beispiele/shk/",
+      "status": "building",
+      "requiredTemplateCount": 3,
+      "currentTemplateCount": 2,
+      "publicHubEligible": false,
+      "outreachEligible": false,
+      "homepageProof": {
+        "status": "truthful-featured-proof",
+        "templateId": "design-1",
+        "path": "/beispiele/shk/design-1/"
+      },
+      "templates": [
+        {
+          "id": "design-1",
+          "name": "Wärme. Wasser. Zuhause.",
+          "path": "/beispiele/shk/design-1/",
+          "status": "production-ready"
+        },
+        {
+          "id": "design-2",
+          "name": "Komfort beginnt unter der Oberfläche.",
+          "path": "/beispiele/shk/design-2/",
+          "status": "production-ready"
+        }
+      ]
+    }
+  }
+}

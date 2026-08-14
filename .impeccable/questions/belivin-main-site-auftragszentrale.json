@@ -1,0 +1,22 @@
+{
+  "title": "BELIVIN · Impeccable-Richtung",
+  "question": "Soll die Auftragszentrale genau einmal als vollständige Desktop-Webseite gebaut werden?",
+  "options": [
+    {
+      "id": "auftragszentrale",
+      "label": "Auftragszentrale bauen",
+      "kicker": "HANDWERK/KMU · IMPECCABLE STEER",
+      "lineage": "Auftragseingang, Einsatztafel, Arbeitskarte und Statusmagnete",
+      "thesis": "Die Website wird zur Auftragszentrale: GESEHEN → VERSTANDEN → ANGEFRAGT.",
+      "case": "Die Spezialisierung auf Handwerk/KMU ist ohne Stockfoto sichtbar, während Website-Beweis und 15-Minuten-Check direkt im Arbeitsfluss sitzen.",
+      "palette": ["#202522", "#eee9dc", "#315847", "#ef5b2a"],
+      "materials": ["Graphit-Emaille", "Arbeitspapier", "Aluminiumprofil", "Statusmagnete"],
+      "viewport": "Eine durchgehende Auftrags-/Einsatztafel: klare Botschaft links, Website-Besuch und Branchenbeispiel bewegen sich rechts sichtbar zur Anfrage.",
+      "risk": "Die Tafel darf den Website-Beweis nicht überstrahlen und keine erfundenen Aufträge oder Resultate zeigen.",
+      "sketch": ".impeccable/sketches/belivin-main-site-handwerk/auftragszentrale.png"
+    }
+  ],
+  "reroll": true,
+  "canon": false,
+  "steer": true
+}

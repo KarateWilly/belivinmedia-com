@@ -48,12 +48,13 @@ The showroom is a truthful pre-sale demonstration, not a lead-specific demo gene
 - Any workwear mark is a fixed, controlled part of an approved source image, never a runtime overlay. Generated text is not trusted for final typography.
 - BELIVIN interest actions lead directly to the approved Calendly website-check route; no redundant intermediate CTA.
 - No public deployment, outreach release or provider spend occurs without the relevant explicit approval.
+- Packages and prices remain off the public marketing site until visitors can actually purchase or book them directly. Until that capability exists, the sales conversation owns the Value Stack, package fit and price explanation.
 
 ## Brand Commitments
 
 - Parent brand: BELIVIN MEDIA.
 - Public voice is direct, commercially clear and customer-outcome-led; internal frameworks and production notes never appear on the public surface.
-- The existing BELIVIN main-site visual system remains intact. SHK example pages may establish independent trade-specific visual worlds inside a restrained BELIVIN showroom frame.
+- The BELIVIN main-site visual system is intentionally unassigned during the raw-scaffold phase. No prior main-site direction, composition, palette or material world is visual authority for the clean restart.
 - BELIVIN may truthfully position itself as a local Rheingau/Rhein-Main web agency while contracts, invoices and payments run through BELIVIN MEDIA FZCO in Dubai as disclosed in the imprint.
 
 ## Evidence on Hand
