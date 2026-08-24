@@ -124,3 +124,40 @@ Das separate Vercel-Siebentagefenster vom 11. bis 18. August enthält fünf Besu
 Die synthetische Performance-Baseline vom 10. August bleibt als Labornachweis bestehen. Eine belastbare Feldbewertung der dort veröffentlichten Seite ist wegen der sehr kleinen Stichprobe, des späteren Redesigns und des Telemetrieabbruchs nicht möglich. Insbesondere können die Ziele mobile p75 LCP unter 2,5 Sekunden und CLS unter 0,05 nicht anhand von Produktions-RUM bestätigt werden.
 
 Vor einer neuen Feldabnahme müssen Analytics-Loader, eng begrenzte Eventlogik und die faktische Analytics-Offenlegung gemeinsam in den aktuellen Redesign-Stand zurückgeführt und produktiv verifiziert werden. Der Messzeitraum beginnt danach neu; eine Auswertung am 24. August kann ohne vorherige Wiederherstellung nur den weiterhin fehlenden Messzustand bestätigen.
+
+## 14-Tage-Feldabnahme
+
+Durchgeführt am 24. August 2026 um 20:00 Uhr CEST. Das exakte Auswertungsfenster reicht vom Analytics-Release am 10. August 2026 um 17:01 Uhr bis zum Erfassungszeitpunkt. Die Abnahme ist **nicht bestanden**: Der am 18. August dokumentierte Telemetrieabbruch besteht unverändert fort.
+
+### Stichprobe und Conversion-Events
+
+| Messpunkt | Rohwert | Bereinigung / Bewertung |
+| --- | ---: | --- |
+| Pageviews | 10 | Enthält einen dokumentierten synthetischen Release-Pageview; damit bleiben höchstens 9 nicht-synthetische Pageviews. Seit dem Redesign-Release kamen 0 Pageviews hinzu. |
+| Besucher | 8 | Keine belastbare Besucherbereinigung möglich; seit dem Redesign-Release kamen 0 Besucher hinzu. Insgesamt niedrige Konfidenz. |
+| Desktop / Mobil | 86 % / 14 % | Entspricht bei nur acht Besuchern ungefähr sieben Desktop- und einem Mobilbesucher; wegen `n < 30` nicht belastbar. |
+| `calendly_click` | 3 | Je 1× `nav`, `hero` und `closing`; alle drei sind dokumentierte synthetische Release-Events. Echte Conversions: **0**. |
+| `case_study_click` | 1 | Dokumentiertes synthetisches Event mit `project: bestlife` und `placement: customer_proof`. Echte Conversions: **0**. |
+| `email_click` | 1 | Dokumentiertes synthetisches Event mit `placement: footer`. Echte Conversions: **0**. |
+
+Typ, Anzahl und Eigenschaften der fünf Custom Events sind identisch zum Release-Nachweis. Es gibt daher auch nach 14 Tagen keine belegte echte Conversion. Namen, Kontaktdaten, Freitext oder vollständige Ziel-URLs wurden nicht als Eventeigenschaften erfasst.
+
+### Produktions-, Performance- und Telemetriezustand
+
+- Der Produktionscommit ist weiterhin `5cb3acca1dd05155354ec9938621f1c96d40ef0c`; `main` und das READY-Production-Deployment stimmen überein. Hauptdomain, Startseite und Datenschutzseite liefern HTTP 200.
+- Web Analytics ist im Projekt providerseitig aktiviert und der offizielle Skriptendpunkt ist erreichbar. Das ausgelieferte Produktions-HTML enthält jedoch weder den Analytics-Loader noch die drei erlaubten Eventnamen. Seit dem Redesign-Deployment am 14. August 2026 um 18:06 Uhr CEST wurden deshalb **0 Besucher, 0 Pageviews und 0 Custom Events** erfasst.
+- Die Datenschutzerklärung beschreibt faktisch passend zum aktuellen Stand weiterhin, dass derzeit keine eigenen Analyse-, Marketing- oder Profiling-Dienste eingesetzt werden. Der Sprint-Messvertrag selbst bleibt damit jedoch außer Betrieb.
+- Speed Insights ist deaktiviert und kein Speed-Insights-Loader vorhanden. Für Mobile und Desktop betragen die Samplegrößen für LCP, CLS und INP jeweils `n = 0`; p75-Werte sind nicht verfügbar.
+
+| Gerät | LCP p75 | CLS p75 | INP p75 | Samplegröße je Metrik |
+| --- | ---: | ---: | ---: | ---: |
+| Mobil | nicht verfügbar | nicht verfügbar | nicht verfügbar | 0 |
+| Desktop | nicht verfügbar | nicht verfügbar | nicht verfügbar | 0 |
+
+Die offizielle Produktionsmetrik enthält im exakten Fenster 5.744 Requests: 3.712× 2xx, 281× 3xx und 1.751× 4xx. Die 4xx verteilen sich auf 1.024 erwartete WAF-Denies, 722× 404 und 5× 405; 721 der 404 sind als `not_found` und eine als extern klassifiziert. Es gab **0 HTTP-5xx** und keine Runtime-Error-Cluster.
+
+### Abnahmeurteil und nächster Messzyklus
+
+Domain- und HTTP-Stabilität sind mit 0 HTTP-5xx grün, und Speed Insights bleibt wie entschieden aus. Das zentrale Analytics-Gate ist rot: Ohne produktiven Loader und erlaubte Eventlogik können weder Traffic noch Conversions oder Feldperformance der aktuellen Seite gemessen werden. Die 14-Tage-Feldabnahme kann deshalb weder das Conversion-Tracking noch die Ziele mobile p75 LCP unter 2,5 Sekunden und CLS unter 0,05 bestätigen.
+
+Für eine belastbare neue Feldabnahme müssen Loader, Event-Allowlist und faktische Datenschutzhinweise gemeinsam in den aktuellen Redesign-Stand integriert, durch Cloudflare bis Vercel verifiziert und anschließend über einen neuen 7-/14-Tage-Zyklus gemessen werden. Die historischen fünf synthetischen Events bleiben dabei dauerhaft von echten Conversions ausgeschlossen.
