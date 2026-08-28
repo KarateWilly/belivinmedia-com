@@ -3,7 +3,7 @@
   "workflow": "impeccable-new-work",
   "designAuthority": "impeccable-only",
   "state": "release-candidate-approved",
-  "updatedAt": "2026-08-14T16:02:40Z",
+  "updatedAt": "2026-08-28T16:40:14Z",
   "direction": {
     "name": "Auftragszentrale",
     "origin": "grounded",
@@ -95,7 +95,7 @@
   "implementation": {
     "status": "visually-approved",
     "completedAt": "2026-08-14T12:34:08Z",
-    "reason": "Desktop master transfer, sharp root material, independent tablet/mobile compositions, redesigned script-free legal pages, responsive browser matrix, current DIEZA corporate records and fail-closed industry registry are complete. Mario explicitly approved the complete release candidate for commit and main push.",
+    "reason": "Desktop master transfer, sharp root material, independent tablet/mobile compositions, script-free legal pages, responsive browser matrix, current DIEZA corporate records and fail-closed industry registry are complete. On 2026-08-28 Mario explicitly approved the temporary removal of his public name from both legal pages and the switch to dev@belivinmedia.com after accepting the stated DDG risk.",
     "desktopScreenshot": ".impeccable/main-site-desktop-responsive-final.png",
     "desktopScreenshotSha256": "f12d75c50bcf8a8c057e4b13409ef9758bfb4062c77d1e7811afd406b39a1560",
     "firstViewportScreenshot": ".impeccable/main-site-first-viewport-responsive-final.png",
@@ -127,7 +127,7 @@
       "htmlValidate": "pass",
       "cssValidate": "pass including legal.css",
       "impeccableDetector": "main and legal pass",
-      "tests": "22/22 pass",
+      "tests": "25/25 pass",
       "responsiveQa": "17/17 pass in Chromium and WebKit; max CLS 0",
       "shkDesign2Qa": "12 viewports × 2 engines plus 150/200 percent text scaling pass"
     },
@@ -143,8 +143,8 @@
     "releaseBindings": {
       "index.html": "2327a92550df4dcc23ae53443740d7275fa53edae2d7a36720523488768d9070",
       "styles.css": "0fc66aa6065a66d8dd1e9992ed222873348cd418576f204f6d56fd1724c6bb47",
-      "impressum.html": "57de53f8de96b39e3c3afa11a0b055565cd4a0b0e8217ab39dde435a56b5a68e",
-      "datenschutz.html": "c39e2ce9f5b3f2df2dcd18bf5ca86a9f6229d79bcc77462eaa7d4d74ff75da0a",
+      "impressum.html": "91dbfbbccf2c436a6bee9d2de6c36a56f40826f06f306db80ed30668443e3e39",
+      "datenschutz.html": "25a642d03bd1284ca887b3990bb2650896589a73b7e22521303001b78f594375",
       "legal.css": "e40f1de0bb003ff817a5a9d9d6a7c7d6bd6c1858cbb1ac6cc5d08717e3d8bcc1"
     },
     "releaseReadiness": {
@@ -160,7 +160,7 @@
       },
       "legal": {
         "status": "pass",
-        "reason": "Registration number, license number, issuing authority and registered premises were verified against the current DIEZA Certificate of Formation and Trade License; updated legal pages passed HTML, detector, responsive and visual QA.",
+        "reason": "Registration number, license number, issuing authority and registered premises remain verified against the current DIEZA Certificate of Formation and Trade License. The 2026-08-28 legal revision passed HTML, detector, responsive and visual QA; Mario explicitly directed the representative-name omission after accepting the stated DDG risk.",
         "licensingAuthorityVerified": true,
         "licensingAuthority": "Dubai Integrated Economic Zones Authority (DIEZA)",
         "registrationNumber": "70291",
@@ -181,7 +181,17 @@
         "scriptFree": true,
         "impeccableDetector": "pass",
         "hostingDataFlows": ["Cloudflare", "Vercel"],
-        "externalBookingLink": "Calendly link only; no embed"
+        "externalBookingLink": "Calendly link only; no embed",
+        "contentRevision": {
+          "status": "approved",
+          "approvedBy": "Mario",
+          "approvedAt": "2026-08-28",
+          "scope": ["impressum.html", "datenschutz.html"],
+          "publicContact": "dev@belivinmedia.com",
+          "representativeNamePubliclyOmitted": true,
+          "ddgRiskAccepted": true,
+          "ddgRiskBasis": "§ 5 Abs. 1 Nr. 1 DDG names the Vertretungsberechtigten as required information for legal persons."
+        }
       },
       "industryRegistry": {
         "status": "pass",
