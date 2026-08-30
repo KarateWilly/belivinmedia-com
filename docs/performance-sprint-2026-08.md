@@ -90,3 +90,37 @@ Produktionscommit `d82e7690e9744574cc5f910fa2db899126302504` wurde am 10. August
 - Das produktive HTML enthält den Analytics-Loader, die eng begrenzte Eventlogik und den Critical-CSS-Paritätsfix.
 
 Offen bleibt ausschließlich die zeitabhängige Feldabnahme: Nach 7 und 14 Tagen werden Pageviews, echte Eventzahlen, mobile Stichprobengröße und verfügbare Feldmetriken ergänzt. Akzeptanz bleiben keine PII in Events, mobile p75 LCP unter 2,5 s und CLS unter 0,05 bei ausreichender Stichprobe.
+
+## 7-Tage-Feldabnahme
+
+Nachgeholt am 18. August 2026 um 17:03 Uhr CEST. Das ausgewertete Produktionsfenster reicht vom Analytics-Release am 10. August 2026 um 17:00 Uhr bis zum Erfassungszeitpunkt. Die Abnahme ist **nicht bestanden**, weil ein späterer Redesign-Release die produktive Telemetrie entfernt hat.
+
+### Stichprobe und Conversion-Events
+
+| Messpunkt | Rohwert | Bereinigung / Bewertung |
+| --- | ---: | --- |
+| Pageviews | 10 | Darin ist ein bekannter synthetischer Release-Pageview enthalten; damit bleiben höchstens 9 nicht-synthetische Pageviews. |
+| Besucher | 8 | Keine belastbare Besucherbereinigung möglich; insgesamt niedrige Konfidenz. |
+| Desktop / Mobil | 86 % / 14 % | Entspricht bei nur acht Besuchern ungefähr sieben Desktop- und einem Mobilbesucher; nicht belastbar. |
+| `calendly_click` | 3 | Alle drei sind die dokumentierten synthetischen Events: je 1× `nav`, `hero` und `closing`; echte Conversions: **0**. |
+| `case_study_click` | 1 | Dokumentiertes synthetisches Event mit `project: bestlife` und `placement: customer_proof`; echte Conversions: **0**. |
+| `email_click` | 1 | Dokumentiertes synthetisches Event mit `placement: footer`; echte Conversions: **0**. |
+
+Die fünf Custom Events entsprechen in Typ, Anzahl und erlaubten Eigenschaften vollständig dem Release-Nachweis. Es gibt daher im Messfenster keine belegte echte Conversion. Namen, Kontaktdaten, Freitext oder vollständige Ziel-URLs wurden nicht als Eventeigenschaften erfasst.
+
+Das separate Vercel-Siebentagefenster vom 11. bis 18. August enthält fünf Besucher, sechs Pageviews und keine Custom Events. Das bestätigt, dass alle fünf Events ausschließlich im älteren Release-Verifikationsintervall liegen.
+
+### Produktions- und Telemetriezustand
+
+- Der aktuelle Produktionscommit ist `5cb3acca1dd05155354ec9938621f1c96d40ef0c`; `main` und das READY-Production-Deployment stimmen überein. Dieser Stand wurde am 14. August 2026 um 18:06 Uhr CEST ausgerollt und ist ein Nachfolger des Analytics-Releases `d82e7690e9744574cc5f910fa2db899126302504`.
+- Hauptdomain und Datenschutzseite liefern HTTP 200. Das Vercel-Analytics-Skript ist providerseitig erreichbar und Web Analytics ist im Projekt weiterhin aktiviert.
+- Das aktuelle Produktions-HTML bindet den Analytics-Loader jedoch nicht mehr ein und enthält auch die drei Eventnamen beziehungsweise die erlaubte Eventlogik nicht. Seit dem aktuellen Production-Deployment wurden deshalb **0 Pageviews und 0 Custom Events** aufgenommen.
+- Die aktuelle Datenschutzerklärung beschreibt entsprechend wieder, dass derzeit keine eigenen Analyse-, Marketing- oder Profiling-Dienste eingesetzt werden. Es besteht damit kein Widerspruch zwischen der aktuellen Seite und ihrer aktuellen, faktisch inaktiven Telemetrie; der Sprint-Messvertrag wurde aber zurückgenommen.
+- Speed Insights ist weiterhin deaktiviert und kein Speed-Insights-Loader vorhanden. LCP-, CLS- und INP-Samples betragen jeweils 0; mobile und Desktop-p75-Werte sind daher nicht verfügbar.
+- Im vollständigen Fenster wurden 348 HTTP-403-Antworten als erwartete WAF-/Bot-Denies, 396 HTTP-404-Antworten als Bot-/Not-found-Kategorien und eine HTTP-405-Antwort erfasst. Es gab **0 HTTP-5xx** und keine Runtime-Error-Cluster. Die Schutzantworten sind kein belegter Anwendungsfehler.
+
+### Abnahmeurteil
+
+Die synthetische Performance-Baseline vom 10. August bleibt als Labornachweis bestehen. Eine belastbare Feldbewertung der dort veröffentlichten Seite ist wegen der sehr kleinen Stichprobe, des späteren Redesigns und des Telemetrieabbruchs nicht möglich. Insbesondere können die Ziele mobile p75 LCP unter 2,5 Sekunden und CLS unter 0,05 nicht anhand von Produktions-RUM bestätigt werden.
+
+Vor einer neuen Feldabnahme müssen Analytics-Loader, eng begrenzte Eventlogik und die faktische Analytics-Offenlegung gemeinsam in den aktuellen Redesign-Stand zurückgeführt und produktiv verifiziert werden. Der Messzeitraum beginnt danach neu; eine Auswertung am 24. August kann ohne vorherige Wiederherstellung nur den weiterhin fehlenden Messzustand bestätigen.
