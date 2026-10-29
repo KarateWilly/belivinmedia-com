@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-// Captures every comp at 390x844 and 1440x900 (first screen and full page), checks the
-// copy against the locked file, sweeps the responsive widths for overflow, and writes
-// one mobile+desktop pair board per comp for the decision page.
+// Captures the Kundenweg master at 390x844 and 1440x900 (first screen and full page),
+// checks every visible text against the locked copy, sweeps the responsive widths for
+// overflow, writes a mobile+desktop pair board, and refreshes the master's manifest.
 
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -13,24 +13,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = resolve(here, '../../..');
 const { chromium } = await import(pathToFileURL(join(repo, 'node_modules/playwright/index.mjs')).href);
-const { copy } = await import(pathToFileURL(join(here, 'build-comps.mjs')).href);
 
 const lockedPath = join(repo, '.impeccable/copy/belivin-agency-2026-locked.md');
 const locked = readFileSync(lockedPath, 'utf8');
 const sha256 = path => createHash('sha256').update(readFileSync(path)).digest('hex');
-
-const strings = [];
-const collect = value => {
-  if (typeof value === 'string') strings.push(value);
-  else if (Array.isArray(value)) value.forEach(collect);
-  else if (value && typeof value === 'object') Object.values(value).forEach(collect);
-};
-collect(copy);
-const missing = strings.filter(value => !value.startsWith('/') && !locked.includes(value));
-if (missing.length > 0) {
-  process.stderr.write(`Copy outside the locked file:\n- ${missing.join('\n- ')}\n`);
-  process.exit(1);
-}
 
 const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.woff2': 'font/woff2', '.png': 'image/png' };
 const server = createServer((request, response) => {
@@ -46,7 +32,7 @@ await new Promise(done => server.listen(0, '127.0.0.1', done));
 const origin = `http://127.0.0.1:${server.address().port}`;
 
 const browser = await chromium.launch({ channel: 'chrome' });
-const comps = process.argv.slice(2).length ? process.argv.slice(2) : ['a', 'b', 'c'];
+const comps = ['kundenweg'];
 const report = {};
 
 async function open(id, viewport, mobile) {
@@ -56,7 +42,7 @@ async function open(id, viewport, mobile) {
   page.on('console', message => message.type() === 'error' && errors.push(message.text()));
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(`${origin}/comp-${id}/index.html`, { waitUntil: 'networkidle' });
-  await page.waitForFunction(() => ['is-fitted', 'is-ready'].some(name => document.documentElement.classList.contains(name)));
+  await page.waitForFunction(() => document.documentElement.classList.contains('is-ready'));
   await page.waitForTimeout(150);
   return { context, page, errors };
 }
@@ -128,25 +114,17 @@ for (const id of comps) {
 await browser.close();
 server.close();
 
-function fontsFor(id) {
-  if (id === 'kundenweg') {
-    return ['funnel-display', 'funnel-sans'].map(name => ({
-      family: name === 'funnel-display' ? 'Funnel Display' : 'Funnel Sans',
-      file: `fonts/${name}-latin-wght-normal.woff2`,
-      license: `fonts/OFL-${name}.txt`,
-      origin: `@fontsource-variable/${name}@5.2.8 (SIL OFL 1.1)`,
-    }));
-  }
-  return [{ family: 'Anybody', file: 'fonts/anybody-latin-standard-normal.woff2', license: 'fonts/OFL-Anybody.txt', origin: '@fontsource-variable/anybody@5.2.7 (SIL OFL 1.1)' }];
-}
+const fonts = ['funnel-display', 'funnel-sans'].map(name => ({
+  family: name === 'funnel-display' ? 'Funnel Display' : 'Funnel Sans',
+  file: `fonts/${name}-latin-wght-normal.woff2`,
+  license: `fonts/OFL-${name}.txt`,
+  origin: `@fontsource-variable/${name}@5.2.8 (SIL OFL 1.1)`,
+}));
 
-const sources = ['shared/base.css', 'shared/fit.js', 'fonts/anybody-latin-standard-normal.woff2', 'fonts/OFL-Anybody.txt'];
 for (const id of comps) {
   const manifestPath = join(here, `comp-${id}.json`);
   const previous = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {};
-  const files = id === 'kundenweg'
-    ? ['comp-kundenweg/index.html', 'comp-kundenweg/styles.css', 'comp-kundenweg/kundenweg.js', ...fontsFor(id).flatMap(font => [font.file, font.license])]
-    : [`comp-${id}/index.html`, `comp-${id}/comp.css`, ...sources];
+  const files = ['comp-kundenweg/index.html', 'comp-kundenweg/styles.css', 'comp-kundenweg/kundenweg.js', ...fonts.flatMap(font => [font.file, font.license])];
   const manifest = {
     id: `comp-${id}`,
     approved: previous.approved ?? false,
@@ -154,7 +132,7 @@ for (const id of comps) {
     source: relative(repo, join(here, `comp-${id}/index.html`)),
     copy: relative(repo, lockedPath),
     copySha256: sha256(lockedPath),
-    fonts: fontsFor(id),
+    fonts,
     rasters: [],
     captures: report[id].captures,
     responsiveSweep: report[id].overflow,

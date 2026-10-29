@@ -19,6 +19,6 @@ Telemetry ping sent (`--kind challenger --chosen posters-covers-sleeves-festival
 ## 2026-10-29 · Comp round rejected, direction delegated
 
 - Mario on comps A–C (Festival-Line-up, ultramarine + acid lime, Anybody): „Muss sagen empfinde alle Vorlagen als schlecht. Entweder liegt es an den Impeccable Templates oder an der Farbwahl aber das wirkt wie ein schlechtes 90er Jahre Plakat für ein Festival Lineup. Ist das wirklich dein bevorzugter Taste? Ich will das du deine eigene Variante baust und deinen eigenen taste umsetzt.“
-- Verdict: the poster grammar was executed as costume, and the acid palette came from the catalog card, not from the brand. Festival-Line-up is retired; comps A–C stay as evidence and anti-reference.
+- Verdict: the poster grammar was executed as costume, and the acid palette came from the catalog card, not from the brand. Festival-Line-up is retired; comps A–C were deleted in the cleanup on 2026-10-29 and this record keeps the reason.
 - New direction (delegated to Claude, pinned by Mario's instruction, no roll): **Kundenweg**. A calm, precise light surface in the brand's own navy and mint (logo, favicon). The technical edge is motion with meaning: in the hero, the four channel lines visibly converge into the booking button (vertically on phones), and one customer-path line carries the whole page and fills while scrolling. Funnel Display + Funnel Sans (OFL). Everything stacks; mobile is the native form.
 - Presentation: one comp (mobile + desktop from one source) instead of three, per Mario's instruction.

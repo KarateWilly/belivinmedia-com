@@ -1,31 +1,21 @@
+# Only the public site ships: HTML, CSS, JS, favicon, robots, sitemap and public/.
+# Internal docs, tooling and records stay out of the deployment.
 .git
 .vercel/
-node_modules/
+.claude/
 .github/
-package.json
-package-lock.json
-.env*
+.githooks/
 .impeccable/
 .playwright-cli/
+node_modules/
 output/
+tests/
+*.md
+package.json
+package-lock.json
 .htmlvalidate.json
+.env*
 .DS_Store
 **/.DS_Store
-DEPLOY.md
-DESIGN.md
 public/**/*.json
-public/assets/logo/Logo_clean.png
-public/assets/logo/Logo_text.png
-public/hero-focus-desktop.webp
-public/hero-focus-mobile.webp
-public/hero-signal-cut.webp
-public/fonts/ibm-plex-sans-condensed-*.woff2
-public/fonts/plus-jakarta-sans-latin-variable.woff2
-public/fonts/OFL-IBM-Plex-Sans-Condensed.txt
-public/fonts/OFL-Plus-Jakarta-Sans.txt
-
-# Retired on 2026-10-29: SHK showroom and the Handwerk-era main-site assets and fonts.
-beispiele/
-public/beispiele/
-public/main-site/
-public/fonts/
+public/assets/logo/

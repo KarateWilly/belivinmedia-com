@@ -8,16 +8,6 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/beispiele/(.*)",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/beispiele",
-      "destination": "/",
-      "permanent": false
     }
   ],
   "headers": [

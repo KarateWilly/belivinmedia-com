@@ -4,11 +4,4 @@ node_modules/
 **/.DS_Store
 .playwright-cli/
 output/
-public/hero-focus-desktop.webp
-public/hero-focus-mobile.webp
-public/hero-signal-cut.webp
-public/fonts/ibm-plex-sans-condensed-*.woff2
-public/fonts/plus-jakarta-sans-latin-variable.woff2
-public/fonts/OFL-IBM-Plex-Sans-Condensed.txt
-public/fonts/OFL-Plus-Jakarta-Sans.txt
 .env*

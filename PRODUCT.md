@@ -33,12 +33,12 @@ The previous positioning (websites for German trades, SHK industry showrooms, Ha
 
 - `belivinmedia.com` on the existing Vercel project remains the only public deployment target.
 - Traffic sources for the new positioning are not yet defined; the surface must work for cold visitors without prior context.
-- The SHK showroom (`/beispiele/shk/`), `beispiele/industry-registry.json` and the Handwerk outreach program are discontinued (decision 2026-10-29). Their files stay in the repository untouched until the release gate removes them from deployment; they are not proof, navigation or visual authority for the new site.
+- The SHK showroom, the industry registry and the Handwerk outreach program were discontinued and deleted on 2026-10-29; `/beispiele/` no longer exists.
 - The private `belivin-waas` project and lead pipeline are not part of this surface.
 
 ## Capabilities and Constraints
 
-- The repository's fail-closed main-site gate (`AGENTS.md`, `.impeccable/main-site-production-gate.mjs`) governs direction, copy, comps, assets, build and release.
+- The repository's site gate (`AGENTS.md`, `.impeccable/site-gate.mjs`, `.impeccable/site-gate.json`) governs direction, copy, comps, assets, build and release.
 - Desktop and mobile are separately authored compositions from one semantic DOM. Mobile is never a crop, shrink or rearrangement of the desktop page.
 - Motion and scroll choreography are welcome where they demonstrate capability, but every motion has a reduced-motion state and content is never hidden behind animation timing.
 - Generated video or imagery is used only with a commercial-use licence. The current Higgsfield account is on the free plan (no commercial use); any paid generation plan or provider spend needs Mario's explicit approval first.

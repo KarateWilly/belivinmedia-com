@@ -12,7 +12,7 @@ Run `npm run handoff:check`. It prints the current stage, the next action and an
 4. `PRODUCT.md`, the surface brief `.impeccable/surfaces/index-html.md`, and approved artifacts in `.impeccable/`.
 5. The global `belivin-media` skill for business facts only. Its main-site and showroom workflow references (browser-native delivery standard, main-site production gate) describe the retired Handwerk process; where they conflict with this file, this file wins.
 
-Retired builds (Handwerk "Auftragszentrale", SHK showroom) are evidence and anti-reference only, never visual authority.
+Deleted builds (Handwerk "Auftragszentrale", SHK showroom, Festival-Line-up comps) are anti-reference only, never visual authority; see Removed.
 
 ## Current state
 
@@ -60,10 +60,9 @@ The last build failed on mobile because it was a fixed 1672×941 canvas reproduc
 - The pre-commit hook runs `node .impeccable/site-gate.mjs commit`. Commits touching main or legal sources need a green `npm run qa`, re-locked sources, a verified licensing authority and Mario's recorded release approval.
 - No commit, push or deployment without Mario's explicit approval.
 
-## Retired
+## Removed
 
-- SHK showroom (`beispiele/shk/`, `public/beispiele/shk/`), `beispiele/industry-registry.json` and the Handwerk outreach were discontinued on 2026-10-29. Their files stay untouched until the release step removes them from deployment, sitemap, QA scripts and tests. Do not edit or extend them.
-- The Handwerk-era main-site gate is archived in `.impeccable/legacy/handwerk-2026/`. `.impeccable/hero-build/` stays locked as part of that archive.
+The Handwerk site, its fixed-canvas production gate, the SHK showroom (`/beispiele/`), the industry registry and the rejected Festival-Line-up comps were deleted on 2026-10-29 (Mario: „Keine Altlasten“). Git history keeps them; nothing in the working tree refers to them. Do not restore them.
 
 ## Shared working tree
 

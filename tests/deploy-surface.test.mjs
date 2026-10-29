@@ -27,6 +27,13 @@ test('deployable surfaces never reference Vercel-excluded Impeccable artifacts',
   }
 });
 
+test('internal docs, tooling and tests never ship with the deployment', () => {
+  const ignored = read('.vercelignore').split('\n').map(line => line.trim());
+  for (const entry of ['*.md', 'tests/', '.githooks/', '.github/', '.claude/', '.impeccable/', 'package.json']) {
+    assert.ok(ignored.includes(entry), `.vercelignore must exclude ${entry}`);
+  }
+});
+
 test('every public asset referenced by deployable surfaces exists and is non-empty', () => {
   const references = new Set();
   for (const relativePath of deploySources) {

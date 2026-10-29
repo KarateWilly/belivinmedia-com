@@ -24,7 +24,6 @@
   "devDependencies": {
     "csstree-validator": "4.0.1",
     "html-validate": "11.6.2",
-    "playwright": "1.62.1",
-    "typescript": "6.0.3"
+    "playwright": "1.62.1"
   }
 }

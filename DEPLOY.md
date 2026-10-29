@@ -2,14 +2,13 @@
 
 ## Vor einem Go-Live
 
-- [ ] Foto, Namensnennung und Referenztext von Cristina Hubrath schriftlich freigeben.
 - [ ] Unternehmensangaben, Registrierungsnummer und Kontaktadresse prüfen.
 - [ ] Datenschutzhinweise gegen die tatsächlich aktiven Vercel- und Cloudflare-Einstellungen prüfen.
 - [ ] UAE-Struktur, möglichen EU-Vertreter und zuständige Datenschutzaufsicht juristisch prüfen lassen.
 - [ ] Calendly-Ziel und externe Links erneut aufrufen.
 - [ ] `npm ci` und anschließend `npm run qa` vollständig grün ausführen.
 - [ ] Desktop, Mobile, Tastaturbedienung, reduzierte Bewegung, `robots.txt` und `sitemap.xml` prüfen.
-- [ ] Den Hero zusätzlich auf einem echten iPhone und Android-Gerät in Hoch- und Querformat prüfen.
+- [ ] Den Hero mit den Kundenweg-Linien zusätzlich auf einem echten iPhone und Android-Gerät in Hoch- und Querformat prüfen.
 
 ## Lokale Vorschau
 
