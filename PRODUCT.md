@@ -6,72 +6,66 @@
 
 web
 
+## Stack
+
+Static HTML, CSS and self-hosted JavaScript in this repository, deployed through the existing `belivinmedia.com` Vercel project behind Cloudflare. Motion libraries, fonts and media are self-hosted; the release QA forbids third-party runtime requests.
+
 ## Users
 
-Primary users are owners and decision-makers of local German trades businesses. They usually arrive from a cold but individually relevant outreach email, often open the link on a phone, and need to judge BELIVIN's quality within seconds.
-
-BELIVIN builds each template as one finished vertical slice. Industry outreach begins only when that industry's showroom contains three distinct production-ready template worlds.
+Decision-makers of businesses that want more customers through digital marketing: owners, managing directors and marketing leads. The audience is deliberately broad and industry-open (decision 2026-10-29); no single industry or company size leads the surface. Visitors arrive cold, on phone or desktop, and judge within seconds whether BELIVIN looks capable enough to trust with their marketing.
 
 ## Product Purpose
 
-BELIVIN MEDIA's public website explains and sells its website service. Its industry showrooms demonstrate what a finished website for a specific trade could look like without pretending that a cold lead has already received a personalized build.
-
-Template 1, `Inbetriebnahme-Pass`, is the locked production baseline after wide-screen, copy and interaction polish. Template 2 will use the separately authored `Versorgung in Schichten` direction. A distinct Template 3 completes the initial SHK showroom before outreach begins. Every qualified SHK lead receives the same showroom link; there is no per-template A/B/C split.
-
-Success means that a recipient immediately recognizes the SHK context, trusts the visible craft level on both desktop and mobile, understands that this is an example direction, and requests the same quality for their own business.
+BELIVIN MEDIA's public website presents BELIVIN as a full-service marketing agency and turns qualified visitors into booked first conversations. Success means a first-time visitor understands what BELIVIN does, finds the work credible and contemporary on both desktop and mobile, and books a call.
 
 ## Positioning
 
-The showroom is a truthful pre-sale demonstration, not a lead-specific demo generator and not a generic theme catalogue. Its central promise is `So könnte auch Ihre Website aussehen.` Each industry launches with three authored, fixed example websites that demonstrate BELIVIN's quality range. Company-specific identity, copy, proof and implementation begin only after genuine interest or collaboration.
+BELIVIN MEDIA is a classic marketing agency with a slightly technical edge: strategy, creative and technology delivered by one team. The four service pillars (confirmed 2026-10-29):
+
+1. Websites & Landingpages: design, development and conversion pages.
+2. Performance-Ads: Meta and Google campaigns with tracking.
+3. Social Media & Content: strategy, video/photo production, channel management.
+4. SEO & KI-Sichtbarkeit: Google, Maps, and presence in AI answers such as ChatGPT.
+
+The previous positioning (websites for German trades, SHK industry showrooms, Handwerk outreach) is retired. Services lead the surface, not a target industry.
 
 ## Operating Context
 
-- Initial SHK entry point: `/beispiele/shk/`.
-- Initial showroom: three production-ready routes from `/beispiele/shk/design-1/` through `/beispiele/shk/design-3/`.
-- The route is initially link-only, `noindex`, omitted from navigation and sitemap, but remains a real production-quality public page.
-- Later publication requires only an explicit navigation/indexing decision, not a new renderer or hosting project.
-- The existing `belivinmedia.com` Vercel project and domain remain the only public deployment target.
-- The private `belivin-waas` project remains responsible for lead research, revalidation, suppression and campaign staging; it does not render public examples.
+- `belivinmedia.com` on the existing Vercel project remains the only public deployment target.
+- Traffic sources for the new positioning are not yet defined; the surface must work for cold visitors without prior context.
+- The SHK showroom (`/beispiele/shk/`), `beispiele/industry-registry.json` and the Handwerk outreach program are discontinued (decision 2026-10-29). Their files stay in the repository untouched until the release gate removes them from deployment; they are not proof, navigation or visual authority for the new site.
+- The private `belivin-waas` project and lead pipeline are not part of this surface.
 
 ## Capabilities and Constraints
 
-- Static HTML and isolated template-local CSS in the existing BELIVIN repository.
-- No lead JSON, private manifests, runtime logo swaps, per-lead routes or personalization code.
-- The showroom shell may be shared; composition, typography, imagery, interaction, mobile translation and visual system are authored independently for every template world.
-- Templates are completed vertically, one production-ready world at a time; the industry showroom is not released for outreach until all initial three are live and verified.
-- Desktop and mobile first viewports are separate approved compositions. Mobile is never an automatic crop, shrink or rearrangement of the desktop page.
-- Final hero and key section imagery must use the highest available generation quality, normally a high-resolution/upscaled pass suitable for 2K–4K source production. Desktop landscape and mobile portrait assets are generated separately for their approved compositions.
-- Image acceptance requires visual review for realism, technical SHK plausibility, sharpness, anatomy, tools, equipment placement, lighting, perspective, text/logo artifacts, quiet HTML overlay regions and crop resilience. Resolution and file validity alone never approve an image.
-- Final delivery encodes responsive AVIF/WebP variants from approved source assets without using CSS or HTML to conceal weak generation quality.
-- The example uses a designed generic identity such as `IHR SHK-BETRIEB`, `SANITÄR · HEIZUNG · KLIMA`, `IHRE REGION` and `IHRE TELEFONNUMMER`; these surfaces must look intentional rather than like unfinished wireframes.
-- No invented ratings, review counts, founding years, certifications, guarantees, project totals, response times, emergency availability, partnerships, customer names or potentially real contact details.
-- Any workwear mark is a fixed, controlled part of an approved source image, never a runtime overlay. Generated text is not trusted for final typography.
-- BELIVIN interest actions lead directly to the approved Calendly website-check route; no redundant intermediate CTA.
-- No public deployment, outreach release or provider spend occurs without the relevant explicit approval.
-- Packages and prices remain off the public marketing site until visitors can actually purchase or book them directly. Until that capability exists, the sales conversation owns the Value Stack, package fit and price explanation.
+- The repository's fail-closed main-site gate (`AGENTS.md`, `.impeccable/main-site-production-gate.mjs`) governs direction, copy, comps, assets, build and release.
+- Desktop and mobile are separately authored compositions from one semantic DOM. Mobile is never a crop, shrink or rearrangement of the desktop page.
+- Motion and scroll choreography are welcome where they demonstrate capability, but every motion has a reduced-motion state and content is never hidden behind animation timing.
+- Generated video or imagery is used only with a commercial-use licence. The current Higgsfield account is on the free plan (no commercial use); any paid generation plan or provider spend needs Mario's explicit approval first.
+- Packages and prices stay off the public site until visitors can buy or book them directly.
+- Open decision: the primary booking target. The existing Calendly event is `https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check`; a general first-conversation event may replace it during the copy gate.
 
 ## Brand Commitments
 
-- Parent brand: BELIVIN MEDIA.
-- Public voice is direct, commercially clear and customer-outcome-led; internal frameworks and production notes never appear on the public surface.
-- The BELIVIN main-site visual system is intentionally unassigned during the raw-scaffold phase. No prior main-site direction, composition, palette or material world is visual authority for the clean restart.
-- BELIVIN may truthfully position itself as a local Rheingau/Rhein-Main web agency while contracts, invoices and payments run through BELIVIN MEDIA FZCO in Dubai as disclosed in the imprint.
+- Name: BELIVIN MEDIA.
+- Public voice: direct, commercially clear, outcome-led German. No buzzword stacks, hedging, framework talk or internal production notes on the public surface.
+- BELIVIN may truthfully present itself as based in Geisenheim / Rheingau / Rhein-Main while contracts, invoices and payments run through BELIVIN MEDIA FZCO in Dubai as disclosed in the imprint. Dubai/FZCO appears only where legally required.
+- Existing identity assets: a framed monogram logo with wordmark (`public/assets/logo/Logo_text.png`, `Logo_clean.png`; raster, navy-to-light-blue gradient) and a favicon (`favicon.svg`, navy `#212162` / mint `#5CE1C6`). Whether these stay binding for the new site is an open decision for Mario.
+- No prior main-site direction, composition, palette or material world is visual authority for the new site.
 
 ## Evidence on Hand
 
-- Existing BELIVIN website, legal pages, analytics and responsive QA harness in this repository.
-- Existing direct Calendly event: `https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check`.
-- No approved SHK customer case study, project gallery, ratings, awards or performance outcomes are available for the example and none may be fabricated.
-- Synthetic SHK photography may demonstrate category and craft context but must never be represented as a real customer project.
+- No approved customer projects, case studies, testimonials, results, ratings, awards, partner badges or client logos are on hand. None may be invented.
+- Proof regions may show BELIVIN's own demonstrable craft (the site itself, clearly labelled own demos) or ship as clearly marked placeholders on Mario's replacement list until real, approved proof exists.
+- Legal pages (`impressum.html`, `datenschutz.html`, `legal.css`) exist and must match the emitted site's actual entity and data flows at release.
 
 ## Product Principles
 
-1. Build vertically, launch credibly: finish and test one template at a time, but send only a showroom with three distinct live directions.
-2. Show finished quality, not personalization theatre.
-3. One branch earns expansion before another branch begins.
+1. The site is the first proof: its own craft, speed and motion must demonstrate what BELIVIN delivers.
+2. Services lead; industries do not.
+3. Truth over theatre: no invented customers, numbers or claims.
 4. Mobile is an authored sales surface, not desktop damage control.
 5. Visual quality is a human-reviewed release requirement; technical compliance is only the floor.
-6. Template 2 must be recognizably more experimental than Template 1 and may not reuse the Inbetriebnahme-Pass composition with swapped copy.
 
 ## Accessibility & Inclusion
 

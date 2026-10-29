@@ -26,9 +26,9 @@ npm ci
 npm run qa
 ```
 
-Das Gate prüft Chromium und WebKit in Hochformat, kurzem Querformat, Tablet, Desktop, Tall Desktop, Wide Desktop sowie direkt vor und nach jedem Layout-Wechsel und dem Seitenverhältnis `4/3`. Es kontrolliert nicht nur den Dokument-Scroll, sondern auch abgeschnittenen Text, lokale Clipping-Flächen, den vollständigen Hero, den CTA im ersten Viewport, die Pfeilspitze, Touch-Ziele, Menübedienung, reduzierte Bewegung und Textvergrößerung. Für den Hero erzwingt es zusätzlich ausschließlich freigegebene responsive Encodings des einen kanonischen Motivs, vollständige Bild- und Kontrastabdeckung, Copy-Bild-Überlappung und den sichtbaren Tür-Fokalpunkt. Fehler-Screenshots landen ausschließlich unter `output/responsive-qa/` und werden nicht veröffentlicht.
+Das Gate prüft Startseite, Impressum und Datenschutz in Chromium und WebKit auf sieben Größen von 320 px bis 1920 px, inklusive Handy-Querformat. Es kontrolliert horizontalen Überlauf, geladene Schriften, Konsolen- und Seitenfehler, Anfragen an Drittanbieter, lokale Links und Sprungmarken, Trefferflächen ab 24 px, sichtbaren Tastaturfokus, Layout-Shift, die gezeichneten Kundenweg-Linien und den Check-Button im ersten Screen. Fehler-Screenshots landen ausschließlich unter `output/responsive-qa/` und werden nicht veröffentlicht. Lokal kann `QA_ENGINES=chromium` den Lauf eingrenzen; für den Release laufen immer beide Engines.
 
-Für neue Hero- oder Template-Richtungen werden vor der Umsetzung zwei verbindliche First-Viewport-Comps freigegeben: Desktop und Telefon-Hochformat. Signal Cut verwendet auf allen Größen dasselbe Motiv und steuert ausschließlich Fokalpunkt, Kontrast und Typografie per CSS. Das `<picture>` liefert nur AVIF-/WebP-Größenvarianten dieses einen freigegebenen Artworks; ein separates Portrait-Motiv setzt weiterhin eine spätere freigegebene Art Direction voraus. Copy und Bild dürfen nie wieder in getrennte Hero-Blöcke zerfallen.
+Design- und Ablaufregeln stehen in `AGENTS.md`, das Designsystem in `DESIGN.md`, der aktuelle Stand in `.impeccable/site-gate.json` (`npm run handoff:check`).
 
 ## Veröffentlichung
 

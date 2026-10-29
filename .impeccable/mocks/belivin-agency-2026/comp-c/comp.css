@@ -1,0 +1,117 @@
+/* Comp C · Monument auf Limette: one dominant line owns the first screen, the line-up is the undercard. */
+
+.comp-c .bar {
+  --ground: var(--lime);
+  --ink: var(--ultramarine);
+  color: var(--ink);
+}
+
+.comp-c .hero {
+  grid-template-columns: minmax(0, 1fr);
+  display: grid;
+  grid-template-areas:
+    "lead"
+    "title"
+    "foot"
+    "fine";
+  gap: 22px;
+  padding: clamp(24px, 3.4vw, 40px) var(--pad) clamp(28px, 3.4vw, 40px);
+}
+
+.comp-c .hero-lead {
+  grid-area: lead;
+  max-width: 26ch;
+}
+
+.comp-c .hero-title {
+  grid-area: title;
+}
+
+.comp-c .hero-foot {
+  grid-area: foot;
+  display: grid;
+  gap: 22px;
+  padding-top: 22px;
+  border-top: var(--rule) solid var(--ink);
+}
+
+.comp-c .hero-billing li {
+  padding: 6px 0;
+  white-space: nowrap;
+  border-bottom: var(--rule) solid var(--ink);
+  font-size: clamp(30px, 8.4vw, 36px);
+  font-stretch: 60%;
+  font-weight: 880;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.comp-c .hero-billing li:first-child {
+  padding-top: 0;
+}
+
+.comp-c .hero-fine {
+  grid-area: fine;
+}
+
+.comp-c .mechanism {
+  --ground: var(--lime);
+  --ink: var(--ultramarine);
+  background: var(--ground);
+  color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .comp-c .hero {
+    grid-template-rows: auto 1fr auto auto;
+    min-height: calc(100svh - var(--bar-height));
+  }
+
+  .comp-c .hero-title {
+    align-self: center;
+  }
+
+  .comp-c .hero-foot {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
+    grid-template-areas:
+      "billing billing"
+      "support action";
+    column-gap: 48px;
+    align-items: start;
+  }
+
+  .comp-c .hero-billing {
+    grid-area: billing;
+    padding-bottom: 14px;
+    border-bottom: var(--rule) solid var(--ink);
+    font-size: clamp(28px, 2.8vw, 44px);
+    font-stretch: 60%;
+    font-weight: 880;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .comp-c .hero-billing li {
+    display: inline;
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+  }
+
+  .comp-c .hero-billing li + li::before {
+    display: inline-block;
+    width: 4px;
+    height: 0.74em;
+    margin: 0 0.42em;
+    background: currentColor;
+    content: "";
+  }
+
+  .comp-c .hero-foot .support {
+    grid-area: support;
+  }
+
+  .comp-c .hero-action {
+    grid-area: action;
+  }
+}

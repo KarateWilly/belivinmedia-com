@@ -3,149 +3,166 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BELIVIN MEDIA baut Websites fürs Handwerk – klar, lokal sichtbar und auf Anfragen ausgerichtet.">
+  <meta name="description" content="Websites, Performance-Ads, Social Media und SEO &amp; KI-Sichtbarkeit aus einer Hand. Kostenloser 15-Minuten-Marketing-Check.">
+  <meta name="theme-color" content="#f4f5f8">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#171a18">
   <link rel="canonical" href="https://belivinmedia.com/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="/public/fonts/league-gothic-variable.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="/public/fonts/ibm-plex-sans-condensed-400.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="/public/fonts/ibm-plex-sans-condensed-600.ttf" as="font" type="font/ttf" crossorigin>
-  <title>BELIVIN MEDIA · Websites fürs Handwerk</title>
-  <link rel="stylesheet" href="styles.css?v=0fc66aa6065a">
+  <title>BELIVIN MEDIA · Marketingagentur für mehr Kunden</title>
+  <link rel="preload" href="/public/site/fonts/funnel-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/public/site/fonts/funnel-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=7986bad99bdc">
+  <script src="site.js?v=1b2a1654f8bd" defer></script>
 </head>
 <body>
-  <!-- THESIS: Websites werden zur Auftragszentrale. -->
-  <!-- OWN-WORLD: Graphit, Arbeitspapier, Aluminium, Statusgrün und Auftragsorange. -->
-  <!-- STORY: Ergebnis → GESEHEN → VERSTANDEN → ANGEFRAGT → Website-Check → Proof. -->
-  <!-- FIRST VIEWPORT: Browser-native Produktions-Comp bei 1672×941. -->
-  <!-- FORM: B4-Materialstage + echte Copy + reale Fonts + exakt getracete B4-SVGs. -->
-  <!-- SEED: 6d6ca027 -->
+  <!--
+    THESIS: Vier Kanäle, ein Ergebnis. Die Seite zeigt den Mechanismus, statt ihn zu behaupten: Die Kanal-Linien laufen sichtbar in den Check-Button. Verweigert Agentur-Bento, Logo-Laufband, Verlaufslicht und Neon auf Schwarz.
+    OWN-WORLD: Kühles Papier, tiefes Marken-Navy, ein Mint-Signal nur für Bewegung und Aktion; Funnel Display und Funnel Sans; 1px-Linien, 10px-Ecken, keine Karten, keine Schatten.
+    STORY: Besucher erkennt sein Problem, sieht vier Kanäle als ein System und bucht den kostenlosen 15-Minuten-Check.
+    FIRST VIEWPORT: Frage, zweizeilige H1, Unterzeile; darunter die vier Kanal-Namen, deren Linien zum Check-Button zusammenlaufen. Mobil identisch untereinander, Button im ersten Screen.
+    FORM: Kundenweg (von Mario an Claude delegiert, kein Wurf), Vorgänger-Seed 67b063e5.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+  -->
+  <header class="bar">
+    <a class="brand" href="#top">BELIVIN MEDIA</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#fragen">Fragen</a>
+    </nav>
+    <a class="bar-cta" href="https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check" target="_blank" rel="noopener">Marketing-Check buchen</a>
+    <span class="progress" aria-hidden="true"><span></span></span>
+  </header>
 
-  <main class="page-shell">
-  <section class="hero" id="top" aria-labelledby="hero-title">
-    <a class="proof-window" href="/beispiele/shk/design-1/" aria-label="SHK-Branchenbeispiel ansehen">
-      <img src="/public/main-site/shk-design-1-live-1280x1082.png" alt="Browseransicht eines SHK-Branchenbeispiels mit Heizung, Wasser und Service">
-      <span class="visually-hidden">So kann ein SHK-Betrieb online wirken. SHK-Beispiel ansehen</span>
-    </a>
-
-    <img class="material-stage" src="/public/main-site/material-stage-1672x941.png" alt="" aria-hidden="true">
-    <img class="route-system" src="/public/main-site/route-system-1672x941.svg" alt="" aria-hidden="true">
-
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="BELIVIN MEDIA Startseite">
-        <span>BELIVIN MEDIA</span>
-        <span>AUFTRAGSZENTRALE</span>
-      </a>
-      <nav class="site-nav" aria-label="Hauptnavigation">
-        <a href="#leistungen">LEISTUNGEN</a>
-        <a href="#ablauf">SO ARBEITEN WIR</a>
-        <a href="#branchenbeispiel">BRANCHENBEISPIEL</a>
-        <a href="#kontakt">KONTAKT</a>
-      </nav>
-      <p class="region-marker">
-        <svg aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-header-pin"></use></svg>
-        <span>RHEINGAU · RHEIN-MAIN</span>
-      </p>
-    </header>
-
-    <section class="hero-copy">
-      <h1 id="hero-title">
-        <span class="visually-hidden">Aus Website-Besuchern werden klare Anfragen.</span>
-        <span aria-hidden="true">Aus Website-Besuchern</span>
-        <span aria-hidden="true">werden klare Anfragen.</span>
-      </h1>
-      <p><span class="visually-hidden">Wir bauen Websites fürs Handwerk. Damit Kunden sofort verstehen, was Sie anbieten – und bei Ihnen anfragen.</span><span aria-hidden="true">Wir bauen Websites fürs Handwerk.<br>Damit Kunden sofort verstehen,<br>was Sie anbieten –<br>und bei Ihnen anfragen.</span></p>
-    </section>
-
-    <section class="mechanism" id="mechanismus" aria-label="Von Sichtbarkeit zur Anfrage">
-      <article class="mechanism-step step-seen">
-        <h2>GESEHEN</h2>
-        <svg class="step-icon" aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-seen"></use></svg>
-        <p><span class="visually-hidden">Die richtigen Kunden finden Ihre Website.</span><span aria-hidden="true">Die richtigen Kunden<br>finden Ihre Website.</span></p>
-      </article>
-      <article class="mechanism-step step-understood">
-        <h2>VERSTANDEN</h2>
-        <svg class="step-icon" aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-understood"></use></svg>
-        <p><span class="visually-hidden">Ihr Angebot und der nächste Schritt sind sofort klar.</span><span aria-hidden="true">Ihr Angebot und der<br>nächste Schritt sind<br>sofort klar.</span></p>
-      </article>
-      <article class="mechanism-step step-requested">
-        <h2>ANGEFRAGT</h2>
-        <svg class="step-icon" aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-requested"></use></svg>
-        <p><span class="visually-hidden">Interessenten fragen direkt bei Ihnen an.</span><span aria-hidden="true">Interessenten fragen<br>direkt bei Ihnen an.</span></p>
-      </article>
-    </section>
-
-    <a class="primary-ticket" id="kontakt" href="https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check" target="_blank" rel="noopener">
-      <span class="ticket-title">15 Min. Website-Check</span>
-      <span class="ticket-support">Kostenlos · unverbindlich</span>
-    </a>
-
-    <a class="proof-label" id="branchenbeispiel" href="/beispiele/shk/design-1/">BRANCHENBEISPIEL · SHK</a>
-
-    <section class="products" id="leistungen" aria-label="Leistungen und Nutzen">
-      <article class="product product-build">
-        <svg aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-build"></use></svg>
-        <div>
-          <h2>WEBSITE BAUEN</h2><i aria-hidden="true"></i>
-          <p><span class="visually-hidden">Kunden verstehen sofort Ihr Angebot – und fragen leichter an.</span><span aria-hidden="true">Kunden verstehen sofort Ihr Angebot –<br>und fragen leichter an.</span></p>
-        </div>
-      </article>
-      <article class="product product-local">
-        <svg aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-local"></use></svg>
-        <div>
-          <h2>LOKAL SICHTBAR WERDEN</h2><i aria-hidden="true"></i>
-          <p><span class="visually-hidden">Sie werden dort gefunden, wo Ihre Kunden wirklich suchen.</span><span aria-hidden="true">Sie werden dort gefunden,<br>wo Ihre Kunden wirklich suchen.</span></p>
-        </div>
-      </article>
-      <article class="product product-revenue">
-        <svg aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-revenue"></use></svg>
-        <div>
-          <h2>MEHR UMSATZ</h2><i aria-hidden="true"></i>
-          <p><span class="visually-hidden">Mehr Besucher werden zu klaren Anfragen – aus Anfragen werden Aufträge und Umsatz.</span><span aria-hidden="true">Mehr Besucher werden zu klaren Anfragen –<br>aus Anfragen werden Aufträge und Umsatz.</span></p>
-        </div>
-      </article>
-    </section>
-  </section>
-
-  <section class="process-section work-surface" id="ablauf" aria-labelledby="process-title">
-    <div class="section-heading">
-      <p>SO ARBEITEN WIR</p>
-      <h2 id="process-title">Von Ihrer Website zum nächsten Auftrag.</h2>
-    </div>
-    <ol class="process-route">
-      <li><span class="process-number">1</span><h3>PRÜFEN</h3><p>Wir zeigen, was Ihre Website heute liegen lässt.</p></li>
-      <li><span class="process-number">2</span><h3>SORTIEREN</h3><p>Wir bringen Angebot, Region und Anfrageweg auf den Punkt.</p></li>
-      <li><span class="process-number">3</span><h3>BAUEN</h3><p>Wir schreiben, gestalten und bauen Ihre neue Website.</p></li>
-      <li><span class="process-number">4</span><h3>VERBESSERN</h3><p>Wir verbessern, was mehr Anfragen und Umsatz bringt.</p></li>
-    </ol>
-  </section>
-
-  <section class="region-section work-surface" aria-labelledby="region-title">
-    <div class="region-sign">
-      <svg aria-hidden="true"><use href="/public/main-site/icon-sprite.svg#icon-local"></use></svg>
-      <div>
-        <p>EINSATZGEBIET</p>
-        <h2 id="region-title">RHEINGAU · <span class="region-lock">RHEIN-MAIN</span></h2>
-        <span>Aus Geisenheim. Für Betriebe im Rheingau und Rhein-Main.</span>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="lead"><span>Ihr Marketing kostet Geld.</span> <span>Bringt es auch Kunden?</span></p>
+        <h1 id="hero-title"><span>Mehr Kunden.</span> <span>Aus jedem Kanal.</span></h1>
+        <p class="support">Eine Agentur für alles, was Ihnen online Kunden bringt. Alle Kanäle greifen ineinander, und Sie sehen, was wirkt.</p>
       </div>
-    </div>
-  </section>
 
-  <section class="closing-section work-surface" aria-labelledby="closing-title">
-    <div class="closing-ticket">
-      <div>
-        <h2 id="closing-title">Holt Ihre Website genug Anfragen?</h2>
-        <p>Finden wir es in 15 Minuten heraus.</p>
+      <div class="converge" data-converge>
+        <ul class="channels">
+          <li data-channel>WEBSITES</li>
+          <li data-channel>PERFORMANCE-ADS</li>
+          <li data-channel>SOCIAL MEDIA</li>
+          <li data-channel>SEO &amp; KI</li>
+        </ul>
+        <svg class="lanes" aria-hidden="true" focusable="false"></svg>
+        <div class="converge-action">
+          <a class="cta" data-converge-target href="https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check" target="_blank" rel="noopener">Kostenlosen Marketing-Check buchen</a>
+          <p class="note">15 Minuten. Kostenlos. Danach wissen Sie, welcher Kanal Ihnen die nächsten Kunden bringt.</p>
+        </div>
       </div>
-      <a href="https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check" target="_blank" rel="noopener">Website prüfen lassen <span aria-hidden="true">→</span></a>
+
+      <p class="fine">Konzept&nbsp;· Text&nbsp;· Design&nbsp;· Entwicklung&nbsp;· Landingpages&nbsp;· Meta Ads&nbsp;· Google Ads&nbsp;· Tracking&nbsp;· Strategie&nbsp;· Video&nbsp;· Foto&nbsp;· Kanalbetreuung&nbsp;· Google&nbsp;· Google Maps&nbsp;· ChatGPT &amp; Co.</p>
+    </section>
+
+    <div class="path">
+      <span class="spine" aria-hidden="true"><span></span></span>
+
+      <section class="block services" id="leistungen" aria-labelledby="services-title">
+        <h2 id="services-title" data-node>Vier Kanäle. Ein Ziel: Ihre nächsten Kunden.</h2>
+        <ol class="service-list">
+          <li class="service" data-node>
+            <h3>Websites &amp; Landingpages</h3>
+            <p class="problem">„Die Website sieht okay aus. Aber kaum jemand fragt an.“</p>
+            <div class="service-answer">
+              <p>Wir bauen Seiten, die in Sekunden erklären, was Sie anbieten, und Besucher zur Anfrage führen.</p>
+              <p class="tags">Konzept&nbsp;· Text&nbsp;· Design&nbsp;· Entwicklung&nbsp;· Landingpages für Kampagnen</p>
+            </div>
+          </li>
+          <li class="service" data-node>
+            <h3>Performance-Ads</h3>
+            <p class="problem">„Wir schalten Werbung. Was sie bringt, weiß keiner.“</p>
+            <div class="service-answer">
+              <p>Kampagnen bei Meta und Google mit sauberem Tracking. Sie sehen, welche Anzeige Anfragen bringt, und das Budget fließt dorthin.</p>
+              <p class="tags">Meta Ads&nbsp;· Google Ads&nbsp;· Zielgruppen&nbsp;· Anzeigenmotive&nbsp;· Conversion-Tracking</p>
+            </div>
+          </li>
+          <li class="service" data-node>
+            <h3>Social Media &amp; Content</h3>
+            <p class="problem">„Social Media machen wir nebenbei. Also selten.“</p>
+            <div class="service-answer">
+              <p>Wir planen, produzieren und posten. Regelmäßig und passend zu Ihrer Marke. Sie geben frei, wir machen den Rest.</p>
+              <p class="tags">Strategie&nbsp;· Redaktionsplan&nbsp;· Video&nbsp;· Foto&nbsp;· Kanalbetreuung</p>
+            </div>
+          </li>
+          <li class="service" data-node>
+            <h3>SEO &amp; KI-Sichtbarkeit</h3>
+            <p class="problem">„Wer nach uns sucht, findet die Konkurrenz.“</p>
+            <div class="service-answer">
+              <p>Wir machen Sie dort sichtbar, wo Ihre Kunden suchen: bei Google, in Google Maps und in den Antworten von ChatGPT &amp; Co.</p>
+              <p class="tags">Google&nbsp;· Google Maps&nbsp;· Unternehmensprofil&nbsp;· Inhalte&nbsp;· KI-Suche</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block mechanism" aria-labelledby="mechanism-title" data-chain>
+        <svg class="chain-lane" aria-hidden="true" focusable="false"></svg>
+        <ol class="chain">
+          <li><span class="chain-node" data-chain-node></span>Die Anzeige bringt den Klick.</li>
+          <li><span class="chain-node" data-chain-node></span>Die Website macht daraus eine Anfrage.</li>
+          <li><span class="chain-node" data-chain-node></span>Content baut Vertrauen auf.</li>
+          <li><span class="chain-node" data-chain-node></span>Google und KI bringen Kunden, die schon suchen.</li>
+        </ol>
+        <div class="verdict" data-chain-end>
+          <h2 id="mechanism-title"><span>Fehlt ein Teil,</span> <span>verpufft der Rest.</span></h2>
+          <p class="support">Deshalb planen wir alle Kanäle zusammen. Ein Team, ein Plan, ein Ansprechpartner.</p>
+        </div>
+      </section>
+
+      <section class="block steps" id="ablauf" aria-labelledby="steps-title">
+        <h2 id="steps-title" data-node>In vier Schritten zu mehr Kunden.</h2>
+        <ol class="step-list">
+          <li data-node><span class="step-number">1</span><h3>CHECK</h3><p>15 Minuten, kostenlos. Wir sehen uns an, wo Sie stehen und wo Ihnen Kunden verloren gehen.</p></li>
+          <li data-node><span class="step-number">2</span><h3>PLAN</h3><p>Sie bekommen eine klare Empfehlung: welche Kanäle, in welcher Reihenfolge, mit welchem Budget.</p></li>
+          <li data-node><span class="step-number">3</span><h3>START</h3><p>Wir bauen, schreiben, produzieren und schalten. Sie geben frei.</p></li>
+          <li data-node><span class="step-number">4</span><h3>WACHSTUM</h3><p>Wir messen jeden Monat, was wirkt, und bauen es aus.</p></li>
+        </ol>
+      </section>
+
+      <section class="block faq" id="fragen" aria-labelledby="faq-title">
+        <h2 id="faq-title" data-node>Fragen</h2>
+        <div class="faq-list">
+          <details open>
+            <summary>Was kostet das?</summary>
+            <p>Das hängt davon ab, welche Kanäle Sie brauchen und wie viel Budget in Werbung fließt. Im Check bekommen Sie eine klare Empfehlung, bevor Sie irgendetwas entscheiden.</p>
+          </details>
+          <details>
+            <summary>Muss ich alle vier Kanäle buchen?</summary>
+            <p>Nein. Wir starten mit dem Kanal, der bei Ihnen am schnellsten wirkt, und bauen von dort aus.</p>
+          </details>
+          <details>
+            <summary>Für welche Branchen arbeiten Sie?</summary>
+            <p>Für Unternehmen jeder Branche, die online Kunden gewinnen wollen.</p>
+          </details>
+          <details>
+            <summary>Wie viel Arbeit habe ich damit?</summary>
+            <p>Wenig. Wir übernehmen Text, Design, Technik, Kampagnen und Content. Sie geben frei.</p>
+          </details>
+        </div>
+      </section>
     </div>
-  </section>
+
+    <section class="close" aria-labelledby="close-title" data-finale>
+      <svg class="finale-lane" aria-hidden="true" focusable="false"></svg>
+      <div class="close-inner">
+        <h2 id="close-title">Ihre nächsten Kunden suchen schon.</h2>
+        <p class="support">Die Frage ist, ob sie Sie finden oder die Konkurrenz. In 15 Minuten wissen Sie, wo Sie stehen.</p>
+        <a class="cta" data-finale-target href="https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check" target="_blank" rel="noopener">Kostenlosen Marketing-Check buchen</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <span>BELIVIN MEDIA · RHEINGAU · RHEIN-MAIN</span>
-    <nav aria-label="Rechtliches"><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a></nav>
+  <footer class="footer">
+    <p>BELIVIN MEDIA · Marketingagentur · Geisenheim · Rheingau · Rhein-Main</p>
+    <nav aria-label="Rechtliches">
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </nav>
   </footer>
 </body>
 </html>

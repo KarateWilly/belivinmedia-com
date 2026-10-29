@@ -1,261 +1,170 @@
-import assert from "node:assert/strict";
-import { createServer } from "node:http";
-import { readFile, stat } from "node:fs/promises";
-import path from "node:path";
-import { chromium, webkit } from "playwright";
+#!/usr/bin/env node
 
-const ROOT = process.cwd();
-const CALENDLY = "https://calendly.com/mario-belivinmedia/kostenfreier-15-minuten-website-check";
-const MIME = new Map([
-  [".html", "text/html; charset=utf-8"],
-  [".css", "text/css; charset=utf-8"],
-  [".js", "text/javascript; charset=utf-8"],
-  [".mjs", "text/javascript; charset=utf-8"],
-  [".json", "application/json; charset=utf-8"],
-  [".svg", "image/svg+xml"],
-  [".png", "image/png"],
-  [".webp", "image/webp"],
-  [".avif", "image/avif"],
-  [".woff2", "font/woff2"],
-  [".ttf", "font/ttf"],
-  [".txt", "text/plain; charset=utf-8"],
-]);
+// Release QA for the Kundenweg main site and the legal pages: Chromium and WebKit,
+// phone to wide desktop. Checks horizontal bounds, fonts, console and page errors,
+// third-party requests, local links and anchors, hit areas, keyboard focus,
+// layout shift, the lanes, and the primary action in the first screen.
 
-function resolveRequestPath(urlPath) {
-  const pathname = decodeURIComponent(urlPath.split("?")[0]);
-  const relative = pathname.endsWith("/") ? `${pathname}index.html` : pathname;
-  const resolved = path.resolve(ROOT, `.${relative}`);
-  assert.ok(resolved.startsWith(`${ROOT}${path.sep}`) || resolved === ROOT, "request escaped project root");
-  return resolved;
-}
+import { existsSync, mkdirSync, readFileSync } from 'node:fs';
+import { createServer } from 'node:http';
+import { extname, join, resolve } from 'node:path';
+import { chromium, webkit } from 'playwright';
 
-async function serveFile(request, response) {
+const root = resolve(process.cwd());
+const outputDir = join(root, 'output/responsive-qa');
+const pages = ['/', '/impressum.html', '/datenschutz.html'];
+const viewports = [
+  { name: 'phone-small', width: 320, height: 568, mobile: true },
+  { name: 'phone', width: 390, height: 844, mobile: true },
+  { name: 'phone-landscape', width: 844, height: 390, mobile: true },
+  { name: 'tablet', width: 768, height: 1024, mobile: true },
+  { name: 'laptop', width: 1024, height: 768, mobile: false },
+  { name: 'desktop', width: 1440, height: 900, mobile: false },
+  { name: 'wide', width: 1920, height: 1080, mobile: false },
+];
+// The approved comps prove the primary action inside the first screen at these sizes.
+const firstScreenAction = new Set(['phone', 'desktop', 'wide']);
+const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.woff2': 'font/woff2', '.svg': 'image/svg+xml', '.txt': 'text/plain', '.xml': 'application/xml' };
+
+const server = createServer((request, response) => {
+  let path = join(root, decodeURIComponent(new URL(request.url, 'http://x').pathname));
+  if (path.endsWith('/')) path = join(path, 'index.html');
+  if (!path.startsWith(root) || !existsSync(path)) {
+    response.writeHead(404).end();
+    return;
+  }
+  response.writeHead(200, { 'content-type': types[extname(path)] ?? 'application/octet-stream' });
+  response.end(readFileSync(path));
+});
+await new Promise(done => server.listen(0, '127.0.0.1', done));
+const origin = `http://127.0.0.1:${server.address().port}`;
+
+async function launch(type) {
   try {
-    let filePath = resolveRequestPath(request.url ?? "/");
-    const fileStat = await stat(filePath);
-    if (fileStat.isDirectory()) filePath = path.join(filePath, "index.html");
-    const body = await readFile(filePath);
-    response.writeHead(200, {
-      "content-type": MIME.get(path.extname(filePath).toLowerCase()) ?? "application/octet-stream",
-      "cache-control": "no-store",
-    });
-    response.end(request.method === "HEAD" ? undefined : body);
-  } catch {
-    response.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
-    response.end("Not found");
+    return await type.launch();
+  } catch (error) {
+    // Locally a missing bundled Chromium may fall back to installed Chrome; CI installs both engines.
+    if (type === chromium && !process.env.CI) return chromium.launch({ channel: 'chrome' });
+    throw new Error(`${type.name()} is not installed: run "npx playwright install ${type.name()}" (${error.message.split('\n')[0]})`);
   }
 }
 
-const server = createServer((request, response) => void serveFile(request, response));
-await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
-const address = server.address();
-assert.ok(address && typeof address === "object");
-const baseURL = `http://127.0.0.1:${address.port}`;
+const failures = [];
+const fail = (where, message) => failures.push(`${where}: ${message}`);
+mkdirSync(outputDir, { recursive: true });
 
-const mainProfiles = [
-  { name: "desktop-master", width: 1672, height: 941 },
-  { name: "compact-desktop", width: 1366, height: 900 },
-  { name: "tablet-landscape", width: 1024, height: 900 },
-  { name: "tablet-portrait", width: 768, height: 1024 },
-  { name: "large-mobile", width: 430, height: 932 },
-  { name: "mobile", width: 390, height: 844 },
-  { name: "small-mobile", width: 360, height: 800 },
-];
-const legalProfiles = [
-  { name: "desktop", width: 1440, height: 900 },
-  { name: "tablet", width: 768, height: 1024 },
-  { name: "mobile", width: 390, height: 844 },
-];
+// QA_ENGINES=chromium narrows a local run; the release floor and CI run both engines.
+const engines = (process.env.QA_ENGINES ?? 'chromium,webkit').split(',').map(name => ({ chromium, webkit })[name.trim()]);
 
-async function localTargetsAreReachable(context, page) {
-  const hrefs = await page.locator("a[href]").evaluateAll((anchors) =>
-    anchors.map((anchor) => anchor.href),
-  );
-  const targets = [...new Set(hrefs
-    .map((href) => new URL(href))
-    .filter((url) => url.origin === baseURL)
-    .map((url) => `${url.origin}${url.pathname}${url.search}`))];
+for (const engine of engines) {
+  const browser = await launch(engine);
+  for (const viewport of viewports) {
+    for (const path of pages) {
+      const where = `${engine.name()} ${viewport.name} ${path}`;
+      const context = await browser.newContext({
+        viewport: { width: viewport.width, height: viewport.height },
+        deviceScaleFactor: viewport.mobile ? 2 : 1,
+        isMobile: viewport.mobile && engine === chromium,
+        hasTouch: viewport.mobile,
+      });
+      const page = await context.newPage();
+      const errors = [];
+      const external = [];
+      page.on('console', message => message.type() === 'error' && errors.push(message.text()));
+      page.on('pageerror', error => errors.push(error.message));
+      page.on('request', request => !request.url().startsWith(origin) && !request.url().startsWith('data:') && external.push(request.url()));
+      await page.addInitScript(() => {
+        window.__shift = 0;
+        try {
+          new PerformanceObserver(list => {
+            for (const entry of list.getEntries()) if (!entry.hadRecentInput) window.__shift += entry.value;
+          }).observe({ type: 'layout-shift', buffered: true });
+        } catch {
+          window.__shift = null;
+        }
+      });
 
-  for (const target of targets) {
-    const response = await context.request.get(target, { failOnStatusCode: false });
-    assert.equal(response.status(), 200, `local link did not return 200: ${target}`);
-  }
-}
+      await page.goto(`${origin}${path}`, { waitUntil: 'networkidle' });
+      await page.evaluate(() => document.fonts.ready);
+      if (path === '/') await page.waitForFunction(() => document.documentElement.classList.contains('is-ready'));
+      await page.waitForTimeout(300);
 
-async function runPage(browserName, browser, route, profile, kind) {
-  const context = await browser.newContext({
-    viewport: { width: profile.width, height: profile.height },
-    locale: "de-DE",
-    timezoneId: "Europe/Berlin",
-    reducedMotion: "reduce",
-  });
-  const page = await context.newPage();
-  const consoleErrors = [];
-  const pageErrors = [];
-  const failedRequests = [];
-  const externalRequests = [];
-  const badResponses = [];
+      const report = await page.evaluate(({ isMain, wantAction }) => {
+        const doc = document.documentElement;
+        const result = {
+          horizontalScroll: doc.scrollWidth > doc.clientWidth + 1,
+          fonts: ['Funnel Display', 'Funnel Sans'].filter(family => !document.fonts.check(`400 20px "${family}"`)),
+          outside: [...document.querySelectorAll('h1, h2, h3, p, li, a, summary, dt, dd')]
+            .filter(element => {
+              const box = element.getBoundingClientRect();
+              return box.width > 0 && (box.right > doc.clientWidth + 1 || box.left < -1);
+            })
+            .map(element => element.textContent.trim().slice(0, 40)),
+          smallTargets: [...document.querySelectorAll('a, summary, button')]
+            // Links inside running text are exempt (WCAG 2.5.8 inline exception).
+            .filter(element => !element.closest('p, address, dd, .legal-section li'))
+            .filter(element => {
+              const box = element.getBoundingClientRect();
+              return box.width > 0 && (box.width < 24 || box.height < 24);
+            })
+            .map(element => element.textContent.trim().slice(0, 40)),
+          missingAnchors: [...document.querySelectorAll('a[href^="#"]')]
+            .map(element => element.getAttribute('href'))
+            .filter(href => href.length > 1 && !document.getElementById(href.slice(1))),
+          localLinks: [...new Set([...document.querySelectorAll('a[href^="/"]')].map(element => element.getAttribute('href').split('#')[0]))],
+          shift: window.__shift,
+        };
+        if (isMain) {
+          result.lanes = document.querySelectorAll('.lanes .lane, .chain-lane .lane, .finale-lane .lane').length;
+          if (wantAction) {
+            const action = document.querySelector('.converge-action .cta').getBoundingClientRect();
+            result.actionInFirstScreen = action.bottom <= innerHeight && action.top >= 0;
+          }
+        }
+        return result;
+      }, { isMain: path === '/', wantAction: firstScreenAction.has(viewport.name) });
 
-  await page.addInitScript(() => {
-    window.__qaCLS = 0;
-    new PerformanceObserver((list) => {
-      for (const entry of list.getEntries()) {
-        if (!entry.hadRecentInput) window.__qaCLS += entry.value;
+      if (errors.length) fail(where, `browser errors: ${errors.join(' | ')}`);
+      if (external.length) fail(where, `third-party requests: ${[...new Set(external)].join(', ')}`);
+      if (report.horizontalScroll) fail(where, 'horizontal scroll');
+      if (report.outside.length) fail(where, `content outside the viewport: ${report.outside.join(' | ')}`);
+      if (report.fonts.length) fail(where, `fonts not loaded: ${report.fonts.join(', ')}`);
+      if (report.smallTargets.length) fail(where, `hit areas under 24px: ${report.smallTargets.join(' | ')}`);
+      if (report.missingAnchors.length) fail(where, `missing anchors: ${report.missingAnchors.join(', ')}`);
+      if (report.shift !== null && report.shift > 0.1) fail(where, `layout shift ${report.shift.toFixed(3)}`);
+      if (path === '/' && report.lanes < 6) fail(where, `only ${report.lanes} lanes drawn`);
+      if (report.actionInFirstScreen === false) fail(where, 'primary action outside the first screen');
+
+      for (const link of report.localLinks) {
+        const response = await page.request.get(`${origin}${link}`);
+        if (response.status() !== 200) fail(where, `local link ${link} returned ${response.status()}`);
       }
-    }).observe({ type: "layout-shift", buffered: true });
-  });
-  page.on("console", (message) => {
-    if (message.type() === "error") consoleErrors.push(message.text());
-  });
-  page.on("pageerror", (error) => pageErrors.push(String(error)));
-  page.on("requestfailed", (request) => failedRequests.push(`${request.method()} ${request.url()}`));
-  page.on("request", (request) => {
-    const url = new URL(request.url());
-    if (url.origin !== baseURL && !["data:", "blob:"].includes(url.protocol)) externalRequests.push(request.url());
-  });
-  page.on("response", (response) => {
-    if (response.status() >= 400) badResponses.push(`${response.status()} ${response.url()}`);
-  });
 
-  const response = await page.goto(`${baseURL}${route}`, { waitUntil: "load" });
-  assert.equal(response?.status(), 200, `${route} did not return 200`);
-  await page.evaluate(async () => {
-    await document.fonts.ready;
-    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-  });
+      // Keyboard: every focus stop shows a visible outline.
+      for (let step = 0; step < 6; step += 1) {
+        await page.keyboard.press('Tab');
+        const focus = await page.evaluate(() => {
+          const element = document.activeElement;
+          if (!element || element === document.body) return null;
+          const style = getComputedStyle(element);
+          return { label: element.textContent.trim().slice(0, 30), visible: style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) > 0 };
+        });
+        if (focus && !focus.visible) fail(where, `focus not visible on "${focus.label}"`);
+      }
 
-  const metrics = await page.evaluate(({ kind, width }) => {
-    const root = document.documentElement;
-    const probe = (selector) => {
-      const element = document.querySelector(selector);
-      if (!element) throw new Error(`missing ${selector}`);
-      const box = element.getBoundingClientRect();
-      return {
-        selector,
-        x: box.x,
-        right: box.right,
-        width: box.width,
-        height: box.height,
-      };
-    };
-    const fonts = [...document.fonts].map((font) => ({ family: font.family, status: font.status }));
-    const resources = performance.getEntriesByType("resource");
-    const result = {
-      title: document.title,
-      h1Count: document.querySelectorAll("h1").length,
-      hasHeader: Boolean(document.querySelector("header")),
-      hasMain: Boolean(document.querySelector("main")),
-      hasFooter: Boolean(document.querySelector("footer")),
-      scrollWidth: root.scrollWidth,
-      clientWidth: root.clientWidth,
-      cls: window.__qaCLS ?? 0,
-      fonts,
-      scriptCount: document.scripts.length,
-      resourceCount: resources.length,
-      transferBytes: resources.reduce((sum, resource) => sum + (resource.transferSize || 0), 0),
-      probes: [],
-    };
-    if (kind === "main") {
-      result.probes = [".hero", ".primary-ticket", ".proof-window", ".products", ".process-section", ".region-sign", ".closing-ticket"]
-        .map(probe);
-      const hero = document.querySelector(".hero").getBoundingClientRect();
-      result.desktopMasterHeight = width === 1672 ? hero.height : null;
-    } else {
-      result.probes = [".legal-header", ".legal-hero", ".legal-document", ".legal-footer"].map(probe);
-    }
-    return result;
-  }, { kind, width: profile.width });
-
-  assert.equal(metrics.h1Count, 1, `${route} must expose exactly one h1`);
-  assert.ok(metrics.hasHeader && metrics.hasMain && metrics.hasFooter, `${route} must expose header/main/footer`);
-  assert.ok(metrics.scrollWidth <= metrics.clientWidth + 1, `${route} overflows by ${metrics.scrollWidth - metrics.clientWidth}px at ${profile.width}px`);
-  assert.ok(metrics.fonts.length >= 2 && metrics.fonts.every((font) => font.status === "loaded"), `${route} fonts did not load`);
-  assert.ok(metrics.cls <= 0.1, `${route} CLS ${metrics.cls.toFixed(3)} exceeded 0.1`);
-  assert.deepEqual(consoleErrors, [], `${route} console errors: ${consoleErrors.join(" | ")}`);
-  assert.deepEqual(pageErrors, [], `${route} page errors: ${pageErrors.join(" | ")}`);
-  assert.deepEqual(failedRequests, [], `${route} failed requests: ${failedRequests.join(" | ")}`);
-  assert.deepEqual(badResponses, [], `${route} bad responses: ${badResponses.join(" | ")}`);
-  assert.deepEqual(externalRequests, [], `${route} loaded third-party resources: ${externalRequests.join(" | ")}`);
-
-  for (const probe of metrics.probes) {
-    assert.ok(probe.width > 0 && probe.height > 0, `${route} ${probe.selector} has no box`);
-    assert.ok(probe.x >= -1, `${route} ${probe.selector} begins outside viewport`);
-    assert.ok(probe.right <= profile.width + 1, `${route} ${probe.selector} exceeds viewport by ${(probe.right - profile.width).toFixed(1)}px`);
-  }
-  if (kind === "main" && profile.width === 1672) assert.equal(metrics.desktopMasterHeight, 941);
-  if (kind === "legal") assert.equal(metrics.scriptCount, 0, `${route} must remain script-free`);
-
-  const allLinks = page.locator("a[href]");
-  const linkCount = await allLinks.count();
-  assert.ok(linkCount >= 2, `${route} must expose usable links`);
-  for (let index = 0; index < linkCount; index += 1) {
-    const link = allLinks.nth(index);
-    const href = await link.getAttribute("href");
-    assert.ok(href && href !== "#", `${route} contains an empty link`);
-    if (/^https?:/.test(href) && !href.startsWith(baseURL)) {
-      const target = await link.getAttribute("target");
-      const rel = await link.getAttribute("rel");
-      assert.equal(target, "_blank", `${route} external link must open separately`);
-      assert.match(rel ?? "", /noopener/, `${route} external link must set noopener`);
+      if (failures.some(entry => entry.startsWith(where))) {
+        await page.screenshot({ path: join(outputDir, `${engine.name()}-${viewport.name}-${path.replace(/\W+/g, '') || 'index'}.png`), fullPage: true });
+      }
+      await context.close();
     }
   }
-
-  if (kind === "main") {
-    const navLinks = page.locator(".site-nav a");
-    assert.equal(await navLinks.count(), 4);
-    const navHits = await navLinks.evaluateAll((anchors) => anchors.map((anchor) => {
-      const box = anchor.getBoundingClientRect();
-      const x = Math.max(0, Math.min(innerWidth - 1, box.x + box.width / 2));
-      const y = Math.max(0, Math.min(innerHeight - 1, box.y + box.height / 2));
-      const hit = document.elementFromPoint(x, y);
-      return hit === anchor || anchor.contains(hit);
-    }));
-    assert.ok(navHits.every(Boolean), `${route} navigation contains a blocked hit area`);
-    assert.equal(await page.locator(`a[href="${CALENDLY}"]`).count(), 2, "approved Calendly CTA count changed");
-    await navLinks.first().focus();
-    const focusOutline = await navLinks.first().evaluate((link) => getComputedStyle(link).outlineStyle);
-    assert.notEqual(focusOutline, "none", "main navigation lacks visible keyboard focus");
-  } else {
-    await page.locator(".legal-back").focus();
-    const focusOutline = await page.locator(".legal-back").evaluate((link) => getComputedStyle(link).outlineStyle);
-    assert.notEqual(focusOutline, "none", "legal navigation lacks visible keyboard focus");
-  }
-
-  await localTargetsAreReachable(context, page);
-  await context.close();
-  return {
-    browser: browserName,
-    route,
-    viewport: `${profile.width}x${profile.height}`,
-    cls: Number(metrics.cls.toFixed(4)),
-    resources: metrics.resourceCount,
-    transferKB: Math.round(metrics.transferBytes / 1024),
-  };
+  await browser.close();
 }
 
-const results = [];
-try {
-  const chromiumBrowser = await chromium.launch({ headless: true });
-  try {
-    for (const profile of mainProfiles) results.push(await runPage("chromium", chromiumBrowser, "/", profile, "main"));
-    for (const route of ["/impressum.html", "/datenschutz.html"]) {
-      for (const profile of legalProfiles) results.push(await runPage("chromium", chromiumBrowser, route, profile, "legal"));
-    }
-  } finally {
-    await chromiumBrowser.close();
-  }
-
-  const webkitBrowser = await webkit.launch({ headless: true });
-  try {
-    for (const profile of [mainProfiles[0], mainProfiles[5]]) results.push(await runPage("webkit", webkitBrowser, "/", profile, "main"));
-    for (const route of ["/impressum.html", "/datenschutz.html"]) {
-      results.push(await runPage("webkit", webkitBrowser, route, legalProfiles[2], "legal"));
-    }
-  } finally {
-    await webkitBrowser.close();
-  }
-
-  console.log(JSON.stringify({ status: "pass", checks: results.length, results }, null, 2));
-} finally {
-  await new Promise((resolve) => server.close(resolve));
+server.close();
+const checked = engines.length * viewports.length * pages.length;
+if (failures.length) {
+  process.stderr.write(`Responsive QA failed (${failures.length} findings across ${checked} page renders):\n- ${failures.join('\n- ')}\n`);
+  process.exit(1);
 }
+process.stdout.write(`Responsive QA passed: ${checked} page renders in ${engines.map(engine => engine.name()).join(' and ')}.\n`);

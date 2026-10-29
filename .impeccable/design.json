@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T14:00:00+01:00",
+  "title": "Design System: BELIVIN MEDIA",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Ink Navy" },
+      "ink-lift": { "role": "primary", "displayName": "Ink Lift", "purpose": "Hover state of navy buttons." },
+      "mint": { "role": "accent", "displayName": "Signal Mint", "purpose": "Arrival dots, lane ends, selection, the mint CTA on the night block. Never text on paper." },
+      "mint-deep": { "role": "accent", "displayName": "Deep Mint", "purpose": "Signal marks on paper: pulses, spine fill, lit nodes, phone progress line." },
+      "mint-light": { "role": "accent", "displayName": "Mint Light", "purpose": "Hover state of the mint CTA." },
+      "paper": { "role": "neutral", "displayName": "Cool Paper" },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "purpose": "Secondary text on paper (8:1)." },
+      "line": { "role": "neutral", "displayName": "Hairline" },
+      "night-text": { "role": "neutral", "displayName": "Night Text", "purpose": "Secondary text and lanes on the navy block." },
+      "night-line": { "role": "neutral", "displayName": "Night Rule" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 and closing heading, two deliberate lines." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings and legal page titles." },
+      "title": { "displayName": "Title", "purpose": "Service names." },
+      "subtitle": { "displayName": "Subtitle", "purpose": "Mechanism chain statements." },
+      "lead": { "displayName": "Lead", "purpose": "The hero hook question, the opening line of the headline group." },
+      "step-title": { "displayName": "Step Title", "purpose": "Check, Plan, Start, Wachstum." },
+      "question": { "displayName": "Question", "purpose": "FAQ summaries and legal section headings." },
+      "small": { "displayName": "Small", "purpose": "Compact bar button, footer, legal field labels." },
+      "channel": { "displayName": "Channel", "purpose": "Channel names where the hero lanes begin." },
+      "button-phone": { "displayName": "Button (phone)", "purpose": "Full-width CTAs on phones." }
+    },
+    "shadows": [
+      { "name": "arrival-ring", "value": "0 0 0 14px rgb(92 225 198 / 0)", "purpose": "Zero-blur spread expanding from 0 0 0 0 rgb(92 225 198 / 0.55) around the arrival dot, 1.8s loop; motion, not elevation." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "All state transitions (200ms controls, 240–400ms nodes and FAQ icon)." },
+      { "name": "lane-pulse", "value": "keySplines 0.45 0 0.25 1", "purpose": "SMIL travel of pulses: 3.6s hero (0.9s stagger), 5.2s trace, 4.4s finale; opacity 0→1→1→0 at 0/10/88/100%." },
+      { "name": "scroll-line", "value": "55% of the viewport height", "purpose": "Spine fill and node lighting threshold." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "max-width: 719px" },
+      { "name": "tablet", "value": "720px–899px" },
+      { "name": "desktop", "value": "min-width: 900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Navy booking button on paper; lanes arrive at its top center.",
+      "html": "<a class=\"ds-cta\" href=\"#\">Kostenlosen Marketing-Check buchen</a>",
+      "css": ".ds-cta { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 60px; padding: 16px 28px; border-radius: 10px; background: #14173d; color: #fff; font: 650 17px/1.2 'Funnel Sans', system-ui, sans-serif; text-decoration: none; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-cta::before { content: ''; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #5ce1c6; } .ds-cta:hover { background: #262a5e; }"
+    },
+    {
+      "name": "Night CTA",
+      "kind": "button",
+      "refersTo": "button-night",
+      "description": "Mint booking button, only on the navy close.",
+      "html": "<div style=\"background:#14173d;padding:32px\"><a class=\"ds-cta-night\" href=\"#\">Kostenlosen Marketing-Check buchen</a></div>",
+      "css": ".ds-cta-night { display: inline-flex; align-items: center; min-height: 60px; padding: 16px 28px; border-radius: 10px; background: #5ce1c6; color: #14173d; font: 650 17px/1.2 'Funnel Sans', system-ui, sans-serif; text-decoration: none; } .ds-cta-night:hover { background: #8deedb; }"
+    },
+    {
+      "name": "Bar button",
+      "kind": "button",
+      "refersTo": "button-compact",
+      "description": "Compact navy button in the sticky bar.",
+      "html": "<a class=\"ds-bar-cta\" href=\"#\">Marketing-Check buchen</a>",
+      "css": ".ds-bar-cta { padding: 11px 16px; border-radius: 8px; background: #14173d; color: #fff; font: 600 14px/1.2 'Funnel Sans', system-ui, sans-serif; text-decoration: none; white-space: nowrap; } .ds-bar-cta:hover { background: #262a5e; }"
+    },
+    {
+      "name": "Path node",
+      "kind": "custom",
+      "refersTo": "node",
+      "description": "A point on the customer path: paper fill, 1.5px ink outline; lit, it fills Deep Mint.",
+      "html": "<span class=\"ds-node\"></span><span class=\"ds-node is-lit\"></span>",
+      "css": ":host { display: flex; gap: 16px; padding: 16px; background: #f4f5f8; } .ds-node { display: inline-block; width: 12px; height: 12px; border: 1.5px solid #14173d; border-radius: 50%; background: #f4f5f8; } .ds-node.is-lit { border-color: #0f9f84; background: #0f9f84; }"
+    },
+    {
+      "name": "Question row",
+      "kind": "custom",
+      "refersTo": "faq-row",
+      "description": "details/summary row between 1px hairlines with a drawn plus/minus.",
+      "html": "<details class=\"ds-faq\" open><summary>Was kostet das?</summary><p>Im Check bekommen Sie eine klare Empfehlung.</p></details>",
+      "css": ".ds-faq { border-top: 1px solid #d6d9e6; border-bottom: 1px solid #d6d9e6; background: #f4f5f8; color: #14173d; } .ds-faq summary { position: relative; padding: 24px 56px 24px 0; cursor: pointer; font: 600 24px/1.25 'Funnel Display', system-ui, sans-serif; list-style: none; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary::before, .ds-faq summary::after { content: ''; position: absolute; top: 50%; right: 6px; width: 18px; height: 2px; margin-top: -1px; background: currentColor; } .ds-faq summary::after { transform: rotate(90deg); } .ds-faq[open] summary::after { transform: rotate(0deg); } .ds-faq p { margin: 0; padding-bottom: 28px; color: #444869; font: 400 18px/1.55 'Funnel Sans', system-ui, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Kundenweg",
+    "overview": "Cool paper, deep brand navy and one mint signal. The page shows its mechanism instead of claiming it: drawn lanes carry the visitor from four channels into the booking button, through the mechanism into its verdict, and down the page into the closing action. Density is calm; 1px rules separate everything, never containers.",
+    "keyCharacteristics": [
+      "Lanes computed from rendered boxes, redrawn per section on resize",
+      "One mint signal reserved for motion, arrival and the night CTA",
+      "Funnel Display headings with negative tracking, Funnel Sans for reading and controls",
+      "Flat: 1px rules, 10px button corners, circles only as nodes; no cards, no shadows",
+      "Width-only spacing (px and vw clamps), authored single-column phones"
+    ],
+    "rules": [
+      { "name": "The Lane Rule", "body": "Every lane begins at something BELIVIN does and ends in an action or a verdict.", "section": "components" },
+      { "name": "The Lanes Stay Rule", "body": "Reduced motion removes travel, never the path.", "section": "components" },
+      { "name": "The Width-Only Rule", "body": "Layout spacing never uses vh, svh or dvh.", "section": "layout" },
+      { "name": "The Flat Paper Rule", "body": "Surfaces never lift; separation is a 1px rule.", "section": "elevation" },
+      { "name": "The Node Rule", "body": "A circle always means a point on the path.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do end every lane in an action or a verdict.",
+      "Do use Ink Navy for the primary CTA on paper.",
+      "Do bind every separator in tags and fine print to the preceding item."
+    ],
+    "donts": [
+      "Don't set text in mint anywhere.",
+      "Don't use cards, boxed containers, drop shadows, gradients or glow.",
+      "Don't put eyebrows or kickers above headings."
+    ]
+  }
+}

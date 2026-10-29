@@ -1,0 +1,181 @@
+{
+  "title": "BELIVIN MEDIA · Richtung wählen",
+  "question": "Zugeteilt ist die Sende-Regie. Behalten, eine Alternative nehmen oder neu würfeln?",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Sende-Regie",
+      "kicker": "THE ROLL",
+      "lineage": "TV-Regieraum: Monitorwand, Bildmischer, Tally-Lampen, Timecode",
+      "thesis": "BELIVIN fährt Ihr Marketing wie eine Sendung: alle Kanäle auf einer Wand, auf Sendung geht nur, was wirkt.",
+      "palette": ["#0A0D12", "#1C222A", "#E8EDF1", "#F23A1E", "#7FCFDF"],
+      "materials": ["matte Monitorrahmen", "UMD-Labelstreifen", "Tally-Lampen", "laufender Timecode"],
+      "viewport": "Randlose Monitorwand: großes Programmbild mit der Headline als Bauchbinde, vier Kanal-Monitore für Website, Ads, Social und Suche & KI, rechts die beleuchtete Taste „Gespräch buchen“.",
+      "risk": "Kann nach reiner Videoproduktion klingen, wenn die Kanäle nicht im Klartext benannt sind; der dunkle Raum darf nie in Neon-Glow kippen.",
+      "raised": [
+        { "from": "Schnittmuster-Umschlag", "raise": "Ein Index für alles: jede Leistung trägt überall dieselbe Kanalnummer CH 1–4, aktiv gefüllt, sonst nur Kontur." },
+        { "from": "Plankton-Kielwasser", "raise": "Licht nur, wo etwas live ist: in Ruhe ist der Raum dunkel, nur der Kanal auf Sendung trägt Farbe." },
+        { "from": "Lowbrow-Tafel", "raise": "Kein toter Pixel: die Monitorwand füllt den ersten Screen randlos, kein zentrierter Hero im Leerraum." },
+        { "from": "ANSI-Mailbox", "raise": "Ein Modul regiert: die 16:9-Kachel ist die einzige Geometrie der Seite." },
+        { "from": "VU-Meter-Brücke", "raise": "Sendephysik: Schnitte hart, Mischungen in gezählten Frames, der Überblendhebel hat Masse." }
+      ],
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "Senderleiste · Navigation · Timecode", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "PGM · Headline als Bauchbinde · BELIVIN-Senderlogo", "x": 0, "y": 1, "w": 8, "h": 6, "accent": true },
+          { "label": "PVW · nächster Kanal", "x": 8, "y": 1, "w": 4, "h": 3 },
+          { "label": "Taste: Gespräch buchen", "x": 8, "y": 4, "w": 4, "h": 3 },
+          { "label": "CH1 Website", "x": 0, "y": 7, "w": 3, "h": 3 },
+          { "label": "CH2 Ads", "x": 3, "y": 7, "w": 3, "h": 3 },
+          { "label": "CH3 Social", "x": 6, "y": 7, "w": 3, "h": 3 },
+          { "label": "CH4 Suche & KI", "x": 9, "y": 7, "w": 3, "h": 3 }
+        ]
+      }
+    },
+    {
+      "id": "model-pick",
+      "label": "Marketing-Mix-Pult",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Studio-Mischpult: Kanalzüge, Fader, Pegelketten, Master",
+      "thesis": "Gutes Marketing ist ein Mix: vier Kanäle, ein Master, und BELIVIN fährt die Regler.",
+      "palette": ["#15171A", "#C9CCD0", "#F4F1E8", "#3BE07A", "#FFB020", "#FF4433"],
+      "materials": ["eloxiertes Aluminium", "Fader-Kappen", "LED-Pegelketten", "Beschriftungsstreifen"],
+      "viewport": "Pult von oben: vier Kanalzüge für Website, Ads, Social und Suche & KI, die Headline im Master-Display, „Gespräch buchen“ als rote REC-Taste.",
+      "risk": "„Marketing-Mix“ ist der naheliegendste Gedanke; Pegelanzeigen verleiten zu Zahlen, die wir nicht belegen können.",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "Kopfleiste · Navigation", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "Master-Display · Headline", "x": 0, "y": 1, "w": 12, "h": 3 },
+          { "label": "Zug 1 Website", "x": 0, "y": 4, "w": 2, "h": 6 },
+          { "label": "Zug 2 Ads", "x": 2, "y": 4, "w": 2, "h": 6 },
+          { "label": "Zug 3 Social", "x": 4, "y": 4, "w": 2, "h": 6 },
+          { "label": "Zug 4 Suche & KI", "x": 6, "y": 4, "w": 2, "h": 6 },
+          { "label": "Master · REC = Gespräch buchen", "x": 8, "y": 4, "w": 4, "h": 6, "accent": true }
+        ]
+      }
+    },
+    {
+      "id": "challenger-festival-lineup",
+      "label": "Festival-Line-up",
+      "verdict": "competitive",
+      "lineage": "Festivalplakat: eine Schrift, Rang nur über Größe",
+      "thesis": "Leistungen gebucht wie Headliner: was BELIVIN macht, steht in riesiger Schrift, der Rest im Kleingedruckten.",
+      "palette": ["#1F2BFF", "#E9FF4A"],
+      "materials": ["Siebdruck-Fläche", "eine Schrift in acht Größen"],
+      "viewport": "Vollflächig ultramarin: WEBSITES und PERFORMANCE-ADS über die ganze Breite, darunter Social und Suche & KI, Teilleistungen im Blocksatz, „Gespräch buchen“ als Ticket.",
+      "case": "Gewinnt bei der Klarheit, weil alles in Schrift steht; verliert bei der Wiedererkennung, weil es nach Event statt Agentur aussieht.",
+      "risk": "Keine Bilder, kaum Technik-Anmutung; das Techy muss allein aus präziser Schriftbewegung kommen.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-festival-lineup-poster-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/posters-covers-sleeves-festival-lineup-poster.webp",
+      "wireframe": {
+        "cols": 12, "rows": 10,
+        "regions": [
+          { "label": "Kopfzeile", "x": 0, "y": 0, "w": 12, "h": 1 },
+          { "label": "WEBSITES", "x": 0, "y": 1, "w": 12, "h": 2, "accent": true },
+          { "label": "PERFORMANCE-ADS", "x": 0, "y": 3, "w": 12, "h": 2 },
+          { "label": "SOCIAL MEDIA & CONTENT", "x": 0, "y": 5, "w": 12, "h": 1 },
+          { "label": "SEO & KI-SICHTBARKEIT", "x": 0, "y": 6, "w": 12, "h": 1 },
+          { "label": "Teilleistungen im Blocksatz", "x": 0, "y": 7, "w": 8, "h": 3 },
+          { "label": "Ticket: Gespräch buchen", "x": 8, "y": 7, "w": 4, "h": 3 }
+        ]
+      }
+    },
+    {
+      "id": "challenger-sewing-pattern",
+      "label": "Schnittmuster-Umschlag",
+      "verdict": "declined",
+      "lineage": "Schnittmuster mit Ansichten, Größentabellen und Zuschnittplan",
+      "thesis": "Marketing als Maßanfertigung, jede Leistung ein nummeriertes Schnittteil.",
+      "palette": ["#E6D3A8", "#1A1A1A", "#C8322B", "#B8C4D6"],
+      "materials": ["Seidenpapier", "gestrichelte Schnittlinien"],
+      "viewport": "Umschlag mit drei Ansichten, Leistungen als nummerierte Teile auf dem Zuschnittplan.",
+      "case": "„Maßgeschneidert“ ist das Klischee jeder Agentur; Entscheider erkennen sich im Schnittmuster nicht wieder.",
+      "kept": "Ein Index für alles: dieselbe Nummer für jede Leistung, überall.",
+      "risk": "Wirkt bastelig statt kompetent.",
+      "hero": "https://impeccable.style/worlds/cards/fashion-folded-worlds-sewing-pattern-envelope-hero.webp"
+    },
+    {
+      "id": "challenger-plankton",
+      "label": "Plankton-Kielwasser",
+      "verdict": "declined",
+      "lineage": "Biolumineszenz im Nachtmeer",
+      "thesis": "Jede Bewegung des Besuchers zieht eine Lichtspur durch die Dunkelheit.",
+      "palette": ["#02060C", "#1E7BFF", "#5FF2FF"],
+      "materials": ["schwarzes Wasser", "Partikel-Lichtspuren"],
+      "viewport": "Schwarzes Feld, der Cursor zieht leuchtende Spuren, die Leistungen tauchen im Licht auf.",
+      "case": "Reine Atmosphäre ohne Bezug zu Marketing; die Leistungen werden unlesbar.",
+      "kept": "Licht nur, wo etwas live ist.",
+      "risk": "Sieht beeindruckend aus und sagt nichts.",
+      "hero": "https://impeccable.style/worlds/cards/reefs-bioluminescent-nocturnal-plankton-wake-stars-hero.webp"
+    },
+    {
+      "id": "challenger-lowbrow",
+      "label": "Lowbrow-Tafel",
+      "verdict": "declined",
+      "lineage": "Airbrush-Galerietafel mit Hot-Rod-Monstern",
+      "thesis": "Alle Leistungen als lackierte Figuren auf einer randvollen Tafel.",
+      "palette": ["#E8262B", "#FFD31A", "#14A3A0", "#111111"],
+      "materials": ["Airbrush-Lack", "schwarze Konturen"],
+      "viewport": "Randvolles Tableau, handgeletterter Titel am Fuß.",
+      "case": "Maskottchen-Ästhetik kostet Glaubwürdigkeit und Klarheit.",
+      "kept": "Kein toter Pixel: der erste Screen gehört komplett der Idee.",
+      "risk": "Unseriös für Geschäftskunden.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-lowbrow-gallery-panel-hero.webp"
+    },
+    {
+      "id": "challenger-ansi-bbs",
+      "label": "ANSI-Mailbox",
+      "verdict": "declined",
+      "lineage": "Mailbox-Startbildschirm der 90er",
+      "thesis": "Die Agentur als Textmodus-Menü: [1] Websites [2] Ads [3] Social [4] Suche & KI.",
+      "palette": ["#000000", "#00AAAA", "#AA00AA", "#FFFFFF"],
+      "materials": ["Zeichenraster", "Blockgrafik"],
+      "viewport": "Titelgrafik aus Blockzeichen, darunter das nummerierte Menü.",
+      "case": "Textmodus ist für ein breites, nicht-technisches Publikum eine Hürde; bestenfalls gleich klar.",
+      "kept": "Ein Modul regiert: eine einzige Rastereinheit für alles.",
+      "risk": "Nerd-Nostalgie statt Agentur.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ansi-bbs-nightboard-hero.webp"
+    },
+    {
+      "id": "challenger-vu-bridge",
+      "label": "VU-Meter-Brücke",
+      "verdict": "declined",
+      "lineage": "Aussteuerungsanzeigen über dem Tonpult",
+      "thesis": "Alle Kanäle schlagen im selben Moment in den roten Bereich aus.",
+      "palette": ["#F1E9D2", "#111111", "#C0281E", "#5A3A22"],
+      "materials": ["Zeigerinstrumente hinter Glas", "Nussbaum und Stahl"],
+      "viewport": "Eine Reihe Zeigerinstrumente, je eins pro Leistung.",
+      "case": "Überschneidet sich mit dem Mischpult; Zeiger versprechen Messwerte, die wir nicht belegen können.",
+      "kept": "Echte Physik statt Standard-Fades.",
+      "risk": "Lädt zu erfundenen Zahlen ein.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "Der Agentur-Standard",
+    "thesis": "Was Agenturen typischerweise bauen, sauber ausgeführt.",
+    "palette": ["#0B0B10", "#F5F5F7", "#6E56FF"],
+    "materials": ["Verlaufslicht", "Bento-Raster", "Logo-Laufband"],
+    "viewport": "Große Aussage links, Verlaufslicht rechts, darunter Leistungskacheln, Kundenlogos und Kundenstimmen.",
+    "risk": "Uns fehlen Logos und Stimmen für die Pflichtfelder dieses Formats, und wir sähen aus wie tausend andere Agenturen.",
+    "wireframe": {
+      "cols": 12, "rows": 10,
+      "regions": [
+        { "label": "Navigation", "x": 0, "y": 0, "w": 12, "h": 1 },
+        { "label": "Headline + CTA", "x": 0, "y": 1, "w": 7, "h": 4 },
+        { "label": "Verlaufslicht / 3D-Objekt", "x": 7, "y": 1, "w": 5, "h": 4, "accent": true },
+        { "label": "Leistung", "x": 0, "y": 5, "w": 4, "h": 2 },
+        { "label": "Leistung", "x": 4, "y": 5, "w": 4, "h": 2 },
+        { "label": "Leistung", "x": 8, "y": 5, "w": 4, "h": 2 },
+        { "label": "Kundenlogos", "x": 0, "y": 7, "w": 12, "h": 1 },
+        { "label": "Kundenstimmen", "x": 0, "y": 8, "w": 12, "h": 2 }
+      ]
+    }
+  },
+  "steer": true
+}

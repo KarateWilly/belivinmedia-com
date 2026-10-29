@@ -8,18 +8,19 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/beispiele/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/beispiele",
+      "destination": "/",
+      "permanent": false
     }
   ],
   "headers": [
-    {
-      "source": "/beispiele/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive, nosnippet"
-        }
-      ]
-    },
     {
       "source": "/(.*)",
       "headers": [
@@ -38,7 +39,7 @@
       ]
     },
     {
-      "source": "/public/fonts/(.*)",
+      "source": "/public/site/fonts/(.*)",
       "headers": [
         {
           "key": "Cache-Control",

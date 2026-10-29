@@ -23,3 +23,9 @@ public/fonts/ibm-plex-sans-condensed-*.woff2
 public/fonts/plus-jakarta-sans-latin-variable.woff2
 public/fonts/OFL-IBM-Plex-Sans-Condensed.txt
 public/fonts/OFL-Plus-Jakarta-Sans.txt
+
+# Retired on 2026-10-29: SHK showroom and the Handwerk-era main-site assets and fonts.
+beispiele/
+public/beispiele/
+public/main-site/
+public/fonts/

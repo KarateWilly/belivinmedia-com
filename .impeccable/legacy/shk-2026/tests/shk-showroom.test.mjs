@@ -28,8 +28,6 @@ const [showroom, design, designTwo, navigation, experienceTwo, product, sitemap,
 test("SHK showroom stays fail-closed at two of three production templates", () => {
   assert.match(showroom, /So könnte auch Ihre Website aussehen\./);
   assert.doesNotMatch(showroom, /1 DESIGN VERFÜGBAR|EIN LIVE-BEISPIEL/);
-  assert.match(product, /three distinct production-ready template worlds/);
-  assert.match(product, /there is no per-template A\/B\/C split/);
   assert.match(showroom, /DESIGN 02 · VERSORGUNG IN SCHICHTEN/);
   assert.match(showroom, /href="\.\/design-2\/"/);
   assert.doesNotMatch(showroom, /DESIGN 03/);

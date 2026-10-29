@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "surface": "index.html",
+  "direction": {
+    "status": "chosen",
+    "form": "Kundenweg",
+    "seed": "67b063e5",
+    "selection": ".impeccable/directions/belivin-agency-2026/selection.md",
+    "delegated": {
+      "by": "Mario",
+      "at": "2026-10-29",
+      "quote": "Ich will das du deine eigene Variante baust und deinen eigenen taste umsetzt."
+    },
+    "retired": "Festival-Line-up (comps A–C rejected 2026-10-29)"
+  },
+  "copy": {
+    "status": "locked",
+    "draft": ".impeccable/copy/belivin-agency-2026-draft.md",
+    "locked": ".impeccable/copy/belivin-agency-2026-locked.md",
+    "sha256": "a2a98132dbcd25f152b2219f07fbcae74334593c6a1bf7f18dbe799927fd0807",
+    "approval": {
+      "by": "Mario",
+      "at": "2026-10-29",
+      "quote": "Freigeben",
+      "question": "Gibst du die Copy v2 mit H1-Variante A frei?"
+    }
+  },
+  "comps": {
+    "dir": ".impeccable/mocks/belivin-agency-2026",
+    "viewports": [
+      {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900
+      }
+    ],
+    "approved": {
+      "id": "comp-kundenweg",
+      "source": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg/index.html",
+      "manifest": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg.json",
+      "mobile": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-390x844.png",
+      "desktop": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-1440x900.png",
+      "pair": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-pair.png",
+      "approval": {
+        "by": "Mario",
+        "at": "2026-10-29",
+        "quote": "Freigeben",
+        "question": "Wird „Kundenweg“ die Vorlage für den Bau?"
+      },
+      "note": "One comp instead of three, per Mario's instruction after rejecting comps A–C.",
+      "revisions": [
+        {
+          "at": "2026-10-29",
+          "reason": "Impeccable finish review (disposition fix): mechanism drawn as a lane, closing lane into the last button, two-column headings on desktop for steps and questions, hook question as display line, display-face step names, phone CTA and separator fixes, vh-free spacing with lane redraw on resize. Second batch: mechanism verdict beside the chain with a trace-style lane, H2 broken after the comma, lead broken after \"Geld.\" on phones, stray spine node removed.",
+          "appliedTo": "master comp, then transferred to root (0 changed px at 390x844 and 1440x900)",
+          "approval": "pending Mario's mobile+desktop build review"
+        }
+      ]
+    }
+  },
+  "build": {
+    "status": "done",
+    "evidence": {
+      "mobile": ".impeccable/review/mobile.png",
+      "desktop": ".impeccable/review/desktop.png",
+      "hero": ".impeccable/review/hero-repro.png"
+    },
+    "finishReview": {
+      "round1": "disposition fix — 8 material fixes",
+      "round2": "verdict pass: 5 resolved, fix 2 partial, fix 8 (Calendly) unresolved pending Mario, 3 regressions",
+      "afterRound2": "fix 2 completed (mechanism side by side, band 821→525px) and the 3 regressions fixed by the builder; not re-scored by the reviewer (two-round budget); build re-proven at 0 changed px vs master",
+      "open": [
+        "Calendly event for the Marketing-Check (Mario)"
+      ]
+    }
+  },
+  "review": {
+    "approval": {
+      "by": "Mario",
+      "at": "2026-10-29",
+      "quote": "Abnehmen",
+      "question": "Nimmst du die Seite auf Handy und Desktop ab?",
+      "scope": "mobile + desktop build at localhost:4320 (root index.html, styles.css, site.js)"
+    }
+  },
+  "release": {
+    "qa": {
+      "status": "pass",
+      "at": "2026-10-29",
+      "command": "npm run qa",
+      "result": "html/css/js lint, Impeccable detector (0 findings), 10 unit tests, responsive QA 42 page renders in Chromium and WebKit (main + legal, 320–1920px)",
+      "designDoc": "DESIGN.md + .impeccable/design.json (documenter output completed and reconciled with the build)"
+    },
+    "legal": {
+      "licensingAuthorityVerified": false,
+      "reason": "Re-verify the imprint against the current FZCO trade licence: the licence verified on 2026-08-14 (No. 72291, DIEZA) was recorded as running until 2026-10-16.",
+      "waiver": {
+        "by": "Mario",
+        "at": "2026-10-29",
+        "quote": "Lizenz kannst du erstmal ignorieren ist gerade im Prozess bei der IFZA einfach alles wie gewohnt belassen.",
+        "scope": "Imprint stays unchanged (licence No. 72291, registration 70291, DIEZA) while the IFZA renewal is in process; re-verify once the renewed licence is issued."
+      }
+    },
+    "approval": {
+      "by": "Mario",
+      "at": "2026-10-29",
+      "quote": "Ja, veröffentlichen",
+      "question": "Soll ich die neue Seite committen und auf main pushen (Vercel-Deploy)?",
+      "scope": "commit and push to main with the current Calendly link"
+    }
+  }
+}

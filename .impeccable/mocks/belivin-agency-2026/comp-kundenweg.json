@@ -1,0 +1,92 @@
+{
+  "id": "comp-kundenweg",
+  "approved": true,
+  "approval": {
+    "by": "Mario",
+    "at": "2026-10-29",
+    "quote": "Freigeben",
+    "question": "Wird „Kundenweg“ die Vorlage für den Bau?"
+  },
+  "source": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg/index.html",
+  "copy": ".impeccable/copy/belivin-agency-2026-locked.md",
+  "copySha256": "a2a98132dbcd25f152b2219f07fbcae74334593c6a1bf7f18dbe799927fd0807",
+  "fonts": [
+    {
+      "family": "Funnel Display",
+      "file": "fonts/funnel-display-latin-wght-normal.woff2",
+      "license": "fonts/OFL-funnel-display.txt",
+      "origin": "@fontsource-variable/funnel-display@5.2.8 (SIL OFL 1.1)"
+    },
+    {
+      "family": "Funnel Sans",
+      "file": "fonts/funnel-sans-latin-wght-normal.woff2",
+      "license": "fonts/OFL-funnel-sans.txt",
+      "origin": "@fontsource-variable/funnel-sans@5.2.8 (SIL OFL 1.1)"
+    }
+  ],
+  "rasters": [],
+  "captures": {
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 2,
+      "firstScreen": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-390x844.png",
+      "fullPage": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-390-full.png"
+    },
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "deviceScaleFactor": 1,
+      "firstScreen": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-1440x900.png",
+      "fullPage": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-1440-full.png"
+    },
+    "pair": ".impeccable/mocks/belivin-agency-2026/comp-kundenweg-pair.png"
+  },
+  "responsiveSweep": {
+    "320": {
+      "horizontalScroll": false,
+      "clipped": [],
+      "outside": []
+    },
+    "390": {
+      "horizontalScroll": false,
+      "clipped": [],
+      "outside": []
+    },
+    "768": {
+      "horizontalScroll": false,
+      "clipped": [],
+      "outside": []
+    },
+    "1024": {
+      "horizontalScroll": false,
+      "clipped": [],
+      "outside": []
+    },
+    "1440": {
+      "horizontalScroll": false,
+      "clipped": [],
+      "outside": []
+    },
+    "1920": {
+      "horizontalScroll": false,
+      "clipped": [],
+      "outside": []
+    }
+  },
+  "browserErrors": [],
+  "copyOutsideLock": [],
+  "hashes": {
+    "comp-kundenweg/index.html": "88e40e3e65bff7d88acd0724ad7cd2ab01c5839736a8555ec723584f5a92b0df",
+    "comp-kundenweg/styles.css": "e8b228bc0b13992158d2502a4ae3548f122ac8aa53a6ba037d26122d51945f31",
+    "comp-kundenweg/kundenweg.js": "1b2a1654f8bdde11f60c919d69c6f6e37e21549ddec3479932f26dd76329e3b5",
+    "fonts/funnel-display-latin-wght-normal.woff2": "c7d6c1438efb681269e694fe08ad84bf7f79a6b7939d495546217fcef1346802",
+    "fonts/OFL-funnel-display.txt": "0a5657602834003a3c4e41cdf23c2862ab343cf005c6335381a75385290e0c1e",
+    "fonts/funnel-sans-latin-wght-normal.woff2": "478c99dc8be6e8df5baeb9c509140bc7817cb479d617d773038028da168ef3fd",
+    "fonts/OFL-funnel-sans.txt": "d9ab159dc929ab220993a8cd08dd13138dfe1d55699427415174cf435c0c67fe"
+  }
+}
