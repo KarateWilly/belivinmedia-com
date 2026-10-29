@@ -17,7 +17,7 @@ Deleted builds (Handwerk "Auftragszentrale", SHK showroom, Festival-Line-up comp
 ## Current state
 
 - Positioning: full-service marketing agency, services lead, audience industry-open (`PRODUCT.md`, 2026-10-29).
-- Direction: Festival-Line-up (`.impeccable/directions/belivin-agency-2026/selection.md`, seed `67b063e5`).
+- Direction: Kundenweg, chosen after Mario rejected Festival-Line-up (`.impeccable/directions/belivin-agency-2026/selection.md`). Approved comp and live master: `.impeccable/mocks/belivin-agency-2026/comp-kundenweg/`; design system: `DESIGN.md`.
 - Machine-readable stage: `.impeccable/site-gate.json`.
 
 ## Main-site workflow
