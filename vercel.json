@@ -10,7 +10,7 @@
       "permanent": true
     },
     {
-      "source": "/beispiele/:path*",
+      "source": "/beispiele/(.*)",
       "destination": "/",
       "permanent": false
     },
